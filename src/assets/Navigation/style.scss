@@ -1,0 +1,117 @@
+@import "../../components/App/style.scss";
+$centrageTopInit: (100vh/3);
+$centrageleftInit: (100vw/4);
+$hauteurInit: (100vh/3);
+$hauteurtitrePropos: (100vw/30);
+$hauteurnomPropos: (100vw/40);
+$tempsAnimation: 5s;
+.navigation {
+  background-color: $Bleu;
+  position: fixed;
+  height: 95px;
+  padding: 0;
+  animation: navigation $tempsAnimation;
+  @keyframes navigation {
+    from {
+      opacity: 0;
+      //background-color: $texteBlanc;
+      justify-content: flex-end;
+    }
+    to {
+      opacity: 1;
+      justify-content: space-between;
+      //background-color: $Bleu;
+    }
+  }
+  .identite {
+    background-color: transparent;
+    color: $texteBlanc !important;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+    animation: identite $tempsAnimation ease-in-out;
+    @keyframes identite {
+      from {
+        top: $centrageTopInit;
+        left: $centrageleftInit;
+        position: absolute;
+      }
+      to {
+        top: 0;
+        left: 0;
+        position: relative;
+      }
+    }
+    .nomTitre {
+      display: flex;
+      flex-direction: column;
+      .nomPropos {
+        display: block;
+        text-transform: none;
+        margin-top: auto;
+        animation: nomPropos $tempsAnimation ease-in-out;
+        @keyframes nomPropos {
+          from {
+            font-size: $hauteurnomPropos;
+          }
+          to {
+            font-size: 10px !important;
+          }
+        }
+      }
+      .titrePropos {
+        text-transform: uppercase;
+        font-weight: bolder;
+        margin-bottom: auto;
+        animation: titrePropos $tempsAnimation ease-in-out;
+        @keyframes titrePropos {
+          from {
+            font-size: $hauteurtitrePropos;
+          }
+          to {
+            font-size: 10px !important;
+          }
+        }
+      }
+    }
+    .photoPropos {
+      width: 80px;
+      margin: 5px;
+      border-radius: 100%;
+      animation: photoPropos $tempsAnimation ease-in-out forwards;
+      @keyframes photoPropos {
+        from {
+          width: 10vw;
+        }
+        to {
+          width: 80px;
+        }
+      }
+    }
+  }
+
+  .boutonNavigation {
+    margin-left: auto !important;
+  }
+  .listeNavigation {
+    justify-content: flex-end;
+    padding-left: 1px;
+
+    background-color: $Bleu;
+    div {
+      margin-right: 5px !important;
+    }
+    a {
+      color: $texteBlanc !important;
+      &:hover {
+        color: $texteOrange !important;
+      }
+    }
+    .menuNavigation div {
+      background-color: $Bleu !important;
+    }
+    .texteNavigation {
+      margin-right: 5px !important;
+    }
+  }
+}

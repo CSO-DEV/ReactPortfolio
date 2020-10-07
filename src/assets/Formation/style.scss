@@ -1,0 +1,75 @@
+@import "../../components/App/style.scss";
+.formation {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  opacity: 0;
+  animation: chargement 5s 2s ease-in-out forwards;
+  @keyframes chargement {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  .titreSection {
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+    color: $texteOrange;
+  }
+  .listeFormation {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    .carteFormation {
+      max-width: 500px;
+      margin: 90px 10px 0 10px;
+      text-align: left;
+      .formationInfo {
+        display: flex;
+        .infoImage {
+          width: 100px;
+        }
+        .infoTexte {
+          text-align: left;
+          margin: auto 10px;
+          overflow-y: auto;
+          span {
+            display: block;
+          }
+          a {
+            color: $Bleu;
+            &:hover {
+              color: $texteOrange;
+            }
+          }
+
+          .siteFormation {
+            color: $Bleu;
+            &:hover {
+              color: $texteOrange;
+            }
+          }
+        }
+      }
+      .commentaireFormation {
+        max-height: 180px;
+        overflow-y: scroll;
+      }
+      .fichierFormation {
+        height: 100px;
+        & :hover {
+          color: $texteOrange;
+        }
+        & a {
+          color: $Bleu;
+          & :hover {
+            color: $texteOrange;
+          }
+        }
+      }
+    }
+  }
+}

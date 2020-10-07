@@ -1,0 +1,293 @@
+{
+  "propos": {
+    "lienSection": "propos",
+    "nomSection": "A propos ..",
+    "contenuSection": [
+      {
+        "titrePropos": "Developpeuse Web",
+        "nomPropos": "Carole Sotirio",
+        "photoPropos": "PhotoCV.jpg",
+        "pseudoPropos": "CSO-DEV",
+        "textePropos": [
+          "<p>Durant ma carrière professionnelle dans la métallurgie où j'ai eu l'opportunité d'apprendre à coder sur VBA Excel pour créer des outils utiles aux postes que j'occupais. Pour passer au stade supérieur et développer des applications accessibles à tous, j'ai décidé de suivre une formation de développeur Web fullstack et me lancer dans ce métier.</p>",
+          "<p>Je recherche un poste qui me permettra à la fois de mettre en application mes nouvelles compétences et également d'en apprendre davantage sur de nouvelles technologies. Je suis ouverte au présentiel ou au téléprésentiel, l'essentiel ... c'est coder !</p>"
+        ]
+      }
+    ]
+  },
+  "formations": {
+    "lienSection": "formation",
+    "nomSection": "Mes formations",
+    "contenuSection": [
+      {
+        "lienMenu": "Le Bocal Académy",
+        "nomFormation": "Le Bocal Académy",
+        "idFormation": "lebocalacademy",
+        "objectifFormation": "Full stack MERN",
+        "commentaireFormation": "<p>Formation Bootcamp de 10 semaines, en téléprésentiel dont l'objectif est d'apprendre à :</p><ul><li>Construire une page web avec les langages HTML et CSS</li><li>Lire, comprendre et interpréter un algorythme</li><li>Maîtriser les bases de Javascript</li><li>Savoir développer une application webfront-end avec ReactJS</li><li>Maîtriser le fonctionnement de base de NodeJS</li><li>Savoir créer et utiliser une base de données MongoDB</li><li>Maîtriser le développement d’une application mobile simple avec ReactNative</li><li>Connaître le fonctionement de SCRUM</li><li>Mener un projet web Fullstack en autonomie</li></ul>",
+        "logoFormation": "lebocal.jpg",
+        "dateFormation": "Mars-Mai 2020",
+        "nomSite": "lebocal.academy",
+        "siteFormation": "https://lebocal.academy/",
+        "titreFormation": [
+          {
+            "docTitre": "pdf",
+            "nomTitre": "certificat de compétences",
+            "lienTitre": "SOTIRIO Carole - Attestation de fin de formation.pdf"
+          },
+          {
+            "docTitre": "pdf",
+            "nomTitre": "Attestation de fin de formation",
+            "lienTitre": "SOTIRIO Carole - Certificat de compétences.pdf"
+          }
+        ]
+      },
+      {
+        "lienMenu": "OPQUAST",
+        "nomFormation": "OPQUAST",
+        "idFormation": "opquast",
+        "objectifFormation": "Qualité du Web",
+        "commentaireFormation": "<p>Formation sur plateforme sur d'une durée de 3 mois de préparation dont les objectifs sont :</p><ul><li>de connaitre les fondamentaux de la qualité WEB</li><li>de maitriser les risques et les aspects économiques</li><li>d’appliquer les bonnes pratiques du WEB</li></ul>",
+        "logoFormation": "opquast.png",
+        "dateFormation": "Sept 2020",
+        "nomSite": "www.opquast.com",
+        "siteFormation": "https://www.opquast.com/",
+        "titreFormation": [
+          {
+            "docTitre": "pdf",
+            "nomTitre": "Certificat Opquast N° 9DRWVO",
+            "lienTitre": "SOTIRIO Carole - Certification opquast 2020.pdf"
+          }
+        ]
+      }
+    ]
+  },
+  "techno": {
+    "lienSection": "technologies",
+    "nomSection": "Mes compétences",
+    "contenuSection": [
+      {
+        "lienMenu": "Front-end",
+        "categorieTechno": "Front-end",
+        "idTechno": "frontEnd",
+        "listeTechno": [
+          {
+            "nomTechno": "HTML",
+            "idTechno": "",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "html.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "CSS",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "css.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "javaScript",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "javascript.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "JQuery",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "jquery.png",
+            "niveauTechno": 60
+          }
+        ]
+      },
+      {
+        "lienMenu": "Back-end",
+        "categorieTechno": "Back-end",
+        "idTechno": "backEnd",
+        "listeTechno": [
+          {
+            "nomTechno": "Node JS",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "nodejs.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Mongodb",
+            "idTechno": "navigationPhotoTitre",
+            "commentaire": "ddddd",
+            "logoTechno": "mongodb.png",
+            "niveauTechno": 60
+          }
+        ]
+      },
+      {
+        "lienMenu": "Frameworks",
+        "categorieTechno": "Frameworks",
+        "idTechno": "frameworks",
+        "listeTechno": [
+          {
+            "nomTechno": "Sass",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "sass.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Bootstrap",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "bootstrap.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "React Bootstrap",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "reactbootstrap.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Express JS",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "expressjs.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "React",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "react.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "React Native",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "reactnative.png",
+            "niveauTechno": 60
+          }
+        ]
+      },
+      {
+        "lienMenu": "Supports",
+        "categorieTechno": "Supports",
+        "idTechno": "supports",
+        "listeTechno": [
+          {
+            "nomTechno": "GIT",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "git.png",
+            "niveauTechno": 60
+          },
+
+          {
+            "nomTechno": "Robo 3T",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "robo 3t.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Postman",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "postman.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Méthode Agile Scrum",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "scrum.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Trello",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "trello.png",
+            "niveauTechno": 60
+          },
+          {
+            "nomTechno": "Androïd Studio",
+            "idTechno": "navigationPhotoTitre",
+            "commentaire": "ddddd",
+            "logoTechno": "androidStudio.png",
+            "niveauTechno": 60
+          }
+        ]
+      }
+    ]
+  },
+  "projet": {
+    "lienSection": "realisations",
+    "nomSection": "Mon portFolio",
+    "contenuSection": [
+      {
+        "lienMenu": "Cannes Is Up",
+        "nomProjet": "Cannes Is Up",
+        "idProjet": "cannesIsUP",
+        "anneeProjet": "2020",
+        "objectifProjet": "Projet de formation",
+        "descriptionProjet": "Création d'un sous domaine qui complète le site vitrine de l'association de startUp de cannes, pour la gestion d'un annuaire et les comptes des adhérents.",
+        "demoProjet": "",
+        "photoProjet": "cannesisup.gif",
+        "technoProjet": "Mongodb, Express, React, NodeJs, ReactBootstrap",
+        "GitProjet": ["https://github.com/CSO-DEV/CannesIsUp"]
+      },
+      {
+        "lienMenu": "Les Tonneliers",
+        "nomProjet": "Les Tonneliers",
+        "idProjet": "lesTonnelier",
+        "anneeProjet": "2020",
+        "objectifProjet": "descriptif2",
+        "descriptionProjet": "Créat",
+        "demoProjet": "",
+        "photoProjet": "tonnelier.gif",
+        "technoProjet": "Mongodb, Express, React, NodeJs, ReactBootstrap",
+        "GitProjet": [
+          "https://github.com/CSO-DEV/LBA-LesTonneliers-BackEnd",
+          "https://github.com/CSO-DEV/LBA-LesTonneliers-FrontEnd",
+          "https://github.com/CSO-DEV/LBA-LesTonneliers-AppliMobil"
+        ]
+      },
+      {
+        "lienMenu": "ToDoList",
+        "nomProjet": "ToDoList",
+        "idProjet": "toDoList",
+        "anneeProjet": "2020",
+        "objectifProjet": "descriptif2",
+        "descriptionProjet": "Créat",
+        "demoProjet": "ToDoList.mp4",
+        "photoProjet": "todolist.gif",
+        "technoProjet": "HTML, CSS, Jquery",
+        "GitProjet": ["https://github.com/CSO-DEV/LBA-ToDoList"]
+      }
+    ]
+  },
+  "contact": {
+    "lienSection": "contact",
+    "nomSection": "Contactez-moi",
+    "contenuSection": [
+      {
+        "emailContact": "ca.sotirio@gmail.com",
+        "telContact": "+33 06 50 11 15 85",
+        "messageContact": "",
+        "reseauContact": [
+          {
+            "nomReseau": "Linkedin",
+            "lienReseau": "https://www.linkedin.com/in/carole-sotirio/"
+          },
+          {
+            "nomReseau": "Github",
+            "lienReseau": "https://github.com/CSO-DEV"
+          }
+        ]
+      }
+    ]
+  }
+}

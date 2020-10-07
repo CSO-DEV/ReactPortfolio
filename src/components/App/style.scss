@@ -1,0 +1,74 @@
+$Bleu: #4472c4;
+$texteBlanc: #f0f8ff;
+$texteOrange: #cc3300;
+body {
+  background-color: lighten($Bleu, 30%);
+}
+.precedent {
+  margin-top: 90px;
+  height: 90px;
+  a {
+    & :hover {
+      color: $texteOrange;
+    }
+    .iconPrecedent {
+      font-size: 30px;
+      color: $Bleu;
+
+      animation: precedent 2s ease-in-out infinite;
+      @keyframes precedent {
+        from {
+          margin-top: 40px;
+        }
+        to {
+          margin-top: 5px;
+        }
+      }
+    }
+  }
+  opacity: 0;
+  animation: chargement 5s 8s ease-in-out forwards;
+  @keyframes chargement {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+.suivant {
+  margin-top: 10px;
+  height: 90px;
+  a {
+    & :hover {
+      color: $texteOrange;
+    }
+    .iconSuivant {
+      color: $Bleu;
+      font-size: 30px;
+      animation: suivant 2s ease-in-out infinite;
+      @keyframes suivant {
+        from {
+          margin-top: 5px;
+        }
+        to {
+          margin-top: 40px;
+        }
+      }
+    }
+  }
+  opacity: 0;
+  animation: chargement 5s 8s ease-in-out forwards;
+  @keyframes chargement {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+.gras {
+  font-weight: bolder;
+}
