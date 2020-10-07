@@ -91,13 +91,6 @@
             "commentaireTechno": "ddddd",
             "logoTechno": "javascript.png",
             "niveauTechno": 60
-          },
-          {
-            "nomTechno": "JQuery",
-            "idTechno": "navigationPhotoTitre",
-            "commentaireTechno": "ddddd",
-            "logoTechno": "jquery.png",
-            "niveauTechno": 60
           }
         ]
       },
@@ -127,6 +120,13 @@
         "categorieTechno": "Frameworks",
         "idTechno": "frameworks",
         "listeTechno": [
+          {
+            "nomTechno": "JQuery",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "jquery.png",
+            "niveauTechno": 60
+          },
           {
             "nomTechno": "Sass",
             "idTechno": "navigationPhotoTitre",

@@ -1,5 +1,5 @@
 /**
- * Presentation.js : Component Presentation
+ * Formation.js : Component Formation
  */
 import React, { useState, useEffect } from "react";
 import "./style.scss";
@@ -31,7 +31,7 @@ function Formation(props) {
                 className="infoImage"
               ></Image>
               <div className="infoTexte">
-                <span className="gras">{element.nomFormation}</span>
+                <span className="titreSection">{element.nomFormation}</span>
                 <span>{element.dateFormation}</span>
                 <span>{element.objectifFormation}</span>
                 <span>
@@ -86,7 +86,7 @@ function Formation(props) {
           <FaArrowCircleUp className="iconPrecedent" />
         </a>
       </div>
-      <h4 className="titreSection gras">{shortData.nomSection}</h4>
+      <h4 className="titreSection">{shortData.nomSection}</h4>
       <div className="listeFormation">{carteFormation()}</div>
       <div className="suivant">
         <a href="#" title="Affichage suivant">
