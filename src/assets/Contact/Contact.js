@@ -21,7 +21,7 @@ function Contact(props) {
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="contact tousLiens chargement">
+    <section id={shortData.lienSection} className="contact tousLiens chargement tailleEcran">
       <h4 className="titreSection">{shortData.nomSection}</h4>
       {/*<div className="">
         <a href="#formation" title="Affichage suivant">

@@ -109,17 +109,6 @@ $hauteurnomPropos: (100vw/40);
     justify-content: flex-end;
     padding-left: 1px;
     background-color: $Bleu;
-    opacity: 0;
-    animation: chargement $dureeAnimationlisteNavigation
-      $tempoAnimationlisteNavigation ease-in-out forwards;
-    @keyframes chargement {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
     div {
       margin-right: 5px !important;
     }
@@ -141,6 +130,17 @@ $hauteurnomPropos: (100vw/40);
 
     .texteNavigation {
       margin-right: 5px !important;
+    }
+    opacity: 0;
+    animation: chargement $dureeAnimationlisteNavigation
+      $tempoAnimationlisteNavigation ease-in-out forwards;
+    @keyframes chargement {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
     }
   }
 }

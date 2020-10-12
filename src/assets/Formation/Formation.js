@@ -19,7 +19,7 @@ function Formation(props) {
   const carteFormation = () => {
     return shortData.contenuSection.map((element, index) => {
       return (
-        <div className="flexCard">
+        <div className="flexCard" key={element.lienMenu + index}>
           <div id={element.lienMenu} className=""></div>
           <Card className="carteFormation" key={element.lienMenu + index}>
             <Card.Header>
@@ -40,6 +40,7 @@ function Formation(props) {
                       target="_blank"
                       title={"lien site " + element.nomSite}
                       className="lienSite"
+                      rel="noopener noreferrer"
                     >
                       {element.nomSite}
                     </a>
@@ -71,6 +72,7 @@ function Formation(props) {
             href={config.doc + element.lienTitre}
             target="_blank"
             type="application/pdf"
+            rel="noopener noreferrer"
           >
             <FaFilePdf />
             {element.nomTitre}
@@ -83,7 +85,7 @@ function Formation(props) {
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="formation tousLiens chargement">
+    <section id={shortData.lienSection} className="formation tousLiens chargement tailleEcran">
       <div className="centre">
         {/*<div className="">
         <a href="#" title="Affichage précédent">

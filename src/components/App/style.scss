@@ -101,11 +101,13 @@ section {
   flex-direction: column;
   text-align: center;
   padding: 90px 0 20px 0;
+  min-height: 100vh;
 }
 /*animation pour le chargement des sections*/
 .chargement {
   opacity: 0;
-  animation: chargement 2s 1s ease-in-out forwards;
+  animation: chargement dureeAnimationlisteNavigation
+    $tempoAnimationlisteNavigation ease-in-out forwards;
   @keyframes chargement {
     from {
       opacity: 0;

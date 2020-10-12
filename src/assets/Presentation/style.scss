@@ -1,14 +1,15 @@
 @import "../../components/App/style.scss";
 .presentation {
   .textePresentation {
+    margin-top: 50px;
     border-radius: 0 !important;
     border: 0;
     margin-left: -60vw;
     width: 60vw;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
-    animation: mouvement $dureeAnimationpresentation ease-in-out forwards;
-    @keyframes mouvement {
+    animation: mouvementSup $dureeAnimationpresentation ease-in-out forwards;
+    @keyframes mouvementSup {
       from {
         margin-left: -60vw;
       }

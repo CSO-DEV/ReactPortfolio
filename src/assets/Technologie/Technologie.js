@@ -51,7 +51,7 @@ function Technologie(props) {
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="technologie tousLiens chargement">
+    <section id={shortData.lienSection} className="technologie tousLiens chargement tailleEcran">
       <div className="centre">
         {/*<div  className="">
         <a href="#" title="Affichage précédent">

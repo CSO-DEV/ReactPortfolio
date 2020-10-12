@@ -27,7 +27,7 @@ function Portfolio(props) {
         >
           <Card.Header>
             <div className="titrePortfolio">
-              <Image src={config.img + "PhotoCV.jpg"} />
+              <Image src={config.img + element.photoProjet} className="ImagePortfolio" />
               <div className="TextePortfolio">
                 <span className="sousTitreSection">{element.nomProjet}</span>
                 <span>{element.anneeProjet}</span>
@@ -80,12 +80,13 @@ function Portfolio(props) {
   const listGithub = (liste) => {
     return liste.map((element, index) => {
       return (
-        <div>
+        <div key={element.gitNom + index}>
           <AiFillGithub />
           <a
             href={element.gitLien}
             title={"Lien GitHub " + element.gitNom}
             target="_blank"
+            rel="noopener noreferrer"
           >
             {element.gitNom}
           </a>
@@ -97,7 +98,7 @@ function Portfolio(props) {
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="portfolio tousLiens chargement">
+    <section id={shortData.lienSection} className="portfolio tousLiens chargement tailleEcran">
       <div className="centre">
         {/*<div className="">
         <a href="#" title="Affichage précédent">

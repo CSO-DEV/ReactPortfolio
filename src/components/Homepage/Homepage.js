@@ -19,22 +19,29 @@ function Homepage(props) {
   const homepage=()=>{
     let widthWindow = window.innerWidth;
     let heigthWindow = window.innerHeight;
+   /* let elements = document.getElementsByClassName("tailleEcran");
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.minHeight = heigthWindow + "px";
+    }*/
     return (
-    <div id="depart" className="tousLiens imageFond" style={{"height":heigthWindow,"width":widthWindow}}>
-      <img src={config.img + "webDev.jpg"} style={{"width" : widthWindow}}/>
+    <div id="depart" className="tousLiens imageFond" style={{"height":heigthWindow,"width":widthWindow, "overflow":"hidden"}}>
+      <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}}/>
     </div>)
+    
   }
   /**
-   * Affichage de Propos au démarrage
+   * Séquence de démarrage
    */
   const sequence=()=>{
     setTimeout(function(){
     document.getElementById("depart").style.display = "none"; 
     document.getElementById("propos").style.display = "flex";
-    document.getElementById("propos").style.minHeight = window.innerHeight + "px";
     }
     , 10000);
-    
+    setTimeout(function(){
+      document.getElementsByClassName("listeNavigation")[0].style.opacity = "1"; 
+      }
+      , 12000);
   }
   return (
     <div className="homepage" id="homepage">

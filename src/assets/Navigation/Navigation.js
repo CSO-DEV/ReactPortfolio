@@ -62,7 +62,7 @@ function Navigation(props) {
           //href={"#" + element.lienMenu}
           name={element.lienMenu}
           key={index}
-          onClick={(e) => navigation(e)}
+          //onClick={(e) => navigation(e)}
         >
           {element.nomMenu}
         </NavDropdown.Item>
@@ -73,13 +73,13 @@ function Navigation(props) {
    * Gestion des affichages
    */
   const navigation = (e) => {
-    let height = window.innerHeight;
+    //let height = window.innerHeight;
     let elements = document.getElementsByClassName("tousLiens");
     for (let i = 0; i < elements.length; i++) {
       elements[i].style.display = "none";
     }
     document.getElementById(e.target.name).style.display = "flex";
-    document.getElementById(e.target.name).style.minHeight = height + "px";
+    //document.getElementById(e.target.name).style.minHeight = height + "px";
   };
   /**
    * Affichage navigateur
@@ -104,7 +104,7 @@ function Navigation(props) {
           className="boutonNavigation"
           id="boutonNavigation"
         />
-        <Navbar.Collapse id="basic-navbar-nav" className="listeNavigation">
+        <Navbar.Collapse id="basic-navbar-nav" className="listeNavigation listeNavigationInit">
           <Nav className="mr-auto">{items()}</Nav>
         </Navbar.Collapse>
       </Navbar>

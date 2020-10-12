@@ -21,7 +21,7 @@ function Presentation(props) {
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="presentation tousLiens">
+    <section id={shortData.lienSection} className="presentation tousLiens tailleEcran">
       <div className="centre">
         <Card className="textePresentation">
           <Card.Body>
