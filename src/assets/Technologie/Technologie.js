@@ -27,7 +27,9 @@ function Technologie(props) {
           <Card.Header>
             <div className="TechnoTitre">
               <div className="TechnoTexte">
-                <span className="titreSection">{element.categorieTechno}</span>
+                <span className="sousTitreSection">
+                  {element.categorieTechno}
+                </span>
               </div>
             </div>
           </Card.Header>
@@ -49,18 +51,20 @@ function Technologie(props) {
    * Affichage
    */
   return (
-    <section className="technologie">
-      <div id={shortData.lienSection} className="precedent">
+    <section id={shortData.lienSection} className="technologie tousLiens chargement">
+      <div className="centre">
+        {/*<div  className="">
         <a href="#" title="Affichage précédent">
           <FaArrowCircleUp className="iconPrecedent" />
         </a>
-      </div>
-      <h4 className="titreSection">{shortData.nomSection}</h4>
-      <div className="listeTechno">{carteTechno()}</div>
-      <div className="suivant">
+      </div>*/}
+        <h4 className="titreSection">{shortData.nomSection}</h4>
+        <div className="listeTechno">{carteTechno()}</div>
+        {/*<div className="suivant">
         <a href="#" title="Affichage suivant">
           <FaArrowCircleDown className="iconSuivant" />
         </a>
+</div>*/}
       </div>
     </section>
   );

@@ -1,0 +1,64 @@
+@import "../../components/App/style.scss";
+.portfolio {
+  .listePortfolio {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    .cartePortfolio {
+      width: 60vw;
+      height: fit-content;
+      margin: 0 10px 10px 10px;
+      .titrePortfolio {
+        .ImagePortfolio {
+          box-sizing: content-box;
+        }
+        .TextePortfolio {
+          span {
+            display: block;
+          }
+        }
+        button {
+          background-color: $Bleu;
+          padding: 0;
+          width: 110px;
+          &:hover {
+            background-color: lighten($texteOrange, 10%);
+            border-color: $texteOrange;
+          }
+        }
+      }
+
+      .plus {
+        display: none;
+        color: $Bleu;
+        overflow: hidden;
+
+        .portfolioSeparation {
+          position: relative;
+          font-size: 15px;
+          margin: 0;
+          &:before {
+            content: " ";
+            content: " ";
+            position: absolute;
+            border-bottom: 1px solid $texteOrange;
+            width: 50%;
+            height: 13px;
+            display: inline;
+            margin-left: calc(-50% - 8px);
+          }
+          &:after {
+            content: " ";
+            position: absolute;
+            border-bottom: 1px solid $texteOrange;
+            width: 50%;
+            height: 13px;
+            display: inline;
+            margin-left: 8px;
+          }
+        }
+      }
+    }
+  }
+}

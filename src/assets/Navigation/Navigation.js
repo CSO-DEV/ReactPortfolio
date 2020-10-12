@@ -1,12 +1,12 @@
 /**
  * Navigation.js : Component Navigation
  */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { Navbar, NavDropdown, Nav } from "react-bootstrap";
-import { Link } from "react-dom";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
+
 function Navigation(props) {
   /**
    * Gestion des datas utiles
@@ -22,9 +22,11 @@ function Navigation(props) {
       if (n === 1) {
         return (
           <Nav.Link
-            href={"#" + data[element].lienSection}
+            //href={"#" + data[element].lienSection}
+            name={data[element].lienSection}
             className="texteNavigation"
             key={data[element].lienSection + index}
+            onClick={(e) => navigation(e)}
           >
             {data[element].nomSection}
           </Nav.Link>
@@ -38,8 +40,10 @@ function Navigation(props) {
             key={data[element].lienSection + index}
           >
             <NavDropdown.Item
-              href={"#" + data[element].lienSection}
+              //href={"#" + data[element].lienSection}
+              name={data[element].lienSection}
               key={data[element].lienSection + index}
+              onClick={(e) => navigation(e)}
             >
               {data[element].nomSection}
             </NavDropdown.Item>
@@ -52,17 +56,33 @@ function Navigation(props) {
   };
   const itemsListe = (data) => {
     let contenuSection = data.contenuSection;
-    console.log(contenuSection);
     return contenuSection.map((element, index) => {
       return (
-        <NavDropdown.Item href={"#" + element.lienMenu} key={index}>
-          {element.lienMenu}
+        <NavDropdown.Item
+          //href={"#" + element.lienMenu}
+          name={element.lienMenu}
+          key={index}
+          onClick={(e) => navigation(e)}
+        >
+          {element.nomMenu}
         </NavDropdown.Item>
       );
     });
   };
   /**
-   * Affichage
+   * Gestion des affichages
+   */
+  const navigation = (e) => {
+    let height = window.innerHeight;
+    let elements = document.getElementsByClassName("tousLiens");
+    for (let i = 0; i < elements.length; i++) {
+      elements[i].style.display = "none";
+    }
+    document.getElementById(e.target.name).style.display = "flex";
+    document.getElementById(e.target.name).style.minHeight = height + "px";
+  };
+  /**
+   * Affichage navigateur
    */
   return (
     <nav>
@@ -82,6 +102,7 @@ function Navigation(props) {
         <Navbar.Toggle
           aria-controls="basic-navbar-nav"
           className="boutonNavigation"
+          id="boutonNavigation"
         />
         <Navbar.Collapse id="basic-navbar-nav" className="listeNavigation">
           <Nav className="mr-auto">{items()}</Nav>

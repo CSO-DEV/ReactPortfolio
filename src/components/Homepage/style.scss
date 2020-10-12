@@ -1,3 +1,20 @@
 @import "../App/style.scss";
 .homepage {
+  .imageFond {
+    overflow: hidden;
+    filter: blur(10px);
+    -webkit-filter: blur(10px);
+    opacity: 1;
+    img {
+      animation: blur 8s 5s ease-in-out forwards;
+      @keyframes blur {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    }
+  }
 }

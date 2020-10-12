@@ -1,18 +1,5 @@
 @import "../../components/App/style.scss";
 .technologie {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  opacity: 0;
-  animation: chargement 5s 2s ease-in-out forwards;
-  @keyframes chargement {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
   .listeTechno {
     display: flex;
     flex-direction: row;
@@ -21,7 +8,7 @@
     .carteTechno {
       width: 250px;
       height: fit-content;
-      margin: 90px 10px 0 10px;
+      margin: 0 10px 0 10px;
     }
   }
 }

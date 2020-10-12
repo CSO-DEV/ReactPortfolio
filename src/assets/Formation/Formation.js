@@ -19,44 +19,47 @@ function Formation(props) {
   const carteFormation = () => {
     return shortData.contenuSection.map((element, index) => {
       return (
-        <Card
-          id={element.lienMenu}
-          className="carteFormation"
-          key={element.lienMenu + index}
-        >
-          <Card.Header>
-            <div className="formationInfo">
-              <Image
-                src={config.img + element.logoFormation}
-                className="infoImage"
-              ></Image>
-              <div className="infoTexte">
-                <span className="titreSection">{element.nomFormation}</span>
-                <span>{element.dateFormation}</span>
-                <span>{element.objectifFormation}</span>
-                <span>
-                  <a
-                    href={element.siteFormation}
-                    target="_blank"
-                    title={"lien site " + element.nomSite}
-                    className="lienSite"
-                  >
-                    {element.nomSite}
-                  </a>
-                </span>
+        <div className="flexCard">
+          <div id={element.lienMenu} className=""></div>
+          <Card className="carteFormation" key={element.lienMenu + index}>
+            <Card.Header>
+              <div className="formationInfo">
+                <Image
+                  src={config.img + element.logoFormation}
+                  className="infoImage"
+                ></Image>
+                <div className="infoTexte">
+                  <span className="sousTitreSection">
+                    {element.nomFormation}
+                  </span>
+                  <span>{element.dateFormation}</span>
+                  <span>{element.objectifFormation}</span>
+                  <span>
+                    <a
+                      href={element.siteFormation}
+                      target="_blank"
+                      title={"lien site " + element.nomSite}
+                      className="lienSite"
+                    >
+                      {element.nomSite}
+                    </a>
+                  </span>
+                </div>
               </div>
-            </div>
-          </Card.Header>
-          <ListGroup variant="flush">
-            <ListGroup.Item
-              className="commentaireFormation"
-              dangerouslySetInnerHTML={{ __html: element.commentaireFormation }}
-            ></ListGroup.Item>
-            <ListGroup.Item className="fichierFormation">
-              {pj(element.titreFormation)}
-            </ListGroup.Item>
-          </ListGroup>
-        </Card>
+            </Card.Header>
+            <ListGroup variant="flush">
+              <ListGroup.Item
+                className="commentaireFormation"
+                dangerouslySetInnerHTML={{
+                  __html: element.commentaireFormation,
+                }}
+              ></ListGroup.Item>
+              <ListGroup.Item className="fichierFormation">
+                {pj(element.titreFormation)}
+              </ListGroup.Item>
+            </ListGroup>
+          </Card>
+        </div>
       );
     });
   };
@@ -80,18 +83,20 @@ function Formation(props) {
    * Affichage
    */
   return (
-    <section className="formation">
-      <div id={shortData.lienSection} className="precedent">
+    <section id={shortData.lienSection} className="formation tousLiens chargement">
+      <div className="centre">
+        {/*<div className="">
         <a href="#" title="Affichage précédent">
           <FaArrowCircleUp className="iconPrecedent" />
         </a>
-      </div>
-      <h4 className="titreSection">{shortData.nomSection}</h4>
-      <div className="listeFormation">{carteFormation()}</div>
-      <div className="suivant">
+      </div>*/}
+        <h4 className="titreSection">{shortData.nomSection}</h4>
+        <div className="listeFormation">{carteFormation()}</div>
+        {/*<div className="suivant">
         <a href="#" title="Affichage suivant">
           <FaArrowCircleDown className="iconSuivant" />
         </a>
+</div>*/}
       </div>
     </section>
   );

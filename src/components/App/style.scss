@@ -1,6 +1,13 @@
 $Bleu: #4472c4;
 $texteBlanc: #f0f8ff;
 $texteOrange: #cc3300;
+//Attente et durée animation Navbarre
+$tempoAnimationDepart: 5s;
+$dureeAnimationDepart: 5s;
+$tempoAnimationlisteNavigation: 12s;
+$dureeAnimationlisteNavigation: 2s;
+//Durée animation presentation
+$dureeAnimationpresentation: 3s;
 body {
   background-color: lighten($Bleu, 30%);
 }
@@ -73,4 +80,38 @@ body {
   text-transform: uppercase;
   font-weight: bolder;
   color: $texteOrange;
+  margin-top: 50px;
+}
+.sousTitreSection {
+  text-transform: uppercase;
+  font-weight: bolder;
+  color: $texteOrange;
+}
+.flexCard {
+  display: flex;
+  flex-direction: column;
+}
+.centre {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+/*dimensions initiales des sections*/
+section {
+  display: none;
+  flex-direction: column;
+  text-align: center;
+  padding: 90px 0 20px 0;
+}
+/*animation pour le chargement des sections*/
+.chargement {
+  opacity: 0;
+  animation: chargement 2s 1s ease-in-out forwards;
+  @keyframes chargement {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
 }

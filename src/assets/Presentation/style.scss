@@ -1,18 +1,13 @@
 @import "../../components/App/style.scss";
 .presentation {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  text-align: center;
   .textePresentation {
     border-radius: 0 !important;
     border: 0;
-    margin-top: 50px;
     margin-left: -60vw;
     width: 60vw;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
-    animation: mouvement 5s 5s ease-in-out forwards;
+    animation: mouvement $dureeAnimationpresentation ease-in-out forwards;
     @keyframes mouvement {
       from {
         margin-left: -60vw;
@@ -32,7 +27,7 @@
     width: 60vw;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
-    animation: mouvementInf 5s 5s ease-in-out forwards;
+    animation: mouvementInf $dureeAnimationpresentation ease-in-out forwards;
     @keyframes mouvementInf {
       from {
         margin-left: 100vw;

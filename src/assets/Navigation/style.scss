@@ -4,13 +4,13 @@ $centrageleftInit: (100vw/4);
 $hauteurInit: (100vh/3);
 $hauteurtitrePropos: (100vw/30);
 $hauteurnomPropos: (100vw/40);
-$tempsAnimation: 5s;
+
 .navigation {
   background-color: $Bleu;
   position: fixed;
   height: 95px;
   padding: 0;
-  animation: navigation $tempsAnimation;
+  animation: navigation $dureeAnimationDepart;
   @keyframes navigation {
     from {
       opacity: 0;
@@ -29,7 +29,13 @@ $tempsAnimation: 5s;
     cursor: default;
     display: flex;
     justify-content: center;
-    animation: identite $tempsAnimation ease-in-out;
+
+    top: $centrageTopInit;
+    left: $centrageleftInit;
+    position: absolute;
+
+    animation: identite $dureeAnimationDepart $tempoAnimationDepart ease-in-out
+      forwards;
     @keyframes identite {
       from {
         top: $centrageTopInit;
@@ -49,13 +55,15 @@ $tempsAnimation: 5s;
         display: block;
         text-transform: none;
         margin-top: auto;
-        animation: nomPropos $tempsAnimation ease-in-out;
+        font-size: $hauteurnomPropos;
+        animation: nomPropos $dureeAnimationDepart $tempoAnimationDepart
+          ease-in-out forwards;
         @keyframes nomPropos {
           from {
             font-size: $hauteurnomPropos;
           }
           to {
-            font-size: 10px !important;
+            font-size: 20px;
           }
         }
       }
@@ -63,13 +71,15 @@ $tempsAnimation: 5s;
         text-transform: uppercase;
         font-weight: bolder;
         margin-bottom: auto;
-        animation: titrePropos $tempsAnimation ease-in-out;
+        font-size: $hauteurtitrePropos;
+        animation: titrePropos $dureeAnimationDepart $tempoAnimationDepart
+          ease-in-out forwards;
         @keyframes titrePropos {
           from {
             font-size: $hauteurtitrePropos;
           }
           to {
-            font-size: 10px !important;
+            font-size: 20px;
           }
         }
       }
@@ -78,7 +88,9 @@ $tempsAnimation: 5s;
       width: 80px;
       margin: 5px;
       border-radius: 100%;
-      animation: photoPropos $tempsAnimation ease-in-out forwards;
+      width: 10vw;
+      animation: photoPropos $dureeAnimationDepart $tempoAnimationDepart
+        ease-in-out forwards;
       @keyframes photoPropos {
         from {
           width: 10vw;
@@ -96,8 +108,18 @@ $tempsAnimation: 5s;
   .listeNavigation {
     justify-content: flex-end;
     padding-left: 1px;
-
     background-color: $Bleu;
+    opacity: 0;
+    animation: chargement $dureeAnimationlisteNavigation
+      $tempoAnimationlisteNavigation ease-in-out forwards;
+    @keyframes chargement {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
     div {
       margin-right: 5px !important;
     }
@@ -105,11 +127,18 @@ $tempsAnimation: 5s;
       color: $texteBlanc !important;
       &:hover {
         color: $texteOrange !important;
+        background-color: white;
       }
     }
-    .menuNavigation div {
-      background-color: $Bleu !important;
+    .menuNavigation {
+      div {
+        background-color: $Bleu !important;
+      }
+      a:hover {
+        background-color: white;
+      }
     }
+
     .texteNavigation {
       margin-right: 5px !important;
     }

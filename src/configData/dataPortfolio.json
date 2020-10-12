@@ -20,7 +20,8 @@
     "nomSection": "Mes formations",
     "contenuSection": [
       {
-        "lienMenu": "Le Bocal Académy",
+        "lienMenu": "lebocalacademy",
+        "nomMenu": "Le Bocal Académy",
         "nomFormation": "Le Bocal Académy",
         "idFormation": "lebocalacademy",
         "objectifFormation": "Full stack MERN",
@@ -43,7 +44,8 @@
         ]
       },
       {
-        "lienMenu": "OPQUAST",
+        "lienMenu": "opquast",
+        "nomMenu": "OPQUAST",
         "nomFormation": "OPQUAST",
         "idFormation": "opquast",
         "objectifFormation": "Qualité du Web",
@@ -67,7 +69,8 @@
     "nomSection": "Mes compétences",
     "contenuSection": [
       {
-        "lienMenu": "Front-end",
+        "lienMenu": "frontend",
+        "nomMenu": "Front-end",
         "categorieTechno": "Front-end",
         "idTechno": "frontEnd",
         "listeTechno": [
@@ -95,7 +98,8 @@
         ]
       },
       {
-        "lienMenu": "Back-end",
+        "lienMenu": "backend",
+        "nomMenu": "Back-end",
         "categorieTechno": "Back-end",
         "idTechno": "backEnd",
         "listeTechno": [
@@ -116,7 +120,8 @@
         ]
       },
       {
-        "lienMenu": "Frameworks",
+        "lienMenu": "frameworks",
+        "nomMenu": "Frameworks",
         "categorieTechno": "Frameworks",
         "idTechno": "frameworks",
         "listeTechno": [
@@ -172,7 +177,8 @@
         ]
       },
       {
-        "lienMenu": "Supports",
+        "lienMenu": "supports",
+        "nomMenu": "Supports",
         "categorieTechno": "Supports",
         "idTechno": "supports",
         "listeTechno": [
@@ -228,45 +234,86 @@
     "nomSection": "Mon portFolio",
     "contenuSection": [
       {
-        "lienMenu": "Cannes Is Up",
+        "lienMenu": "cannesisup",
+        "nomMenu": "Cannes Is Up",
         "nomProjet": "Cannes Is Up",
-        "idProjet": "cannesIsUP",
+        "idProjet": "cannesisuP",
         "anneeProjet": "2020",
-        "objectifProjet": "Projet de formation",
+        "objectifProjet": "Projet de fin de formation",
         "descriptionProjet": "Création d'un sous domaine qui complète le site vitrine de l'association de startUp de cannes, pour la gestion d'un annuaire et les comptes des adhérents.",
         "demoProjet": "",
         "photoProjet": "cannesisup.gif",
         "technoProjet": "Mongodb, Express, React, NodeJs, ReactBootstrap",
-        "GitProjet": ["https://github.com/CSO-DEV/CannesIsUp"]
+        "GitProjet": [
+          {
+            "gitNom": "Cannes Is Up",
+            "gitLien": "https://github.com/CSO-DEV/CannesIsUp"
+          }
+        ]
       },
       {
-        "lienMenu": "Les Tonneliers",
+        "lienMenu": "lestonneliers",
+        "nomMenu": "Les Tonneliers",
         "nomProjet": "Les Tonneliers",
-        "idProjet": "lesTonnelier",
+        "idProjet": "lestonneliers",
         "anneeProjet": "2020",
-        "objectifProjet": "descriptif2",
-        "descriptionProjet": "Créat",
+        "objectifProjet": "Exercice module MERN",
+        "descriptionProjet": "Création d'un site de location d'appartements en stack MERN , en commençant par la réalisation du Front-end, puis le back-end associé ainsi que l'application mobile.",
         "demoProjet": "",
         "photoProjet": "tonnelier.gif",
         "technoProjet": "Mongodb, Express, React, NodeJs, ReactBootstrap",
         "GitProjet": [
-          "https://github.com/CSO-DEV/LBA-LesTonneliers-BackEnd",
-          "https://github.com/CSO-DEV/LBA-LesTonneliers-FrontEnd",
-          "https://github.com/CSO-DEV/LBA-LesTonneliers-AppliMobil"
+          {
+            "gitNom": "Les Tonneliers Front-End",
+            "gitLien": "https://github.com/CSO-DEV/LBA-LesTonneliers-FrontEnd"
+          },
+          {
+            "gitNom": "Les Tonneliers Back-End",
+            "gitLien": "https://github.com/CSO-DEV/LBA-LesTonneliers-FrontEnd"
+          },
+          {
+            "gitNom": "Les Tonneliers AppliMobil",
+            "gitLien": "https://github.com/CSO-DEV/LBA-LesTonneliers-AppliMobil"
+          }
         ]
       },
       {
-        "lienMenu": "ToDoList",
+        "lienMenu": "todolist",
+        "nomMenu": "ToDoList",
         "nomProjet": "ToDoList",
-        "idProjet": "toDoList",
+        "idProjet": "todolist",
         "anneeProjet": "2020",
-        "objectifProjet": "descriptif2",
-        "descriptionProjet": "Créat",
+        "objectifProjet": "Exercice module DOM",
+        "descriptionProjet": "Création d'une application simple pour manipuler le DOM et mémorisation en localStorage.",
         "demoProjet": "ToDoList.mp4",
         "photoProjet": "todolist.gif",
-        "technoProjet": "HTML, CSS, Jquery",
-        "GitProjet": ["https://github.com/CSO-DEV/LBA-ToDoList"]
+        "technoProjet": "HTML, CSS, JavaScript, JQuery",
+        "GitProjet": [
+          {"gitNom" :"ToDoList",
+            "gitLien":"https://cso-dev.github.io/LBA-ToDoList/",
+            "prodNom":"Site toDoList",
+            "prodImg":"toDoList.png",
+            "prodLien":"https://cso-dev.github.io/LBA-ToDoList/"}
+          ]
+      },
+      {
+        "lienMenu": "artemobilia",
+        "nomMenu": "Artemobilia",
+        "nomProjet": "Artemobilia",
+        "idProjet": "artemobilia",
+        "anneeProjet": "2020",
+        "objectifProjet": "Exercice module HTML/CSS",
+        "descriptionProjet": "A partir d'élements fournis par le designer, créer le site statique responsive.",
+        "demoProjet": "",
+        "photoProjet": "todolist.gif",
+        "technoProjet": "HTML, CSS, JavaScript",
+        "GitProjet": [
+          {"gitNom" :"Artemobilia",
+            "gitLien":"https://github.com/CSO-DEV/LBA-Artenobilia/",
+            "prodNom":"Site toDoList"}
+          ]
       }
+    
     ]
   },
   "contact": {
