@@ -28,35 +28,41 @@ $hauteurnomPropos: (100vw/40);
     color: $texteBlanc !important;
     cursor: default;
     display: flex;
-    justify-content: center;
-
+    flex-direction: row;
+    justify-content: space-around;
     top: $centrageTopInit;
     left: $centrageleftInit;
     position: absolute;
-
+    height: 30vh;
+    font-size: 3em;
     animation: identite $dureeAnimationDepart $tempoAnimationDepart ease-in-out
       forwards;
     @keyframes identite {
       from {
         top: $centrageTopInit;
         left: $centrageleftInit;
+        height: 30vh;
+        font-size: 3em;
         position: absolute;
       }
       to {
         top: 0;
         left: 0;
+        height: 90px;
+        font-size: 1.4em;
         position: relative;
       }
     }
     .nomTitre {
       display: flex;
       flex-direction: column;
+      justify-content: center;
+
       .nomPropos {
         display: block;
         text-transform: none;
-        margin-top: auto;
-        font-size: $hauteurnomPropos;
-        animation: nomPropos $dureeAnimationDepart $tempoAnimationDepart
+        //font-size: $hauteurnomPropos;
+        /* animation: nomPropos $dureeAnimationDepart $tempoAnimationDepart
           ease-in-out forwards;
         @keyframes nomPropos {
           from {
@@ -65,14 +71,13 @@ $hauteurnomPropos: (100vw/40);
           to {
             font-size: 20px;
           }
-        }
+        }*/
       }
       .titrePropos {
         text-transform: uppercase;
         font-weight: bolder;
-        margin-bottom: auto;
-        font-size: $hauteurtitrePropos;
-        animation: titrePropos $dureeAnimationDepart $tempoAnimationDepart
+        //font-size: $hauteurtitrePropos;
+        /*animation: titrePropos $dureeAnimationDepart $tempoAnimationDepart
           ease-in-out forwards;
         @keyframes titrePropos {
           from {
@@ -81,24 +86,26 @@ $hauteurnomPropos: (100vw/40);
           to {
             font-size: 20px;
           }
-        }
+        }*/
       }
     }
     .photoPropos {
-      width: 80px;
-      margin: 5px;
+      //width: 100%;
+      height: 100%;
+      margin: auto 10px auto 10px;
       border-radius: 100%;
-      width: 10vw;
-      animation: photoPropos $dureeAnimationDepart $tempoAnimationDepart
+      /*animation: photoPropos $dureeAnimationDepart $tempoAnimationDepart
         ease-in-out forwards;
       @keyframes photoPropos {
         from {
-          width: 10vw;
+          width: 100%;
+          height: 100%;
         }
         to {
           width: 80px;
+          height: 100%;
         }
-      }
+      }*/
     }
   }
 
