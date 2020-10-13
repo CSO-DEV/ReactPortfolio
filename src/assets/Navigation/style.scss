@@ -1,9 +1,6 @@
 @import "../../components/App/style.scss";
 $centrageTopInit: (100vh/3);
-$centrageleftInit: (100vw/4);
-$hauteurInit: (100vh/3);
-$hauteurtitrePropos: (100vw/30);
-$hauteurnomPropos: (100vw/40);
+$centrageleftInit: (100vw/5);
 
 .navigation {
   background-color: $Bleu;
@@ -14,13 +11,11 @@ $hauteurnomPropos: (100vw/40);
   @keyframes navigation {
     from {
       opacity: 0;
-      //background-color: $texteBlanc;
       justify-content: flex-end;
     }
     to {
       opacity: 1;
       justify-content: space-between;
-      //background-color: $Bleu;
     }
   }
   .identite {
@@ -29,12 +24,11 @@ $hauteurnomPropos: (100vw/40);
     cursor: default;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    position: absolute;
     top: $centrageTopInit;
     left: $centrageleftInit;
-    position: absolute;
     height: 30vh;
-    font-size: 3em;
+    font-size: 10vh;
     animation: identite $dureeAnimationDepart $tempoAnimationDepart ease-in-out
       forwards;
     @keyframes identite {
@@ -42,14 +36,14 @@ $hauteurnomPropos: (100vw/40);
         top: $centrageTopInit;
         left: $centrageleftInit;
         height: 30vh;
-        font-size: 3em;
+        font-size: 10vh;
         position: absolute;
       }
       to {
         top: 0;
         left: 0;
         height: 90px;
-        font-size: 1.4em;
+        font-size: 4vh;
         position: relative;
       }
     }
