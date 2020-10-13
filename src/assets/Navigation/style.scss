@@ -129,7 +129,7 @@ $centrageleftInit: (100vw/5);
     }
     .menuNavigation {
       div {
-        background-color: $Bleu !important;
+        background-color: lighten($Bleu, 5%) !important;
       }
     }
 
