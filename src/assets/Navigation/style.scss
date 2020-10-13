@@ -18,32 +18,34 @@ $centrageleftInit: (100vw/5);
       justify-content: space-between;
     }
   }
+  @media (min-width: 992px) {
+  }
   .identite {
     background-color: transparent;
     color: $texteBlanc !important;
+    height: 15vw;
+    font-size: 4vw;
     cursor: default;
     display: flex;
     flex-direction: row;
     position: absolute;
     top: $centrageTopInit;
     left: $centrageleftInit;
-    height: 30vh;
-    font-size: 10vh;
     animation: identite $dureeAnimationDepart $tempoAnimationDepart ease-in-out
       forwards;
     @keyframes identite {
       from {
         top: $centrageTopInit;
         left: $centrageleftInit;
-        height: 30vh;
-        font-size: 10vh;
+        height: 15vw;
+        font-size: 4vw;
         position: absolute;
       }
       to {
         top: 0;
         left: 0;
         height: 90px;
-        font-size: 4vh;
+        font-size: 1.5vw;
         position: relative;
       }
     }
@@ -51,40 +53,16 @@ $centrageleftInit: (100vw/5);
       display: flex;
       flex-direction: column;
       justify-content: center;
-
       .nomPropos {
         display: block;
-        text-transform: none;
-        //font-size: $hauteurnomPropos;
-        /* animation: nomPropos $dureeAnimationDepart $tempoAnimationDepart
-          ease-in-out forwards;
-        @keyframes nomPropos {
-          from {
-            font-size: $hauteurnomPropos;
-          }
-          to {
-            font-size: 20px;
-          }
-        }*/
       }
       .titrePropos {
+        display: block;
         text-transform: uppercase;
         font-weight: bolder;
-        //font-size: $hauteurtitrePropos;
-        /*animation: titrePropos $dureeAnimationDepart $tempoAnimationDepart
-          ease-in-out forwards;
-        @keyframes titrePropos {
-          from {
-            font-size: $hauteurtitrePropos;
-          }
-          to {
-            font-size: 20px;
-          }
-        }*/
       }
     }
     .photoPropos {
-      //width: 100%;
       height: 100%;
       margin: auto 10px auto 10px;
       border-radius: 100%;
