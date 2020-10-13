@@ -85,7 +85,7 @@ function Formation(props) {
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="formation tousLiens chargement tailleEcran">
+    <section id={shortData.lienSection} className="formation tousLiens chargement">
       <div className="centre">
         {/*<div className="">
         <a href="#" title="Affichage précédent">

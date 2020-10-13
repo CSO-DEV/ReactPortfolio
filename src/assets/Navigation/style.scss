@@ -104,16 +104,45 @@ $hauteurnomPropos: (100vw/40);
 
   .boutonNavigation {
     margin-left: auto !important;
+    border-color: white;
+    @media (max-width: 992px) {
+      opacity: 0;
+      animation: chargementBouton $dureeAnimationlisteNavigation
+        $tempoAnimationlisteNavigation ease-in-out forwards;
+      @keyframes chargementBouton {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+    }
   }
   .listeNavigation {
     justify-content: flex-end;
     padding-left: 1px;
     background-color: $Bleu;
+
+    opacity: 0;
+    animation: chargementList $dureeAnimationlisteNavigation
+      $tempoAnimationlisteNavigation ease-in-out forwards;
+    @keyframes chargementList {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+
     div {
       margin-right: 5px !important;
     }
     a {
       color: $texteBlanc !important;
+      transition: color 1s;
+      border-radius: 5px;
       &:hover {
         color: $texteOrange !important;
         background-color: white;
@@ -123,24 +152,10 @@ $hauteurnomPropos: (100vw/40);
       div {
         background-color: $Bleu !important;
       }
-      a:hover {
-        background-color: white;
-      }
     }
 
     .texteNavigation {
       margin-right: 5px !important;
-    }
-    opacity: 0;
-    animation: chargement $dureeAnimationlisteNavigation
-      $tempoAnimationlisteNavigation ease-in-out forwards;
-    @keyframes chargement {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
     }
   }
 }

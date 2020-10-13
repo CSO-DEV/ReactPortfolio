@@ -8,6 +8,8 @@ $tempoAnimationlisteNavigation: 12s;
 $dureeAnimationlisteNavigation: 2s;
 //Durée animation presentation
 $dureeAnimationpresentation: 3s;
+//Durée chargement section
+$dureeAnimationSection: 2s;
 body {
   background-color: lighten($Bleu, 30%);
 }
@@ -106,8 +108,7 @@ section {
 /*animation pour le chargement des sections*/
 .chargement {
   opacity: 0;
-  animation: chargement dureeAnimationlisteNavigation
-    $tempoAnimationlisteNavigation ease-in-out forwards;
+  animation: chargement $dureeAnimationSection ease-in-out forwards;
   @keyframes chargement {
     from {
       opacity: 0;

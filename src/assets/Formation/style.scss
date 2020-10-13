@@ -42,9 +42,9 @@
       }
       .fichierFormation {
         height: 100px;
-        background-color: $texteOrange;
+        color: $Bleu;
         & :hover {
-          color: $texteBlanc;
+          color: $texteOrange;
         }
         & a {
           color: $Bleu;

@@ -33,6 +33,7 @@ function Portfolio(props) {
                 <span>{element.anneeProjet}</span>
               </div>
               <Button
+         
                 id={"button" + index}
                 name={element.idProjet + index}
                 onClick={(e) => {
@@ -61,22 +62,6 @@ function Portfolio(props) {
       );
     });
   };
-  const display = (e) => {
-    let name = e.target.name;
-    let affichage = document.getElementById(name);
-    let id = e.target.id;
-    let bouton = document.getElementById(id);
-    if (bouton.innerText === "En savoir plus..") {
-      affichage.style.display = "block";
-      bouton.innerText = "Fermer";
-      return;
-    }
-    if (bouton.innerText === "Fermer") {
-      affichage.style.display = "none";
-      bouton.innerText = "En savoir plus..";
-      return;
-    }
-  };
   const listGithub = (liste) => {
     return liste.map((element, index) => {
       return (
@@ -95,10 +80,30 @@ function Portfolio(props) {
     });
   };
   /**
+   * animation de la partie détail de la fiche
+   */
+  const display = (e) => {
+    let name = e.target.name;
+    let affichage = document.getElementById(name);
+    let id = e.target.id;
+    let bouton = document.getElementById(id);
+    if (bouton.innerText === "En savoir plus..") {
+      affichage.style.height = "200px";
+      bouton.innerText = "Fermer";
+      return;
+    }
+    if (bouton.innerText === "Fermer") {
+      affichage.style.height = "0";
+      bouton.innerText = "En savoir plus..";
+      return;
+    }
+  };
+
+  /**
    * Affichage
    */
   return (
-    <section id={shortData.lienSection} className="portfolio tousLiens chargement tailleEcran">
+    <section id={shortData.lienSection} className="portfolio tousLiens chargement">
       <div className="centre">
         {/*<div className="">
         <a href="#" title="Affichage précédent">

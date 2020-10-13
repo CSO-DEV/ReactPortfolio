@@ -308,7 +308,7 @@
         "photoProjet": "artenobilia.gif",
         "technoProjet": "HTML, CSS, JavaScript",
         "GitProjet": [
-          {"gitNom" :"Artemobilia",
+          {"gitNom" :"Artenobilia",
             "gitLien":"https://github.com/CSO-DEV/LBA-Artenobilia/",
             "prodNom":"Site toDoList"}
           ]

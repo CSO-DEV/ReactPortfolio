@@ -73,13 +73,11 @@ function Navigation(props) {
    * Gestion des affichages
    */
   const navigation = (e) => {
-    //let height = window.innerHeight;
     let elements = document.getElementsByClassName("tousLiens");
     for (let i = 0; i < elements.length; i++) {
       elements[i].style.display = "none";
     }
     document.getElementById(e.target.name).style.display = "flex";
-    //document.getElementById(e.target.name).style.minHeight = height + "px";
   };
   /**
    * Affichage navigateur

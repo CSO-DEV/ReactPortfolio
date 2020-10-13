@@ -29,15 +29,17 @@
           }
         }
       }
-
       .plus {
-        display: none;
+        //display: none;
+        height: 0px;
         color: $Bleu;
         overflow: hidden;
-
+        transition: height 2s;
         .portfolioSeparation {
+          margin-top: 10px;
           position: relative;
           font-size: 15px;
+          font-weight: bolder;
           margin: 0;
           &:before {
             content: " ";

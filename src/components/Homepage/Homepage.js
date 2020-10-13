@@ -14,17 +14,11 @@ import "./style.scss";
 function Homepage(props) {
 
   /**
-   * 
+   * Chargement de l'image de fond Homepage
    */
-  const homepage=()=>{
-    let widthWindow = window.innerWidth;
-    let heigthWindow = window.innerHeight;
-   /* let elements = document.getElementsByClassName("tailleEcran");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].style.minHeight = heigthWindow + "px";
-    }*/
-    return (
-    <div id="depart" className="tousLiens imageFond" style={{"height":heigthWindow,"width":widthWindow, "overflow":"hidden"}}>
+  const imageHomepage=()=>{
+       return (
+    <div id="depart" className="tousLiens imageFond" style={{"height":"100vh","width":"100vw", "overflow":"hidden"}}>
       <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}}/>
     </div>)
     
@@ -40,13 +34,14 @@ function Homepage(props) {
     , 10000);
     setTimeout(function(){
       document.getElementsByClassName("listeNavigation")[0].style.opacity = "1"; 
+      document.getElementsByClassName("boutonNavigation")[0].style.opacity = "1"; 
       }
-      , 12000);
+      , 15000);
   }
   return (
     <div className="homepage" id="homepage">
       <Navigation />
-      {homepage()}
+      {imageHomepage()}
       {sequence()}
       <Presentation />
       <Formation />
