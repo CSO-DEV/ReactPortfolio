@@ -18,12 +18,10 @@ $centrageleftInit: (100vw/5);
       justify-content: space-between;
     }
   }
-  @media (min-width: 992px) {
-  }
   .identite {
     background-color: transparent;
     color: $texteBlanc !important;
-    height: 15vw;
+    height: 30vh;
     font-size: 4vw;
     cursor: default;
     display: flex;
@@ -37,7 +35,7 @@ $centrageleftInit: (100vw/5);
       from {
         top: $centrageTopInit;
         left: $centrageleftInit;
-        height: 15vw;
+        height: 30vh;
         font-size: 4vw;
         position: absolute;
       }
@@ -66,18 +64,6 @@ $centrageleftInit: (100vw/5);
       height: 100%;
       margin: auto 10px auto 10px;
       border-radius: 100%;
-      /*animation: photoPropos $dureeAnimationDepart $tempoAnimationDepart
-        ease-in-out forwards;
-      @keyframes photoPropos {
-        from {
-          width: 100%;
-          height: 100%;
-        }
-        to {
-          width: 80px;
-          height: 100%;
-        }
-      }*/
     }
   }
 
@@ -132,7 +118,6 @@ $centrageleftInit: (100vw/5);
         background-color: lighten($Bleu, 5%) !important;
       }
     }
-
     .texteNavigation {
       margin-right: 5px !important;
     }
