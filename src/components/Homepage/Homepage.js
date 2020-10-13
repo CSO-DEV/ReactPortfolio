@@ -19,7 +19,7 @@ function Homepage(props) {
   const imageHomepage=()=>{
        return (
     <div id="depart" className="tousLiens imageFond" style={{"height":"100vh","width":"100vw", "overflow":"hidden"}}>
-      <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}}/>
+      <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}} alt="Code attitude"/>
     </div>)
     
   }

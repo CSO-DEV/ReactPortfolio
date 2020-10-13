@@ -27,7 +27,7 @@ function Portfolio(props) {
         >
           <Card.Header>
             <div className="titrePortfolio">
-              <Image src={config.img + element.photoProjet} className="ImagePortfolio" />
+              <Image src={config.img + element.photoProjet} className="ImagePortfolio"  alt={"photo" + element.photoProjet}/>
               <div className="TextePortfolio">
                 <span className="sousTitreSection">{element.nomProjet}</span>
                 <span>{element.anneeProjet}</span>
