@@ -21,7 +21,7 @@ $centrageleftInit: (100vw/5);
   .identite {
     background-color: transparent;
     color: $texteBlanc !important;
-    height: 30vh;
+    height: 15vw;
     font-size: 4vw;
     cursor: default;
     display: flex;
@@ -35,7 +35,7 @@ $centrageleftInit: (100vw/5);
       from {
         top: $centrageTopInit;
         left: $centrageleftInit;
-        height: 30vh;
+        //height: 15vw;
         font-size: 4vw;
         position: absolute;
       }
