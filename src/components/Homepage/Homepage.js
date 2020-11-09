@@ -12,6 +12,14 @@ import config from "../../configData/config.json";
 import "./style.scss";
 
 function Homepage(props) {
+  /**
+   * Gestion taille de la div d'identité au demarrage
+   */
+  const identiteTaille=()=>{
+    let width = window.innerWidth
+    let height = window.innerHeight
+    if (width>height){console.log("paysage")} else{console.log("portrait")}}  
+  
 
   /**
    * Chargement de l'image de fond Homepage
@@ -19,12 +27,11 @@ function Homepage(props) {
   const imageHomepage=()=>{
        return (
     <div id="depart" className="tousLiens imageFond" style={{"height":"100vh","width":"100vw", "overflow":"hidden"}}>
-      <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}} alt="Code attitude"/>
-    </div>)
-    
+      <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}} alt="image Geek :)"/>
+    </div>)    
   }
   /**
-   * Séquence de démarrage
+   * Séquence de démarrage => suppression de l'image de fond et affichage propos
    */
   const sequence=()=>{
     setTimeout(function(){
@@ -40,6 +47,7 @@ function Homepage(props) {
   }
   return (
     <div className="homepage" id="homepage">
+      {identiteTaille()}
       <Navigation />
       {imageHomepage()}
       {sequence()}
