@@ -47,12 +47,12 @@ function Homepage(props) {
   }
   return (
     <div className="homepage" id="homepage">
-      {/*identiteTaille()}
+      {identiteTaille()}
       <Navigation />
       {imageHomepage()}
       {sequence()}
       <Presentation />
-  <Formation />*/}
+      <Formation />
       <Technologie />
       <Portfolio />
       <Contact />
