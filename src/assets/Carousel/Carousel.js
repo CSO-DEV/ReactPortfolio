@@ -12,11 +12,14 @@ function Carousel(props) {
  * @param imgWidth Largeur d'une image
  * @param imgHeight Hauteur d'une image
  * @param numCarousel Index du carousel
+ * @param afficheButton True : Affichage des commandes Preview et Next
+ * @var carouselUlWidth Taille de l'UL du carousel
  */
-let list=props.listeImage; //["git.png","mongodb.png","javascript.png","html.png"];
+
+let list=props.listeImage;
 let [imgWidth,imgHeight]=[props.widthImage,props.HeightImage];
 let numCarousel=props.numCarousel;
-let afficheButton=props.prevNext; //a ajouter dans la props
+let afficheButton=props.prevNext;
 let carouselUlWidth=(list.length+1) * 100 + "%"; //Taille de chaque carousel suivant le nombre d'image
 
 /**
@@ -47,16 +50,33 @@ const carouselAnimation=()=>{
   carousel.items=carousel.ul.children;
   
   //Variable de temps initial
-  let [duringTime,preview]=[3000,false];
-
+  let [duringTime,preview]=[3000,afficheButton];
 
   //Fonction d'écoute des boutons s'ils sont utilisés
     if (carousel.bouton.advance){
-		carousel.bouton.preview.addEventListener('click', function(e){ carouselPrev(carousel); });
-		carousel.bouton.advance.addEventListener('click', function(e){ carouselNext(carousel); });
+		carousel.bouton.preview.addEventListener('click', function(e){ carouselPrev(); });
+		carousel.bouton.advance.addEventListener('click', function(e){ carouselNext(); });
     }
-  // Lance la première animation
-    startCarouselTimeout();
+  //Fonctions d'écoute des survols de la liste des items
+    list.forEach((element,index) => {
+      document.getElementById(element.nom).addEventListener('mouseover',function(e){carouselHover(index)})
+      document.getElementById(element.nom).addEventListener('mouseleave',function(e){startCarouselTimeout()})
+    });
+   
+    // Lance la première animation
+    startCarouselTimeout(); 
+
+     /**@method  carouselHover  Animation du carousel sur hover des items*/
+  function carouselHover(item) {
+    //Animation liste des items => reset le style
+    document.getElementById(list[carousel.currentItem].nom).style.color="black"
+    carousel.currentItem=item
+    document.getElementById(list[carousel.currentItem].nom).style.color="#cc3300"
+    duringTime=3000;
+    carousel.ul.style.transition = "all 2s ease"
+    carousel.ul.style.left = -1 * (carousel.currentItem * 100 ) + "%"
+    clearTimeout(carousel.interval);
+  }
 
   /**@method  carouselNext  Animation manuelle Next*/
   function carouselNext() {    
@@ -91,22 +111,30 @@ const carouselAnimation=()=>{
 
   /**@method  carouselAuto  Animation automatique : incrémentation de l'item*/
   function carouselAuto() {
+    //Animation liste des items => reset le style
+    if(carousel.currentItem>=0 && carousel.currentItem<list.length){
+      document.getElementById(list[carousel.currentItem].nom).style.color="black"}
+    //Gestion des affichage image  
     carousel.currentItem++;   
     if(carousel.currentItem >= carousel.items.length) {		
-      carousel.currentItem = 0; 
+      carousel.currentItem = 0;
       carousel.ul.style.transition = 'none'
-      carousel.ul.style.left = -1 * (carousel.currentItem * 100 ) + "%"
-      duringTime=500;    
+      carousel.ul.style.left = -1 * (carousel.currentItem * 100 ) + "%"      
+      duringTime=500;
     }else{
       duringTime=3000;
       carousel.ul.style.transition = "all 2s ease"
       carousel.ul.style.left = -1 * (carousel.currentItem * 100 ) + "%"
     }
-        startCarouselTimeout(); 
+    //Animation liste des items => Change le style
+    document.getElementById(list[carousel.currentItem].nom).style.color="#cc3300";
+    //Lance la tempo
+      startCarouselTimeout(); 
   } 
 
   /**@method  startCarouselTimeout  Lance la tempo active et relance une nouvelle tempo*/
   function startCarouselTimeout() {
+    
     clearTimeout(carousel.interval);
       carousel.interval = setTimeout(function(){
         carouselAuto();
@@ -117,9 +145,9 @@ const carouselAnimation=()=>{
 /**
  * @function createListImage Gestion de la liste d'images
  * @method createImg Construction de la liste d'images en fonction de la liste props
- * @method createImgRetour Ajout à la liste d'image la première image de la liste props pour un effet infini
  */
 const createListImage=()=>{
+
   /**@method createImg Construction de la liste d'images en fonction de la liste props*/
   function createImg(){
     return list.map((element,index)=>{
@@ -132,6 +160,7 @@ const createListImage=()=>{
         <img 
         src={config.img + element.source}       
         alt={element.nom}
+        name={element.nom}
         style={{
           float: "left",
           width: imgWidth,
@@ -141,24 +170,7 @@ const createListImage=()=>{
       </li>)
     })
 }
-/**@method createImgRetour Ajout à la liste d'image la première image de la liste props pour un effet infini*/
-  function createImgRetour(){
-    return(
-      <li 
-      className={"carouselLi"  + numCarousel}
-      key={"carouselLi" + numCarousel + list.length+1}    
-      >
-        <img 
-        src={config.img + list[0].source}       
-        alt={list[0].nom}
-        style={{
-          float: "left",
-          width: imgWidth,
-          height: imgHeight,
-        }}      
-        />
-      </li>)
-  } 
+
   return(
     <ul 
     className={"carouselUl" + numCarousel}
@@ -173,8 +185,7 @@ const createListImage=()=>{
       textAlign: "left",
     }}
     >
-    {createImg()}
-    {createImgRetour()}        
+    {createImg()}     
     </ul>)
  }
 
