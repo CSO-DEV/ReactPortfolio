@@ -1,0 +1,51 @@
+/*div.carousel-container > * {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+figure.carousel {
+  height: 50px;
+  width: 50px;
+  overflow: hidden;
+  border: 1px solid;
+}
+figure.carousel ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  width: 1000%;
+}
+figure.carousel ul li {
+  display: inline-block;
+}
+
+.transition {
+  transition: all 2s ease;
+}
+
+.carousselContainer {
+  .carousel {
+    width: 50px;
+    max-width: 1000px;
+    overflow: hidden;
+    .carouselUL {
+      list-style-type: none;
+      position: relative;
+      width: 500%;
+      margin: 0;
+      padding: 0;
+      font-size: 0;
+      text-align: left;
+      left: 0;
+
+      .carouselLi {
+        & img {
+          float: left;
+          width: 50px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+*/

@@ -20,7 +20,6 @@ function Homepage(props) {
     let height = window.innerHeight
     if (width>height){console.log("paysage")} else{console.log("portrait")}}  
   
-
   /**
    * Chargement de l'image de fond Homepage
    */
@@ -30,29 +29,30 @@ function Homepage(props) {
       <img src={config.img + "webDev.jpg"} style={{"height": "100%", "width":"100%"}} alt="image Geek :)"/>
     </div>)    
   }
+
   /**
    * Séquence de démarrage => suppression de l'image de fond et affichage propos
    */
   const sequence=()=>{
     setTimeout(function(){
-    document.getElementById("depart").style.display = "none"; 
+    document.getElementById("depart").style.display = "none";     
     document.getElementById("propos").style.display = "flex";
     }
     , 10000);
-    setTimeout(function(){
-      document.getElementsByClassName("listeNavigation")[0].style.opacity = "1"; 
+    setTimeout(function(){      
+      document.getElementsByClassName("listeNavigation")[0].style.opacity = "1";   
       document.getElementsByClassName("boutonNavigation")[0].style.opacity = "1"; 
       }
       , 15000);
   }
   return (
     <div className="homepage" id="homepage">
-      {identiteTaille()}
+      {/*identiteTaille()}
       <Navigation />
       {imageHomepage()}
       {sequence()}
       <Presentation />
-      <Formation />
+  <Formation />*/}
       <Technologie />
       <Portfolio />
       <Contact />
