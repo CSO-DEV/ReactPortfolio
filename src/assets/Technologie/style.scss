@@ -15,56 +15,15 @@
   .TechnoTitre {
     display: flex;
     flex-direction: column;
-    //#slider {
-    [id^="slider"] {
-      width: 50px;
-      max-width: 1000px;
-      overflow: hidden;
-      //#affiche {
-      [id^="affiche"] {
-        position: relative;
-        width: 1000px;
-        margin: 0;
-        padding: 0;
-        font-size: 0;
-        text-align: left;
-        animation: 10s slidy infinite;
-        //transition: all 1s ease-in;
-        img {
-          width: 50px;
-          height: auto;
-          float: left;
-        }
-      }
+    align-items: center;
+  }
+  .itemTecho {
+    text-decoration: none;
+    color: black;
+    &:hover {
+      color: #cc3300;
+      font-weight: bolder;
+      cursor: pointer;
     }
-  }
-}
-@keyframes slidy {
-  0% {
-    left: 0%;
-  }
-  20% {
-    left: 0%;
-  }
-  25% {
-    left: -100%;
-  }
-  45% {
-    left: -100%;
-  }
-  50% {
-    left: -200%;
-  }
-  70% {
-    left: -200%;
-  }
-  75% {
-    left: -300%;
-  }
-  95% {
-    left: -300%;
-  }
-  100% {
-    left: -400%;
   }
 }

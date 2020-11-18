@@ -6,6 +6,7 @@ import config from '../../configData/config.json'
 import "./style.scss";
 
 function Carousel(props) {
+
 /**
  * @param list Tableau contenant la liste des images à afficher
  * @param imgWidth Largeur d'une image
@@ -15,8 +16,7 @@ function Carousel(props) {
 let list=props.listeImage; //["git.png","mongodb.png","javascript.png","html.png"];
 let [imgWidth,imgHeight]=[props.widthImage,props.HeightImage];
 let numCarousel=props.numCarousel;
-let afficheButton=true; //a ajouter dans la props
-
+let afficheButton=props.prevNext; //a ajouter dans la props
 let carouselUlWidth=(list.length+1) * 100 + "%"; //Taille de chaque carousel suivant le nombre d'image
 
 /**
@@ -115,46 +115,68 @@ const carouselAnimation=()=>{
 }
 
 /**
- * @function createImg Construction de la liste d'images en fonction de la liste props
- * @function createImgRetour Ajout à la liste d'image la première image de la liste props pour un effet infini
+ * @function createListImage Gestion de la liste d'images
+ * @method createImg Construction de la liste d'images en fonction de la liste props
+ * @method createImgRetour Ajout à la liste d'image la première image de la liste props pour un effet infini
  */
-const createImg=()=>{
-  return list.map((element,index)=>{
-    return (
-    <li 
-      className={"carouselLi"  + numCarousel}
-      key={"carouselLi" + numCarousel + element}    
-       >
-      <img 
-      src={config.img + element}       
-      alt={element}
-      style={{
-        float: "left",
-        width: imgWidth,
-        height: imgHeight,
-      }}      
-      />
-    </li>)
-  })
+const createListImage=()=>{
+  /**@method createImg Construction de la liste d'images en fonction de la liste props*/
+  function createImg(){
+    return list.map((element,index)=>{
+      return (
+      <li 
+        className={"carouselLi"  + numCarousel}
+        key={"carouselLi" + numCarousel + index}
+        name={"carouselLi" + element.nom}
+        >
+        <img 
+        src={config.img + element.source}       
+        alt={element.nom}
+        style={{
+          float: "left",
+          width: imgWidth,
+          height: imgHeight,
+        }}      
+        />
+      </li>)
+    })
 }
-const createImgRetour=()=>{
+/**@method createImgRetour Ajout à la liste d'image la première image de la liste props pour un effet infini*/
+  function createImgRetour(){
+    return(
+      <li 
+      className={"carouselLi"  + numCarousel}
+      key={"carouselLi" + numCarousel + list.length+1}    
+      >
+        <img 
+        src={config.img + list[0].source}       
+        alt={list[0].nom}
+        style={{
+          float: "left",
+          width: imgWidth,
+          height: imgHeight,
+        }}      
+        />
+      </li>)
+  } 
   return(
-    <li 
-    className={"carouselLi"  + numCarousel}
-    key={"carouselLi" + numCarousel + list.length+1}    
-    >
-    <img 
-    src={config.img + list[0]}       
-    alt={list[0]}
+    <ul 
+    className={"carouselUl" + numCarousel}
     style={{
-      float: "left",
-      width: imgWidth,
-      height: imgHeight,
-    }}      
-    />
-  </li> 
-  )
-} 
+      listStyleType: "none",
+      position: "relative",
+      width: carouselUlWidth,
+      height:"auto",
+      margin: "0",
+      padding: "0",
+      fontSize: "0",
+      textAlign: "left",
+    }}
+    >
+    {createImg()}
+    {createImgRetour()}        
+    </ul>)
+ }
 
 /**
  * @render Construction du DOM
@@ -164,6 +186,8 @@ const createImgRetour=()=>{
     className={"carouselGlobal" + numCarousel}
     style={{
       display:'flex',
+      justifyContent: 'center',
+      border: "3px inset lightgrey",
     }}
     > 
       {afficheButton ? 
@@ -183,25 +207,10 @@ const createImgRetour=()=>{
         style={{
           width: imgWidth,
           maxWidth: "1000px",
-          overflow: "hidden",
-        
+          overflow: "hidden",        
         }}
       >
-        <ul 
-          className={"carouselUl" + numCarousel}
-          style={{
-            listStyleType: "none",
-            position: "relative",
-            width: carouselUlWidth,
-            margin: "0",
-            padding: "0",
-            fontSize: "0",
-            textAlign: "left",
-          }}
-        >
-          {createImg()}
-          {createImgRetour()}        
-        </ul>
+        {createListImage()}
       </div>
       {afficheButton ? 
       <button 
