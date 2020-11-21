@@ -7,16 +7,21 @@ import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
 import { Card } from "react-bootstrap";
 import { FaArrowCircleDown } from "react-icons/fa";
+import scrollTo from '../../lib/scrollTo'
 
 function Presentation(props) {
   /**
    * Gestion des datas utiles
    */
   let shortData = data.propos;
-  /**
-   * hauteur
-   */
 
+  /**
+   * 
+   */
+useEffect(()=>{
+  
+
+  })
   /**
    * Affichage
    */

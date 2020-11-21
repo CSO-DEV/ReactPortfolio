@@ -1,17 +1,27 @@
 /**
  * Navigation.js : Component Navigation
  */
-import React from "react";
+import React, { useEffect } from "react";
 import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
+import scrollTo from '../../lib/scrollTo'
 
 function Navigation(props) {
   /**
    * Gestion des datas utiles
    */
   let shortData = data.propos.contenuSection[0];
+
+  /**
+   * Situation dans la page
+   */
+  useEffect(()=>{
+    window.addEventListener('scroll',()=>{
+      console.log('test')
+    })
+  })
   /**
    * Gestion des items
    */
@@ -22,11 +32,12 @@ function Navigation(props) {
       if (n === 1) {
         return (
           <Nav.Link
-            //href={"#" + data[element].lienSection}
+            href={"#"}
             name={data[element].lienSection}
             className="texteNavigation"
             key={data[element].lienSection + index}
             onClick={(e) => navigation(e)}
+            id={"nav" + data[element].lienSection}
           >
             {data[element].nomSection}
           </Nav.Link>
@@ -35,12 +46,13 @@ function Navigation(props) {
         return (
           <NavDropdown
             title={data[element].nomSection}
-            id="basic-nav-dropdown"
+            id={"nav" + data[element].lienSection}
             className="menuNavigation"
             key={data[element].lienSection + index}
+
           >
             <NavDropdown.Item
-              //href={"#" + data[element].lienSection}
+              href={"#"}
               name={data[element].lienSection}
               key={data[element].lienSection + index}
               onClick={(e) => navigation(e)}
@@ -69,7 +81,7 @@ function Navigation(props) {
       );
     });
   };
-  /**
+  /**s
    * Gestion des affichages
    */
   const navigation = (e) => {

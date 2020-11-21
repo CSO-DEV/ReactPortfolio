@@ -7,7 +7,7 @@ import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
 import { Card, ListGroup, ListGroupItem, Image } from "react-bootstrap";
 import { FaArrowCircleDown, FaArrowCircleUp, FaFilePdf } from "react-icons/fa";
-
+import scrollTo from '../../lib/scrollTo'
 function Formation(props) {
   /**
    * Gestion des datas utiles
@@ -87,18 +87,8 @@ function Formation(props) {
   return (
     <section id={shortData.lienSection} className="formation tousLiens chargement">
       <div className="centre">
-        {/*<div className="">
-        <a href="#" title="Affichage précédent">
-          <FaArrowCircleUp className="iconPrecedent" />
-        </a>
-      </div>*/}
         <h4 className="titreSection">{shortData.nomSection}</h4>
         <div className="listeFormation">{carteFormation()}</div>
-        {/*<div className="suivant">
-        <a href="#" title="Affichage suivant">
-          <FaArrowCircleDown className="iconSuivant" />
-        </a>
-</div>*/}
       </div>
     </section>
   );

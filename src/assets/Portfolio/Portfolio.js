@@ -105,18 +105,10 @@ function Portfolio(props) {
   return (
     <section id={shortData.lienSection} className="portfolio tousLiens chargement">
       <div className="centre">
-        {/*<div className="">
-        <a href="#" title="Affichage précédent">
-          <FaArrowCircleUp className="iconPrecedent" />
-        </a>
-      </div>*/}
+
         <h4 className="titreSection">{shortData.nomSection}</h4>
         <div className="listePortfolio">{cartePortfolio()}</div>
-        {/*<div className="suivant">
-        <a href="#" title="Affichage suivant">
-          <FaArrowCircleDown className="iconSuivant" />
-        </a>
-</div>*/}
+       
       </div>
     </section>
   );

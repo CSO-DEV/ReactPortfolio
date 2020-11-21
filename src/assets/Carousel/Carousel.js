@@ -55,12 +55,14 @@ const carouselAnimation=()=>{
   //Fonction d'écoute des boutons s'ils sont utilisés
     if (carousel.bouton.advance){
 		carousel.bouton.preview.addEventListener('click', function(e){ carouselPrev(); });
-		carousel.bouton.advance.addEventListener('click', function(e){ carouselNext(); });
+    carousel.bouton.advance.addEventListener('click', function(e){ carouselNext(); });
     }
   //Fonctions d'écoute des survols de la liste des items
     list.forEach((element,index) => {
       document.getElementById(element.nom).addEventListener('mouseover',function(e){carouselHover(index)})
       document.getElementById(element.nom).addEventListener('mouseleave',function(e){startCarouselTimeout()})
+      document.getElementById(element.nom).addEventListener('onFocus',function(e){carouselHover(index)})
+  
     });
    
     // Lance la première animation

@@ -1,5 +1,6 @@
 @import "../../components/App/style.scss";
 .formation {
+  //display: flex; //a retirer
   .listeFormation {
     display: flex;
     flex-direction: row;
@@ -7,7 +8,7 @@
     flex-wrap: wrap;
     .carteFormation {
       max-width: 500px;
-      margin: 0 10px 0 10px;
+      margin: 0 10px 10px 10px;
       text-align: left;
       .formationInfo {
         display: flex;

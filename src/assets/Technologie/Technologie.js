@@ -38,6 +38,7 @@ function Technologie(props) {
           key={element.nomTechno + index}
           >
             <a
+              //href={""}
               className="itemTecho"
               id={element.nomTechno}
               name={element.nomTechno + index}
@@ -94,11 +95,7 @@ function Technologie(props) {
       <div 
       className="centre"
       >
-        {/*<div  className="">
-        <a href="#" title="Affichage précédent">
-          <FaArrowCircleUp className="iconPrecedent" />
-        </a>
-      </div>*/}
+   
             <h4 
             className="titreSection"
             >
@@ -110,11 +107,7 @@ function Technologie(props) {
         >
           {carteTechno()}
         </div>
-        {/*<div className="suivant">
-        <a href="#" title="Affichage suivant">
-          <FaArrowCircleDown className="iconSuivant" />
-        </a>
-      </div>*/}
+      
       </div>
     </section>
   );
