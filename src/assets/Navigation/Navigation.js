@@ -6,28 +6,37 @@ import { Navbar, NavDropdown, Nav } from "react-bootstrap";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
-import scrollTo from '../../lib/scrollTo'
 
 function Navigation(props) {
+
   /**
-   * Gestion des datas utiles
+   * @var shortData : Données extraites BDD * DB extracted data
    */
   let shortData = data.propos.contenuSection[0];
 
   /**
-   * Situation dans la page
+   * @function useEffect : Controle de position des elements DOM * DOM element position control
    */
   useEffect(()=>{
     window.addEventListener('scroll',()=>{
       console.log('test')
     })
   })
+
   /**
-   * Gestion des items
+   * @method navItems : Affichage des éléments de navigation * Navigation items Display
+   * @var data : Donnée BDD * DB data
+   * @var dataListItems : Liste des clés de la BDD * DB data keys list
+   * @function displaySection : Affiche les sections en fonction du choix dans le navigateur * displays the sections according to the choice in the browser
+   * @var allElements : Récupère les elements DOM de class "all" * Get class "all" DOM's elements
+   * @function sectionContent : Affichage des items pour chaque section * Display items for each section
+   * @var sectionItemsList : Tableau des items pour chaque section * Items' array for each section
+   * 
    */
-  const items = () => {
-    let listeItems = Object.keys(data);
-    return listeItems.map((element, index) => {
+  const navItems = () => {
+
+     let dataListItems = Object.keys(data);
+    return dataListItems.map((element, index) => {
       let n = data[element].contenuSection.length;
       if (n === 1) {
         return (
@@ -36,7 +45,7 @@ function Navigation(props) {
             name={data[element].lienSection}
             className="texteNavigation"
             key={data[element].lienSection + index}
-            onClick={(e) => navigation(e)}
+            onClick={(e) => displaySection(e)}
             id={"nav" + data[element].lienSection}
           >
             {data[element].nomSection}
@@ -55,20 +64,36 @@ function Navigation(props) {
               href={"#"}
               name={data[element].lienSection}
               key={data[element].lienSection + index}
-              onClick={(e) => navigation(e)}
+              onClick={(e) => displaySection(e)}
             >
               {data[element].nomSection}
             </NavDropdown.Item>
             <NavDropdown.Divider />
-            {itemsListe(data[element])}
+            {sectionContent(data[element])}
           </NavDropdown>
         );
       }
     });
+  
+  /**
+   * @function displaySection :Affiche les sections en fonction du choix dans le navigateur * displays the sections according to the choice in the browser
+   * @var allElements : Récupère les elements DOM de class "all" * Get class "all" DOM's elements
+   */
+  function displaySection(e){
+    let allElements = document.getElementsByClassName("all");
+    for (let i = 0; i < allElements.length; i++) {
+      allElements[i].style.display = "none";
+    }
+    document.getElementById(e.target.name).style.display = "flex";
   };
-  const itemsListe = (data) => {
-    let contenuSection = data.contenuSection;
-    return contenuSection.map((element, index) => {
+
+  /**
+   * @function sectionContent : Affichage des items pour chaque section * Display items for each section
+   * @var sectionItemsList : Tableau des items pour chaque section * Items' array for each section
+   */
+  function sectionContent(data){
+    let sectionItemsList = data.contenuSection;
+    return sectionItemsList.map((element, index) => {
       return (
         <NavDropdown.Item
           //href={"#" + element.lienMenu}
@@ -81,19 +106,13 @@ function Navigation(props) {
       );
     });
   };
-  /**s
-   * Gestion des affichages
-   */
-  const navigation = (e) => {
-    let elements = document.getElementsByClassName("tousLiens");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].style.display = "none";
-    }
-    document.getElementById(e.target.name).style.display = "flex";
+
   };
-  /**
-   * Affichage navigateur
-   */
+
+
+/**
+ * @render Construction du DOM * DOM build
+ */
   return (
     <nav>
       <Navbar fixed="top" expand="lg" className="navigation">
@@ -115,7 +134,7 @@ function Navigation(props) {
           id="boutonNavigation"
         />
         <Navbar.Collapse id="basic-navbar-nav" className="listeNavigation listeNavigationInit">
-          <Nav className="mr-auto">{items()}</Nav>
+          <Nav className="mr-auto">{navItems()}</Nav>
         </Navbar.Collapse>
       </Navbar>
     </nav>

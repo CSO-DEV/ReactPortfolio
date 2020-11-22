@@ -1,58 +1,27 @@
 /**
  * Technologie.js : Component Technologie
  */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
-import config from "../../configData/config.json";
-import { Card, ListGroup, ListGroupItem, Image, Carousel } from "react-bootstrap";
-import { FaArrowCircleDown, FaArrowCircleUp, FaFilePdf } from "react-icons/fa";
+import { Card, ListGroup} from "react-bootstrap";
 import Caroussel from "../Carousel/Carousel"
-function Technologie(props) {
 
+
+function Technologie(props) {
   /**
-   * @param shortData objet contenant les informations de la section Techno
-   * @var itemHover Envoie numCarousel_nom item en props du carousel
+   * @var shortData Données extraites BDD * DB extracted data
    */
   let shortData = data.techno;
 
   /**
-   * @function carteTechno Construction du DOM des cartes techno
-   * @method item Construit la liste des items
+   * @method technoCard : Affichage des cartes par catégorie de technologie * Technologie category card build display
+   * @var listeImage : Tableau d'objets nom-source pour le carrousel * Source-name objects Array for the carousel
+   * @function acquiredSkill : Affichage du niveau d'aquisition des technologies * Acquired skill level display
+   * @function skillList : Affichage de la liste des technologies par catégorie * Technologies list by category display
    */
-  const carteTechno = () => {
-    /**
-     * @function acquiredSkill Affiche 
-     */
-    function acquiredSkill(e){
-      
-    }
-    /** 
-     * @method item Construit la liste des item
-     * @var listeImage Tableau d'objet contenant le nom et la source de chaque image
-     */
-    function item(doc){   
-      return doc.map((element, index) => {
-        return (
-          <ListGroup.Item 
-          key={element.nomTechno + index}
-          >
-            <a
-              //href={""}
-              className="itemTecho"
-              id={element.nomTechno}
-              name={element.nomTechno + index}
-              onClick={(e)=>{acquiredSkill(e)}}
-            >
-              {element.nomTechno}
-            </a>
-          </ListGroup.Item>
-        );
-      });
-    };
-
+  const technoCard = () => {
     return shortData.contenuSection.map((element, index) => {
-      //Liste des images à transférer en props dans le caroussel
       let listeImage=[]
       element.listeTechno.forEach(el => {
         listeImage.push({nom: el.nomTechno , source:el.logoTechno})
@@ -78,19 +47,49 @@ function Technologie(props) {
               </span>         
             </div>
           </Card.Header>
-          <ListGroup variant="flush">{item(element.listeTechno)}</ListGroup>
+          <ListGroup variant="flush">{skillList(element.listeTechno)}</ListGroup>
         </Card>
       );
     });
+
+    /**
+     * @function acquiredSkill : Affichage du niveau d'aquisition des technologies * Acquired skill level display
+     */
+    function acquiredSkill(e){
+    
+    }
+
+    /** 
+     * @function skillList : Affichage de la liste des technologies par catégorie * Technologies list by category display
+     */
+    function skillList(doc){   
+      return doc.map((element, index) => {
+        return (
+          <ListGroup.Item 
+          key={element.nomTechno + index}
+          >
+            <a
+              href={""}
+              className="itemTecho"
+              id={element.nomTechno}
+              name={element.nomTechno + index}
+              onClick={(e)=>{acquiredSkill(e)}}
+            >
+              {element.nomTechno}
+            </a>
+          </ListGroup.Item>
+        );
+      });
+    };
   };
  
   /**
-   * @render Construction du DOM
+   * @render Construction du DOM * DOM build
    */
   return (
     <section 
     id={shortData.lienSection} 
-    className="technologie tousLiens chargement tailleEcran"
+    className="technologie tousLiens chargement tailleEcran all"
     >
       <div 
       className="centre"
@@ -105,7 +104,7 @@ function Technologie(props) {
         className="listeTechno" 
         id="listeTechno"
         >
-          {carteTechno()}
+          {technoCard()}
         </div>
       
       </div>

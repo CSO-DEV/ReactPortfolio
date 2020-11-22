@@ -1,22 +1,23 @@
 @import "../../components/App/style.scss";
 .presentation {
   .textePresentation {
-    margin-top: 50px;
+    margin-top: 60px;
     border-radius: 0 !important;
     border: 0;
-    margin-left: -60vw;
-    width: 60vw;
+    margin-left: -80vw;
+    width: 80vw;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
     animation: mouvementSup $dureeAnimationpresentation ease-in-out forwards;
     @keyframes mouvementSup {
       from {
-        margin-left: -60vw;
+        margin-left: -80vw;
       }
       to {
-        margin-left: 20vw;
+        margin-left: 10vw;
       }
     }
+
     div {
       padding: 10px;
     }
@@ -25,7 +26,7 @@
     border-radius: 0 !important;
     border: 0;
     margin-left: 100vw;
-    width: 60vw;
+    width: 80vw;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
     animation: mouvementInf $dureeAnimationpresentation ease-in-out forwards;
@@ -34,7 +35,7 @@
         margin-left: 100vw;
       }
       to {
-        margin-left: 20vw;
+        margin-left: 10vw;
       }
     }
     div {

@@ -1,22 +1,25 @@
 /**
  * Formation.js : Component Formation
  */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
-import { Card, ListGroup, ListGroupItem, Image } from "react-bootstrap";
-import { FaArrowCircleDown, FaArrowCircleUp, FaFilePdf } from "react-icons/fa";
-import scrollTo from '../../lib/scrollTo'
+import { Card, ListGroup, Image } from "react-bootstrap";
+import { FaFilePdf } from "react-icons/fa";
+
+
 function Formation(props) {
   /**
-   * Gestion des datas utiles
+   * @var shortData : Données extraites BDD * DB extracted data
    */
   let shortData = data.formations;
+
   /**
-   * Gestion presentation des formations
+   * @method trainingCard : Affichage des cartes de formations *  Trainig card display
+   * @function pj : Affichage des liens de chaque pièce jointe * Display each attachements' links
    */
-  const carteFormation = () => {
+  const trainingCard=()=>{
     return shortData.contenuSection.map((element, index) => {
       return (
         <div className="flexCard" key={element.lienMenu + index}>
@@ -63,32 +66,37 @@ function Formation(props) {
         </div>
       );
     });
+    
+    /**
+     * @method pj Affichage des liens de chaque pièce jointe * Display each attachements' links
+     */
+    function pj (doc){
+      return doc.map((element, index) => {
+        return (
+          <div key={element.lienTitre + index}>
+            <a
+              href={config.doc + element.lienTitre}
+              target="_blank"
+              type="application/pdf"
+              rel="noopener noreferrer"
+            >
+              <FaFilePdf />
+              {element.nomTitre}
+            </a>
+          </div>
+        );
+      });
+    };
   };
-  const pj = (doc) => {
-    return doc.map((element, index) => {
-      return (
-        <div key={element.lienTitre + index}>
-          <a
-            href={config.doc + element.lienTitre}
-            target="_blank"
-            type="application/pdf"
-            rel="noopener noreferrer"
-          >
-            <FaFilePdf />
-            {element.nomTitre}
-          </a>
-        </div>
-      );
-    });
-  };
+
   /**
-   * Affichage
+   * @render Construction du DOM * DOM build
    */
   return (
-    <section id={shortData.lienSection} className="formation tousLiens chargement">
+    <section id={shortData.lienSection} className="formation tousLiens chargement all">
       <div className="centre">
         <h4 className="titreSection">{shortData.nomSection}</h4>
-        <div className="listeFormation">{carteFormation()}</div>
+        <div className="listeFormation">{trainingCard()}</div>
       </div>
     </section>
   );

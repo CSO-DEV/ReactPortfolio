@@ -1,23 +1,30 @@
 /**
  * Portfolio.js : Component Portfolio
  */
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
-import { Card, ListGroup, ListGroupItem, Image, Button } from "react-bootstrap";
-import { FaArrowCircleDown, FaArrowCircleUp, FaFilePdf } from "react-icons/fa";
+import { Card, ListGroup, Image, Button } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
+
 
 function Portfolio(props) {
   /**
-   * Gestion des datas utiles
+   *@var shortData : Données extraites BDD * DB extracted data
    */
   let shortData = data.projet;
+ 
   /**
-   * Fonctions
+   * @method portfolioCard : Affichage des projets du portfolio * Portfolio projets display
+   * @function moreClose : Animation en fonction de l'etat de la commande "en savoir plus" (affichage du détail) ou "Fermer" (cacher le détail)
+   *                      * Animation depending on "en savoir plus" (show more) or "Fermer" (hide more) order status
+   * @var moreCloseButtonName : récupère le nom du bouton "moreClose" selectionné * keep select button "moreClose" name
+   * @var moreCloseButtonId : récupère l'ID du bouton "moreClose" selectionné * keep select button "moreClose" ID
+   * @function githubList : Affichage de la liste des liens GitHub * GitHub links list display
+   * @param githubLink : Tableau contenant la liste des liens github  * GitHub links list array
    */
-  const cartePortfolio = () => {
+  const portfolioCard = () => {
     return shortData.contenuSection.map((element, index) => {
       return (
         <Card
@@ -37,7 +44,7 @@ function Portfolio(props) {
                 id={"button" + index}
                 name={element.idProjet + index}
                 onClick={(e) => {
-                  display(e);
+                  moreClose(e);
                 }}
               >
                 En savoir plus..
@@ -55,59 +62,66 @@ function Portfolio(props) {
               <p className="portfolioSeparation">Technologies</p>
               <span>{element.technoProjet}</span>
               <p className="portfolioSeparation">Liens</p>
-              <span>{listGithub(element.GitProjet)}</span>
+              <span>{githubList(element.GitProjet)}</span>
             </div>
           </ListGroup>
         </Card>
       );
     });
-  };
-  const listGithub = (liste) => {
-    return liste.map((element, index) => {
-      return (
-        <div key={element.gitNom + index}>
-          <AiFillGithub />
-          <a
-            href={element.gitLien}
-            title={"Lien GitHub " + element.gitNom}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {element.gitNom}
-          </a>
-        </div>
-      );
-    });
-  };
+
   /**
-   * animation de la partie détail de la fiche
+   * @function moreClose : Animation en fonction de l'etat de la commande "en savoir plus" (affichage du détail) ou "Fermer" (cacher le détail)
+   *                      * Animation depending on "en savoir plus" (show more) or "Fermer" (hide more) order status
+   * @var moreCloseButtonName : récupère le nom du bouton "moreClose" selectionné * keep select button "moreClose" name
+   * @var moreCloseButtonId : récupère l'ID du bouton "moreClose" selectionné * keep select button "moreClose" ID
    */
-  const display = (e) => {
-    let name = e.target.name;
-    let affichage = document.getElementById(name);
-    let id = e.target.id;
-    let bouton = document.getElementById(id);
-    if (bouton.innerText === "En savoir plus..") {
-      affichage.style.height = "200px";
-      bouton.innerText = "Fermer";
-      return;
-    }
-    if (bouton.innerText === "Fermer") {
-      affichage.style.height = "0";
-      bouton.innerText = "En savoir plus..";
-      return;
-    }
+    function moreClose(e){
+      let moreCloseButtonName = document.getElementById(e.target.name);
+      let moreCloseButtonId = document.getElementById(e.target.id);
+      if (moreCloseButtonId.innerText === "En savoir plus..") {
+        moreCloseButtonName.style.height = "200px";
+        moreCloseButtonId.innerText = "Fermer";
+        return;
+      }
+      if (moreCloseButtonId.innerText === "Fermer") {
+        moreCloseButtonName.style.height = "0";
+        moreCloseButtonId.innerText = "En savoir plus..";
+        return;
+      }
+    };
+
+    /**
+     * @function githubList : Affichage de la liste des liens GitHub * GitHub links list display
+     * @param githubLink : Tableau contenant la liste des liens github  * GitHub links list array
+     */
+    function githubList(githubLink){
+      return githubLink.map((element, index) => {
+        return (
+          <div key={element.gitNom + index}>
+            <AiFillGithub />
+            <a
+              href={element.gitLien}
+              title={"Lien GitHub " + element.gitNom}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {element.gitNom}
+            </a>
+          </div>
+        );
+      });
+    };
   };
 
   /**
-   * Affichage
+   * @render Construction du DOM * DOM build
    */
   return (
-    <section id={shortData.lienSection} className="portfolio tousLiens chargement">
+    <section id={shortData.lienSection} className="portfolio tousLiens chargement all">
       <div className="centre">
 
         <h4 className="titreSection">{shortData.nomSection}</h4>
-        <div className="listePortfolio">{cartePortfolio()}</div>
+        <div className="listePortfolio">{portfolioCard()}</div>
        
       </div>
     </section>

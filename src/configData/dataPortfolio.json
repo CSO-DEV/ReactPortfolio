@@ -8,11 +8,8 @@
         "nomPropos": "Carole Sotirio",
         "photoPropos": "PhotoCV.jpg",
         "pseudoPropos": "CSO-DEV",
-        "textePropos": [
-          "<p>Durant ma carrière professionnelle dans la métallurgie où j'ai eu l'opportunité d'apprendre à coder sur VBA Excel pour créer des outils utiles aux postes que j'occupais. Pour passer au stade supérieur et développer des applications accessibles à tous, j'ai décidé de suivre une formation de développeur Web fullstack et me lancer dans ce métier.</p>",
-          "<p>Je recherche un poste qui me permettra à la fois de mettre en application mes nouvelles compétences et également d'en apprendre davantage sur de nouvelles technologies. Je suis ouverte au présentiel ou au téléprésentiel, l'essentiel ... c'est coder !</p>"
-        ]
-      }
+        "textePropos": ["<p>Pourquoi devenir développeuse WEB ? ..par engouement pour le code depuis que j'ai décourvert les languages VBA excel par opportunité, python en autodidacte et le développement WEB en suivant une formation qui a confirmé ce choix pour mon avenir professionnel.</p><p>Je recherche un poste qui me permettra à la fois de mettre en application mes nouvelles compétences, de les consolider et en apprendre davantage.</p><p>Je suis ouverte au présentiel ou au téléprésentiel : l'essentiel...</p>"
+        ,"<h4>c'est coder !</h4>"]}
     ]
   },
   "formations": {
