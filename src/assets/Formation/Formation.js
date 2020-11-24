@@ -27,10 +27,10 @@ function Formation(props) {
           <Card className="carteFormation" key={element.lienMenu + index}>
             <Card.Header>
               <div className="formationInfo">
-                <Image
+                <img
                   src={config.img + element.logoFormation}
                   className="infoImage"
-                ></Image>
+                />
                 <div className="infoTexte">
                   <span className="sousTitreSection">
                     {element.nomFormation}
