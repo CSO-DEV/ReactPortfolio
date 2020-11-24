@@ -6,6 +6,7 @@
     border: 0;
     margin-left: -80vw;
     width: 80vw;
+    min-width: 350px;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
     animation: mouvementSup $dureeAnimationpresentation ease-in-out forwards;
@@ -27,6 +28,7 @@
     border: 0;
     margin-left: 100vw;
     width: 80vw;
+    min-width: 350px;
     background-color: lighten($texteOrange, 10%);
     color: $texteBlanc;
     animation: mouvementInf $dureeAnimationpresentation ease-in-out forwards;
