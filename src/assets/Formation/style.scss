@@ -12,9 +12,9 @@
       text-align: left;
       .formationInfo {
         display: flex;
+        position: relative;
         .infoImage {
-          max-width: 100px;
-          height: auto;
+          max-width: 20%;
         }
         .infoTexte {
           text-align: left;
