@@ -14,7 +14,8 @@
         display: flex;
         position: relative;
         .infoImage {
-          //max-width: 20%;
+          max-width: 100px;
+          max-height: 100px;
         }
         .infoTexte {
           text-align: left;
