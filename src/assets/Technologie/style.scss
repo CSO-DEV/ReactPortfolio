@@ -37,8 +37,12 @@
         }
         .TechnoTitre {
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           align-items: center;
+          .sousTitreSection {
+            margin-left: 37px;
+            font-size: 20px;
+          }
         }
       }
     }

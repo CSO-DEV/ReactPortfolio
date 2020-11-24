@@ -34,7 +34,7 @@ function Portfolio(props) {
         >
           <Card.Header>
             <div className="titrePortfolio">
-              <div>
+              <div className="imgProjet">
                 <img src={config.img + element.photoProjet} className="ImagePortfolio"  alt={"photo" + element.photoProjet}/>
               </div>
               <div className="TextePortfolio">
@@ -59,7 +59,7 @@ function Portfolio(props) {
             className="plus"
           >
             <div className="detailPortfolio">
-            <p className="portfolioSeparation">{element.objectifProjet}</p>
+              <p className="portfolioSeparation">{element.objectifProjet}</p>
               <span>{element.descriptionProjet}</span>
               <p className="portfolioSeparation">Technologies</p>
               <span>{element.technoProjet}</span>
@@ -91,7 +91,8 @@ function Portfolio(props) {
       }
       //Ouverture de l'ensemble de l'element sélectionné * Open element selected
       if (moreCloseButtonId.innerText === "En savoir plus..") {
-        moreCloseButtonName.style.height = "auto";
+        moreCloseButtonName.style.height = "200px";
+        moreCloseButtonName.style.overflowY = "scroll";
         moreCloseButtonId.innerText = "Fermer";
         return;
       }

@@ -11,10 +11,14 @@
       height: fit-content;
       margin: 0 10px 20px 10px;
       .titrePortfolio {
-        .ImagePortfolio {
-          box-sizing: content-box;
-          width: 100%;
+        .imgProjet {
+          height: 150px;
+          .ImagePortfolio {
+            box-sizing: content-box;
+            width: 100%;
+          }
         }
+
         .TextePortfolio {
           span {
             display: block;
@@ -32,6 +36,7 @@
       }
       .plus {
         //display: none;
+
         height: 0px;
         color: $Bleu;
         overflow: hidden;

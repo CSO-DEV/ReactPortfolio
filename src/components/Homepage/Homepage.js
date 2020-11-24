@@ -2,7 +2,7 @@
  * Homepage.js : Component Homepage
  */
 import React from "react";
-import Navigation from "../../assets/Navigation/Navigation";
+import Navigation1 from "../../assets/Navigation/Navigation1";
 import Presentation from "../../assets/Presentation/Presentation";
 import Formation from "../../assets/Formation/Formation";
 import Technologie from "../../assets/Technologie/Technologie";
@@ -29,11 +29,11 @@ function Homepage(props) {
       });
       }
       , 10000);
-    setTimeout(function(){      
+    /*setTimeout(function(){      
       document.getElementsByClassName("listeNavigation")[0].style.opacity = "1";   
       document.getElementsByClassName("boutonNavigation")[0].style.opacity = "1"; 
       }
-      , 15000);
+      , 15000);*/
     }  
  
  /**
@@ -51,7 +51,7 @@ function Homepage(props) {
    */
   return (
     <div className="homepage" id="homepage">
-      <Navigation />
+      <Navigation1 />
       {imageHomepage()}
       {startDisplay()}
       <Presentation/>
