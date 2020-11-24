@@ -7,27 +7,40 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
-    .carteTechno {
-      width: 250px;
-      height: fit-content;
-      margin: 0 10px 10px 10px;
-    }
-  }
-  .TechnoTitre {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  .itemTecho {
-    text-decoration: none;
-    color: black;
-    &:hover,
-    &:active,
-    &:focus {
-      color: #cc3300;
-      font-weight: bolder;
-      cursor: pointer;
+    justify-content: center;
+    .groupTechnoCard {
+      background-color: whitesmoke;
+      margin: 10px 10px 10px 10px;
+      .carteTechno {
+        width: 300px;
+        border: none;
+        .skillItem {
+          border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+          display: flex;
+          text-align: left;
+          .skillLevel {
+          }
+          .skillName {
+            margin-left: 10px;
+            .itemTecho {
+              text-decoration: none;
+              color: #4472c4;
+              &:hover,
+              &:active,
+              &:focus {
+                color: #cc3300;
+                font-weight: bolder;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+        .TechnoTitre {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      }
     }
   }
 }

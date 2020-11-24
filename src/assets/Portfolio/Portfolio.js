@@ -34,15 +34,17 @@ function Portfolio(props) {
         >
           <Card.Header>
             <div className="titrePortfolio">
-              <Image src={config.img + element.photoProjet} className="ImagePortfolio"  alt={"photo" + element.photoProjet}/>
+              <div>
+                <img src={config.img + element.photoProjet} className="ImagePortfolio"  alt={"photo" + element.photoProjet}/>
+              </div>
               <div className="TextePortfolio">
                 <span className="sousTitreSection">{element.nomProjet}</span>
                 <span>{element.anneeProjet}</span>
               </div>
-              <Button
-         
+              <Button         
                 id={"button" + index}
                 name={element.idProjet + index}
+                className={"moreCloseButton"}
                 onClick={(e) => {
                   moreClose(e);
                 }}
@@ -74,15 +76,26 @@ function Portfolio(props) {
    *                      * Animation depending on "en savoir plus" (show more) or "Fermer" (hide more) order status
    * @var moreCloseButtonName : récupère le nom du bouton "moreClose" selectionné * keep select button "moreClose" name
    * @var moreCloseButtonId : récupère l'ID du bouton "moreClose" selectionné * keep select button "moreClose" ID
+   * @var moreCloseButtonClass : récupère la class du bouton "moreClose" selectionné * keep select button "moreClose" Classname
    */
     function moreClose(e){
       let moreCloseButtonName = document.getElementById(e.target.name);
       let moreCloseButtonId = document.getElementById(e.target.id);
+      let moreCloseButtonClass = document.getElementsByClassName("moreCloseButton");
+      //Fermeture de l'ensemble des elements * Close all elements
+        for (let i=0;i<moreCloseButtonClass.length;i++){
+          if (document.getElementById(moreCloseButtonClass[i].id)!==moreCloseButtonId){
+            document.getElementById(moreCloseButtonClass[i].id).innerText = "En savoir plus..";
+            document.getElementById(moreCloseButtonClass[i].name).style.height = "0";
+          }
+      }
+      //Ouverture de l'ensemble de l'element sélectionné * Open element selected
       if (moreCloseButtonId.innerText === "En savoir plus..") {
-        moreCloseButtonName.style.height = "200px";
+        moreCloseButtonName.style.height = "auto";
         moreCloseButtonId.innerText = "Fermer";
         return;
       }
+      //Fermeture de l'ensemble de l'element sélectionné * Close element selected
       if (moreCloseButtonId.innerText === "Fermer") {
         moreCloseButtonName.style.height = "0";
         moreCloseButtonId.innerText = "En savoir plus..";

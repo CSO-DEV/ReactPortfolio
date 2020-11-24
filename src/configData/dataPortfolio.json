@@ -76,21 +76,21 @@
             "idTechno": "",
             "commentaireTechno": "ddddd",
             "logoTechno": "html.png",
-            "niveauTechno": 60
+            "niveauTechno": 80
           },
           {
             "nomTechno": "CSS",
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "css.png",
-            "niveauTechno": 60
+            "niveauTechno": 70
           },
           {
             "nomTechno": "javaScript",
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "javascript.png",
-            "niveauTechno": 60
+            "niveauTechno": 80
           }
         ]
       },
@@ -105,14 +105,14 @@
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "nodejs.png",
-            "niveauTechno": 60
+            "niveauTechno": 70
           },
           {
             "nomTechno": "Mongodb",
             "idTechno": "navigationPhotoTitre",
             "commentaire": "ddddd",
             "logoTechno": "mongodb.png",
-            "niveauTechno": 60
+            "niveauTechno": 70
           }
         ]
       },
@@ -134,7 +134,7 @@
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "sass.png",
-            "niveauTechno": 60
+            "niveauTechno": 40
           },
           {
             "nomTechno": "Bootstrap",
@@ -162,7 +162,7 @@
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "react.png",
-            "niveauTechno": 60
+            "niveauTechno": 80
           },
           {
             "nomTechno": "React Native",
@@ -184,7 +184,7 @@
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "git.png",
-            "niveauTechno": 60
+            "niveauTechno": 70
           },
 
           {
@@ -192,14 +192,14 @@
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "robo 3t.png",
-            "niveauTechno": 60
+            "niveauTechno": 80
           },
           {
             "nomTechno": "Postman",
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "postman.png",
-            "niveauTechno": 60
+            "niveauTechno": 80
           },
           {
             "nomTechno": "Méthode Agile Scrum",
@@ -213,7 +213,7 @@
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
             "logoTechno": "trello.png",
-            "niveauTechno": 60
+            "niveauTechno": 80
           },
           {
             "nomTechno": "Androïd Studio",

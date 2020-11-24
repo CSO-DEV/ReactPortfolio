@@ -7,7 +7,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     .cartePortfolio {
-      width: 60vw;
+      width: 300px;
       height: fit-content;
       margin: 0 10px 10px 10px;
       .titrePortfolio {
@@ -23,7 +23,7 @@
         button {
           background-color: $Bleu;
           padding: 0;
-          width: 110px;
+          width: 150px;
           &:hover {
             background-color: lighten($texteOrange, 10%);
             border-color: $texteOrange;
