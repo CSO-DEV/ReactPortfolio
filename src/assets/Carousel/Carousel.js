@@ -72,10 +72,11 @@ const carouselAnimation=()=>{
   function carouselHover(item) {
     //Animation liste des items => reset le style
     document.getElementById(list[carousel.currentItem].nom).style.color="#4472c4"
+    document.getElementById(list[carousel.currentItem].nom).style.fontWeight="normal";
   
     carousel.currentItem=item
     document.getElementById(list[carousel.currentItem].nom).style.color="#cc3300"
-    
+    document.getElementById(list[carousel.currentItem].nom).style.fontWeight="bolder";
 
     duringTime=3000;
     carousel.ul.style.transition = "all 2s ease"
@@ -119,6 +120,7 @@ const carouselAnimation=()=>{
     //Animation liste des items => reset le style
     if(carousel.currentItem>=0 && carousel.currentItem<list.length){
       document.getElementById(list[carousel.currentItem].nom).style.color="#4472c4";
+      document.getElementById(list[carousel.currentItem].nom).style.fontWeight="normal";
      
     }
     //Gestion des affichage image  
@@ -134,8 +136,8 @@ const carouselAnimation=()=>{
       carousel.ul.style.left = -1 * (carousel.currentItem * 100 ) + "%"
     }
     //Animation liste des items => Change le style
-    document.getElementById(list[carousel.currentItem].nom).style.color="#cc3300";
-  
+    document.getElementById(list[carousel.currentItem].nom).style.color="#4472c4";
+    document.getElementById(list[carousel.currentItem].nom).style.fontWeight="bolder"
     //Lance la tempo
       startCarouselTimeout(); 
   } 

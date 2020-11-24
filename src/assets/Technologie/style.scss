@@ -1,8 +1,7 @@
 @import "../../components/App/style.scss";
 .technologie {
   //display: flex; //a retirer
-  .titreSection {
-  }
+
   .listeTechno {
     display: flex;
     flex-direction: row;
@@ -18,14 +17,12 @@
           border-bottom: 1px solid rgba(0, 0, 0, 0.125);
           display: flex;
           text-align: left;
-          .skillLevel {
-          }
+
           .skillName {
             margin-left: 15px;
             .itemTecho {
               text-decoration: none;
               color: #4472c4;
-              font-weight: bolder;
               &:hover,
               &:active,
               &:focus {

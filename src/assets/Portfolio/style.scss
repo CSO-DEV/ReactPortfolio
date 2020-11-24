@@ -10,6 +10,7 @@
       width: 350px;
       height: fit-content;
       margin: 0 10px 20px 10px;
+      position: relative;
       .titrePortfolio {
         .imgProjet {
           height: 150px;
@@ -40,31 +41,39 @@
         height: 0px;
         color: $Bleu;
         overflow: hidden;
-        transition: height 2s;
-        .portfolioSeparation {
-          margin-top: 10px;
+        transition: height 1s;
+        position: absolute;
+        background-color: white;
+        top: 251px;
+        z-index: 10;
+        .detailPortfolio {
           position: relative;
-          font-size: 15px;
-          font-weight: bolder;
-          margin: 0;
-          &:before {
-            content: " ";
-            content: " ";
-            position: absolute;
-            border-bottom: 1px solid $texteOrange;
-            width: 50%;
-            height: 13px;
-            display: inline;
-            margin-left: calc(-50% - 8px);
-          }
-          &:after {
-            content: " ";
-            position: absolute;
-            border-bottom: 1px solid $texteOrange;
-            width: 50%;
-            height: 13px;
-            display: inline;
-            margin-left: 8px;
+          padding: 0 5px 0 5px;
+          .portfolioSeparation {
+            margin-top: 10px;
+            position: relative;
+            font-size: 15px;
+            font-weight: bolder;
+            margin: 0;
+            &:before {
+              content: " ";
+              content: " ";
+              position: absolute;
+              border-bottom: 1px solid $texteOrange;
+              width: 50%;
+              height: 13px;
+              display: inline;
+              margin-left: calc(-50% - 8px);
+            }
+            &:after {
+              content: " ";
+              position: absolute;
+              border-bottom: 1px solid $texteOrange;
+              width: 50%;
+              height: 13px;
+              display: inline;
+              margin-left: 8px;
+            }
           }
         }
       }

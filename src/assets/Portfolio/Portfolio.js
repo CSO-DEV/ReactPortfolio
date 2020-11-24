@@ -1,7 +1,7 @@
 /**
  * Portfolio.js : Component Portfolio
  */
-import React from "react";
+import React, { useEffect } from "react";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
@@ -58,13 +58,16 @@ function Portfolio(props) {
             id={element.idProjet + index}
             className="plus"
           >
-            <div className="detailPortfolio">
+            <div 
+              className="detailPortfolio"
+              name={"button" + index}>
               <p className="portfolioSeparation">{element.objectifProjet}</p>
               <span>{element.descriptionProjet}</span>
               <p className="portfolioSeparation">Technologies</p>
               <span>{element.technoProjet}</span>
               <p className="portfolioSeparation">Liens</p>
               <span>{githubList(element.GitProjet)}</span>
+              
             </div>
           </ListGroup>
         </Card>
@@ -91,9 +94,9 @@ function Portfolio(props) {
       }
       //Ouverture de l'ensemble de l'element sélectionné * Open element selected
       if (moreCloseButtonId.innerText === "En savoir plus..") {
-        moreCloseButtonName.style.height = "200px";
-        moreCloseButtonName.style.overflowY = "scroll";
+        moreCloseButtonName.style.height = document.getElementsByName(e.target.id)[0].offsetHeight + "px";
         moreCloseButtonId.innerText = "Fermer";
+
         return;
       }
       //Fermeture de l'ensemble de l'element sélectionné * Close element selected
@@ -126,6 +129,13 @@ function Portfolio(props) {
       });
     };
   };
+
+  /**
+   * @function useEffect Animation de la flèche suite détail * Following detail arrow animation
+   */
+  useEffect(()=>{
+
+  })
 
   /**
    * @render Construction du DOM * DOM build
