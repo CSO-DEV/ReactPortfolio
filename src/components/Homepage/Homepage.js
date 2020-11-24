@@ -7,7 +7,6 @@ import Presentation from "../../assets/Presentation/Presentation";
 import Formation from "../../assets/Formation/Formation";
 import Technologie from "../../assets/Technologie/Technologie";
 import Portfolio from "../../assets/Portfolio/Portfolio";
-import Contact from "../../assets/Contact/Contact";
 import config from "../../configData/config.json";
 import data from "../../configData/dataPortfolio.json";
 import "./style.scss";
@@ -24,8 +23,11 @@ function Homepage(props) {
       document.getElementById("depart").style.display = "none";     
       document.getElementById("propos").style.display = "flex";
       let sectionList=Object.keys(data);
-      sectionList.forEach(element=>{
-        document.getElementById(data[element].lienSection).style.display = "flex";
+      sectionList.forEach((element,index)=>{
+        if (data[element].lienSection!="contact"){
+          document.getElementById(data[element].lienSection).style.display = "flex";
+        }
+        
       });
       }
       , 10000);
@@ -58,7 +60,6 @@ function Homepage(props) {
       <Formation/>
       <Technologie/>
       <Portfolio/>
-      <Contact/>
     </div>
   );
 }

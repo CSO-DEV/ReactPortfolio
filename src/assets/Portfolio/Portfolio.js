@@ -27,10 +27,15 @@ function Portfolio(props) {
   const portfolioCard = () => {
     return shortData.contenuSection.map((element, index) => {
       return (
+        <div 
+        id={"unitPortfolioCard" + index}
+        className="unitPortfolioCard"
+        key={element.lienMenu + index}
+        >
         <Card
           id={element.lienMenu}
           className="cartePortfolio"
-          key={element.lienMenu + index}
+          key={element.lienMenu + index}          
         >
           <Card.Header>
             <div className="titrePortfolio">
@@ -66,11 +71,12 @@ function Portfolio(props) {
               <p className="portfolioSeparation">Technologies</p>
               <span>{element.technoProjet}</span>
               <p className="portfolioSeparation">Liens</p>
-              <span>{githubList(element.GitProjet)}</span>
+              <div className="githubPortfolio">{githubList(element.GitProjet)}</div>
               
             </div>
           </ListGroup>
         </Card>
+        </div>
       );
     });
 
@@ -80,24 +86,26 @@ function Portfolio(props) {
    * @var moreCloseButtonName : récupère le nom du bouton "moreClose" selectionné * keep select button "moreClose" name
    * @var moreCloseButtonId : récupère l'ID du bouton "moreClose" selectionné * keep select button "moreClose" ID
    * @var moreCloseButtonClass : récupère la class du bouton "moreClose" selectionné * keep select button "moreClose" Classname
+   * 
    */
     function moreClose(e){
       let moreCloseButtonName = document.getElementById(e.target.name);
       let moreCloseButtonId = document.getElementById(e.target.id);
       let moreCloseButtonClass = document.getElementsByClassName("moreCloseButton");
+
       //Fermeture de l'ensemble des elements * Close all elements
         for (let i=0;i<moreCloseButtonClass.length;i++){
           if (document.getElementById(moreCloseButtonClass[i].id)!==moreCloseButtonId){
             document.getElementById(moreCloseButtonClass[i].id).innerText = "En savoir plus..";
-            document.getElementById(moreCloseButtonClass[i].name).style.height = "0";
+            document.getElementById(moreCloseButtonClass[i].name).style.height = "0";           
           }
-      }
+        }
+      
       //Ouverture de l'ensemble de l'element sélectionné * Open element selected
       if (moreCloseButtonId.innerText === "En savoir plus..") {
         moreCloseButtonName.style.height = document.getElementsByName(e.target.id)[0].offsetHeight + "px";
-        moreCloseButtonId.innerText = "Fermer";
-
-        return;
+        moreCloseButtonId.innerText = "Fermer"; 
+           return;
       }
       //Fermeture de l'ensemble de l'element sélectionné * Close element selected
       if (moreCloseButtonId.innerText === "Fermer") {
@@ -131,22 +139,13 @@ function Portfolio(props) {
   };
 
   /**
-   * @function useEffect Animation de la flèche suite détail * Following detail arrow animation
-   */
-  useEffect(()=>{
-
-  })
-
-  /**
    * @render Construction du DOM * DOM build
    */
   return (
     <section id={shortData.lienSection} className="portfolio tousLiens chargement all">
       <div className="centre">
-
         <h4 className="titreSection">{shortData.nomSection}</h4>
-        <div className="listePortfolio">{portfolioCard()}</div>
-       
+        <div className="listePortfolio">{portfolioCard()}</div>       
       </div>
     </section>
   );

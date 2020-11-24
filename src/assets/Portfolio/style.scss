@@ -6,77 +6,98 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-    .cartePortfolio {
-      width: 350px;
-      height: fit-content;
+    .unitPortfolioCard {
       margin: 0 10px 20px 10px;
+      padding: 1px;
       position: relative;
-      .titrePortfolio {
-        .imgProjet {
-          height: 150px;
-          .ImagePortfolio {
-            box-sizing: content-box;
-            width: 100%;
-          }
-        }
 
-        .TextePortfolio {
-          span {
-            display: block;
-          }
-        }
-        button {
-          background-color: $Bleu;
-          padding: 0;
-          width: 150px;
-          &:hover {
-            background-color: lighten($texteOrange, 10%);
-            border-color: $texteOrange;
-          }
-        }
-      }
-      .plus {
-        //display: none;
+      .cartePortfolio {
+        width: 350px;
+        height: fit-content;
+        position: relative;
 
-        height: 0px;
-        color: $Bleu;
-        overflow: hidden;
-        transition: height 1s;
-        position: absolute;
-        background-color: white;
-        top: 251px;
-        z-index: 10;
-        .detailPortfolio {
-          position: relative;
-          padding: 0 5px 0 5px;
-          .portfolioSeparation {
-            margin-top: 10px;
-            position: relative;
-            font-size: 15px;
-            font-weight: bolder;
-            margin: 0;
-            &:before {
-              content: " ";
-              content: " ";
-              position: absolute;
-              border-bottom: 1px solid $texteOrange;
-              width: 50%;
-              height: 13px;
-              display: inline;
-              margin-left: calc(-50% - 8px);
+        .titrePortfolio {
+          .imgProjet {
+            height: 150px;
+            .ImagePortfolio {
+              box-sizing: content-box;
+              width: 100%;
             }
-            &:after {
-              content: " ";
-              position: absolute;
-              border-bottom: 1px solid $texteOrange;
-              width: 50%;
-              height: 13px;
-              display: inline;
-              margin-left: 8px;
+          }
+
+          .TextePortfolio {
+            span {
+              display: block;
+            }
+          }
+          button {
+            background-color: $Bleu;
+            padding: 0;
+            width: 150px;
+            &:hover {
+              background-color: $texteOrange;
+              border-color: lighten($texteOrange, 10%);
+              box-shadow: 0 0 0 0.2rem rgba($texteOrange, 0.5) !important;
+            }
+          }
+        }
+        .plus {
+          //display: none;
+          height: 0px;
+          color: white;
+          overflow: hidden;
+          transition: height 1s;
+          position: absolute;
+          background-color: $texteOrange;
+          top: 248px;
+          z-index: 10;
+          left: -1px;
+          width: 350px;
+
+          .detailPortfolio {
+            position: relative;
+            padding: 0 5px 0 5px;
+            width: 349px;
+            .githubPortfolio {
+              margin-bottom: 10px;
+              a {
+                margin-left: 5px;
+              }
+            }
+            .portfolioSeparation {
+              margin-top: 10px;
+              position: relative;
+              font-size: 15px;
+              font-weight: bolder;
+              margin: 0;
+              &:before {
+                content: " ";
+                content: " ";
+                position: absolute;
+                border-bottom: 1px solid white;
+                width: 50%;
+                height: 13px;
+                display: inline;
+                margin-left: calc(-50% - 8px);
+              }
+              &:after {
+                content: " ";
+                position: absolute;
+                border-bottom: 1px solid white;
+                width: 50%;
+                height: 13px;
+                display: inline;
+                margin-left: 8px;
+              }
             }
           }
         }
       }
     }
   }
+}
+.portfolioShadow {
+  -webkit-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 5px 5px 8px 0px rgba(0, 0, 0, 0.75);
 }
