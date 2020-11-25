@@ -63,6 +63,7 @@ function Navigation1(props) {
                     style={{
                         margin:"0",
                         fontSize:"17px",
+                        color:"white",
                         }}>{shortData.nomPropos}</h1>
                     <h1 
                     style={{
@@ -70,6 +71,7 @@ function Navigation1(props) {
                         fontSize:"23px",
                         fontWeight:"bolder",
                         textTransform: "uppercase",
+                        color:"white",
                         }}>{shortData.titrePropos}</h1>
                     </div>
                 </div>
