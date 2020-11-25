@@ -67,7 +67,7 @@ function Navigation1(props) {
                     <h1 
                     style={{
                         margin:"0",
-                        fontSize:"27px",
+                        fontSize:"23px",
                         fontWeight:"bolder",
                         textTransform: "uppercase",
                         }}>{shortData.titrePropos}</h1>
