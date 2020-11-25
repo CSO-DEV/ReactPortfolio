@@ -8,7 +8,7 @@
         "nomPropos": "Carole Sotirio",
         "photoPropos": "PhotoCV.jpg",
         "pseudoPropos": "CSO-DEV",
-        "textePropos": ["<p>Pourquoi devenir développeuse WEB ? ..par engouement pour le code depuis que j'ai décourvert les languages VBA excel par opportunité, python en autodidacte et le développement WEB en suivant une formation qui a confirmé ce choix pour mon avenir professionnel.</p><p>Je recherche un poste qui me permettra à la fois de mettre en application mes nouvelles compétences, de les consolider et en apprendre davantage.</p><p>Je suis ouverte au présentiel ou au téléprésentiel : l'essentiel...</p>"
+        "textePropos": ["<p>Pourquoi devenir développeuse WEB ? ..par engouement pour le code depuis que j'ai découvert les languages VBA excel par opportunité, python en autodidacte et le développement WEB en suivant une formation qui a confirmé ce choix pour mon avenir professionnel.</p><p>Je recherche un poste qui me permettra à la fois de mettre en application mes nouvelles compétences, de les consolider et en apprendre davantage.</p><p>Je suis ouverte au présentiel ou au téléprésentiel : l'essentiel...</p>"
         ,"<h4>c'est coder !</h4>"]}
     ]
   },
@@ -258,7 +258,7 @@
         "descriptionProjet": "Création d'un site de location d'appartements en stack MERN , en commençant par la réalisation du Front-end, puis le back-end associé ainsi que l'application mobile.",
         "demoProjet": "",
         "photoProjet": "tonnelier.gif",
-        "technoProjet": "Mongodb, Express, React, NodeJs, ReactBootstrap",
+        "technoProjet": "Mongodb, Express, React, React Native, NodeJs, ReactBootstrap",
         "GitProjet": [
           {
             "gitNom": "Les Tonneliers Front-End",

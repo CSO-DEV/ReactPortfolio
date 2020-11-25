@@ -1,6 +1,6 @@
 @import "../../components/App/style.scss";
 .portfolio {
-  //display: flex;
+  display: flex;
   .listePortfolio {
     display: flex;
     flex-direction: row;
@@ -53,7 +53,7 @@
           z-index: 10;
           left: -1px;
           width: 350px;
-
+          margin-bottom: 20px;
           .detailPortfolio {
             position: relative;
             padding: 0 5px 0 5px;
