@@ -5,7 +5,7 @@ import React from "react";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
-import { Card, ListGroup, Image } from "react-bootstrap";
+import { Card, ListGroup } from "react-bootstrap";
 import { FaFilePdf } from "react-icons/fa";
 
 
@@ -30,6 +30,7 @@ function Formation(props) {
                 <img
                   src={config.img + element.logoFormation}
                   className="infoImage"
+                  alt={"Logo " + element.nomFormation}
                 />
                 <div className="infoTexte">
                   <span className="sousTitreSection">

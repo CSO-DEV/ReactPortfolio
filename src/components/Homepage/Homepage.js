@@ -7,8 +7,6 @@ import Presentation from "../../assets/Presentation/Presentation";
 import Formation from "../../assets/Formation/Formation";
 import Technologie from "../../assets/Technologie/Technologie";
 import Portfolio from "../../assets/Portfolio/Portfolio";
-import config from "../../configData/config.json";
-import data from "../../configData/dataPortfolio.json";
 import "./style.scss";
 
 

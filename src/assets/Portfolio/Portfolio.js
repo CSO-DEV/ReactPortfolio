@@ -1,11 +1,11 @@
 /**
  * Portfolio.js : Component Portfolio
  */
-import React, { useEffect } from "react";
+import React from "react";
 import "./style.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
-import { Card, ListGroup, Image, Button } from "react-bootstrap";
+import { Card, ListGroup, Button } from "react-bootstrap";
 import { AiFillGithub } from "react-icons/ai";
 
 

@@ -53,7 +53,7 @@ const carouselAnimation=()=>{
   let [duringTime,preview]=[3000,afficheButton];
 
   //Fonction d'écoute des boutons s'ils sont utilisés
-    if (carousel.bouton.advance){
+    if (carousel.bouton.advance && preview){
 		carousel.bouton.preview.addEventListener('click', function(e){ carouselPrev(); });
     carousel.bouton.advance.addEventListener('click', function(e){ carouselNext(); });
     }

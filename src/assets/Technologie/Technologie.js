@@ -28,11 +28,10 @@ function Technologie(props) {
       });
       imageList.push({nom: element.listeTechno[0].nomTechno , source:element.listeTechno[0].logoTechno})
          return (
-          <div className="groupTechnoCard">
+          <div className="groupTechnoCard" key={element.lienMenu + index}>
             <Card
               id={element.lienMenu}
-              className="carteTechno"
-              key={element.lienMenu + index}
+              className="carteTechno"              
             >
               <Card.Header>
                 <div className="TechnoTitre">
@@ -98,12 +97,12 @@ function Technologie(props) {
       for(let i=0;i<nOutLineStar;i++){
         starShow.push("O")
       }
-      return starShow.map(element=>{
+      return starShow.map((element,index)=>{
         if(element==="F"){
-          return <AiFillStar color={starColor}/>
+          return <AiFillStar color={starColor} key={element + index}/>
         }
         else{
-          return <AiOutlineStar color={starColor}/>
+          return <AiOutlineStar color={starColor} key={element + index}/>
         }
       })
     }
