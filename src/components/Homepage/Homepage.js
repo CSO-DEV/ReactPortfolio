@@ -2,7 +2,7 @@
  * Homepage.js : Component Homepage
  */
 import React from "react";
-import TopNavigationBar from "../../assets/Navigation/TopNavigationBar";
+import TopNavigationBar from "../../assets/Navigation/TopNavigationBar1";
 import Presentation from "../../assets/Presentation/Presentation";
 import Formation from "../../assets/Formation/Formation";
 import Technologie from "../../assets/Technologie/Technologie";
@@ -17,7 +17,8 @@ function Homepage(props) {
    */
   return (
     <div className="homepage" id="homepage">
-      <TopNavigationBar/>
+      <TopNavigationBar
+      size={80}/>
       <Presentation/>
       <Formation/>
       <Technologie/>

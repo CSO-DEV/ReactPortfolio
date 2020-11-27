@@ -6,7 +6,11 @@ import scrollToId from "../../lib/scrollTo"
 
 
 function TopNavigationBar(props) {
-    
+    /**
+     * @param globalHeight : Hauteur de la barre de navigation
+     */
+    let globalHeight=props.size
+
     /**
      * @var shortData : Données extraites BDD * DB extracted data
      * @var sectionList : Liste des clés de la BDD * DB keys list
@@ -40,7 +44,7 @@ function TopNavigationBar(props) {
         navLinksDisplay="block";
         navLinksPosition="absolute";
         navLinksWidth="100%";
-        navLinksTop="87px";
+        navLinksTop= globalHeight + "px";
         navLinksOverflowY="hidden";
         navItemsDisplay="block";
         navItemsMarginLeft="90px";
@@ -52,10 +56,9 @@ function TopNavigationBar(props) {
         navLinksWidth="auto";
         navLinksTop="auto";
         navLinksOverflowY="auto";
-        //navLinksHeight="auto",
         navItemsDisplay="inline-block";
         navItemsMarginLeft="0px";
-        navItemsMarginRight="50px";
+        navItemsMarginRight="20px";
     };
 
     /**
@@ -76,10 +79,11 @@ function TopNavigationBar(props) {
             style={{
                 display:"flex",
             }}>
+              
             <div className="topNavigationBarImg"
             style={{
                 margin:"5px",
-                width: "77px",
+                width: globalHeight-10 + "px",
             }}>
                 <img 
                 src={config.img + shortData.photoPropos} alt={"Photo profil " + shortData.nomPropos}
@@ -116,6 +120,7 @@ function TopNavigationBar(props) {
                     }}>{shortData.titrePropos}</h1>
                 </div>
             </div>
+            <a  >test</a> 
             </div>
         )
     };
@@ -127,30 +132,43 @@ function TopNavigationBar(props) {
         return sectionList.map((element,index)=>{
             if(index<sectionList.length-1){
                 return(
-                    <label 
-                    className="navItems"
-                    id={"nav" + data[element].lienSection} 
-                    htmlFor="nav-check"                     
+                    <div
+                    id={"test" + data[element].lienSection}
                     key={element + index}
-                    onClick={(e)=>scrollToId(e.target.id.split("nav")[1])}
+                    style={{
+                        height: "68px",                 
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        marginRight: navItemsMarginRight,
+                        marginLeft:navItemsMarginLeft,
+                    }}
                     onMouseOver={(e)=>{
+                        console.log(e.target.id)
                         document.getElementById(e.target.id).style.backgroundColor ="rgba(0, 0, 0, 0.3)";
                         document.getElementById(e.target.id).style.cursor = "pointer";
                     }}
                     onMouseLeave={(e)=>{
+                        console.log(e.target.id)
                         document.getElementById(e.target.id).style.backgroundColor ="transparent";
                         document.getElementById(e.target.id).style.cursor = "none";
-                    }}                       
-                    style={{
-                        display: navItemsDisplay,
-                        marginLeft:navItemsMarginLeft,
-                        color: "white",
-                        fontSize: "18px",
-                        height: "fit-content",
-                        marginRight: navItemsMarginRight,//
-                    }}                  
-                    >{data[element].nomSection}
-                    </label>
+                    }}>
+                        <label 
+                        className="navItems"
+                        id={"nav" + data[element].lienSection} 
+                        htmlFor="nav-check"                  
+                        onClick={(e)=>scrollToId(e.target.id.split("nav")[1])}                                        
+                        style={{
+                            display: navItemsDisplay,
+                            marginLeft:navItemsMarginLeft,
+                            color: "white",
+                            fontSize: "18px",
+                            height: "fit-content",
+                            marginRight: navItemsMarginRight,
+                        }}                  
+                        >{data[element].nomSection}
+                        </label>
+                    </div>
                 )
             };
             return(<div key={element + index}></div>)        
@@ -172,7 +190,7 @@ function TopNavigationBar(props) {
                 <div 
                 className="nav"
                 style={{
-                    height: "87px",
+                    height: globalHeight + "px",
                     width: "100%",
                     backgroundColor: "#4472c4",
                     position: "relative",
@@ -195,8 +213,8 @@ function TopNavigationBar(props) {
                     style={{
                         display: navBtnDisplay,
                         position : "absolute",
-                        top:"18px",
-                        right:"0px",
+                        top: (globalHeight-40)/2 + "px",
+                        right:"5px",
                         borderRadius :"50%",                
                     }}>
                         <label htmlFor="nav-check">
@@ -206,7 +224,7 @@ function TopNavigationBar(props) {
                             className="burger"
                             style={{
                                 width: "40px",
-                                height: "34px",
+                                height: "40px",
                                 borderRadius: "50%",
                             }} 
                             onMouseOver={(e)=>document.getElementById(e.target.id).style.cursor="pointer"}
