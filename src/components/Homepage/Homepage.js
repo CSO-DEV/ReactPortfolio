@@ -18,7 +18,10 @@ function Homepage(props) {
   return (
     <div className="homepage" id="homepage">
       <TopNavigationBar
-      size={80}/>
+      height={80}
+      backgroundColor="#4472c4"
+      color="#f0f8ff"
+      underLine= "#cc3300"/>
       <Presentation/>
       <Formation/>
       <Technologie/>

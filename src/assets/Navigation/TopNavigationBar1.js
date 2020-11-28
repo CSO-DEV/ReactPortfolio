@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
 import scrollToId from "../../lib/scrollTo"
-
+import {GiHamburgerMenu} from "react-icons/gi"
 function TopNavigationBar1(props) {
     
     /**
@@ -10,9 +10,10 @@ function TopNavigationBar1(props) {
      * @param textColor : Hauteur de la barre de navigation
      * @param backgroundColor : Hauteur de la barre de navigation
      */
-    let globalHeight, textColor,backgroundColor,navBarPosition;
-    props.height ? globalHeight=props.size : globalHeight=50;
-    props.color ? textColor=props.textColor : textColor="black";
+    let globalHeight, textColor,underLine,backgroundColor,navBarPosition;
+    props.height ? globalHeight=props.height : globalHeight=50;
+    props.color ? textColor=props.color : textColor="black";
+    props.underLine ? underLine=props.underLine : underLine="red";
     props.backgroundColor ? backgroundColor=props.backgroundColor : backgroundColor="ivory";
     props.navBarPosition ? navBarPosition=props.navBarPosition : navBarPosition="center";
     /**
@@ -43,8 +44,8 @@ function TopNavigationBar1(props) {
     window.addEventListener('resize',(e)=>{
         setWindowWidth(window.innerWidth);
       });
-    
-    if(windowWidth<900){
+    let windowWidthSize=1000
+    if(windowWidth<windowWidthSize){
         burgerDisplay="flex";
         navCenterUlFlexDirection="column";
         navCenterUlPosition="absolute";
@@ -68,7 +69,7 @@ function TopNavigationBar1(props) {
         navCenterUlDisplay="flex" ;   
     };
 
-    if (windowWidth<900 && !navCheck){
+    if (windowWidth<windowWidthSize && !navCheck){
         navCenterUlHeight="0px";
         navCenterUlBorder= "none";
         navCenterUltransitionProperty="height";
@@ -83,9 +84,9 @@ function TopNavigationBar1(props) {
         navLeftRightUltransitionTimingFunction="ease";
         navLeftRightLiWidth=window.innerWidth;
 
-    }if(windowWidth<900 && navCheck){
+    }if(windowWidth<windowWidthSize && navCheck){
         navCenterUlBorder= "2px solid rgba(0, 0, 0, 0.3)";
-        navCenterUlHeight=((Object.keys(data).length-1) * (5 + 1 +globalHeight/1.5));
+        navCenterUlHeight=((Object.keys(data).length-1) * (5 + 1 +globalHeight/2));
         navCenterUltransitionProperty="height";
         navCenterUltransitionDuration="0.5s";
         navCenterUltransitionTimingFunction="ease";
@@ -134,7 +135,7 @@ function TopNavigationBar1(props) {
                                     setNavCheck(false)}}        
                                 onMouseOver={(e)=>{
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="90%";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="red";                                                   
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor =underLine;                                                   
                                 }}
                                 onMouseLeave={(e)=>{
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="0%";
@@ -142,14 +143,15 @@ function TopNavigationBar1(props) {
                                 }}
                                 onFocus={(e)=>{
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="90%";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="red";
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor =underLine;
                                 }}
                                 onBlur={(e)=>{
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="0%";
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="transparent"; 
                                 }}
                                 style={{
-                                    height:globalHeight/1.5,
+                                    height:"auto",//(globalHeight/3),
+                                    lineHeight:"normal",
                                     color:textColor,
                                     textTransform: "uppercase",
                                     border:'none', 
@@ -212,7 +214,7 @@ function TopNavigationBar1(props) {
                                     document.getElementById(e.target.id).style.cursor = "pointer";
                                     document.getElementById(e.target.id).style.textDecoration ="none";
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="90%";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="red";                                                   
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor =underLine;                                                   
                                 }}
                                 onMouseLeave={(e)=>{
                                     document.getElementById(e.target.id).style.cursor = "none";
@@ -220,7 +222,7 @@ function TopNavigationBar1(props) {
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="transparent";  
                                 }}
                                 style={{
-                                    height:globalHeight/1.5,
+                                    height:(globalHeight/1.5),
                                     color:textColor,
                                     textTransform: "uppercase",
                                     border:'none', 
@@ -246,7 +248,68 @@ function TopNavigationBar1(props) {
         })
     }
 
+    /**
+    * @function navTitle Afiche le titre * title display
+    */
+   function navTitle(){
+    return(
+        <div className="topNavigationBarTitle"
+        style={{
+            display:"flex",
+            position:"fixed",
+            zIndex:"5"
+        }}>
+          
+        <div className="topNavigationBarImg"
+        style={{
+            margin:"5px",
+            width: globalHeight-10 + "px",
+        }}>
+            <img 
+            src={config.img + shortData.photoPropos} alt={"Photo profil " + shortData.nomPropos}
+            style={{
+                borderRadius:"50%",
+                width: "100%",
+            }}/>
+        </div>
+        <div className="topNavigationBarText"
+        style={{
+            margin:"5px",
+            position: "relative",
+            width: "auto",
+            display: "flex",
+            alignItems: "center",
+        }}>
+            <div className="topNavigationBarH1"
+            style={{
+                
+            }}>
+                <h1 
+            style={{
+                margin:"0",
+                fontSize:"17px",
+                color:"white",
+                }}>{shortData.nomPropos}</h1>
+            <h1 
+            style={{
+                margin:"0",
+                fontSize:"23px",
+                fontWeight:"bolder",
+                textTransform: "uppercase",
+                color:"white",
+                }}>{shortData.titrePropos}</h1>
+            </div>
+        </div>
+        </div>
+    )
+    };
+
+    /**
+     * @render Construction du DOM * DOM build
+    */ 
     return (
+        <div>
+            {navTitle()}
         <div
         style={{
             position: "fixed",
@@ -285,12 +348,12 @@ function TopNavigationBar1(props) {
                             document.getElementById("imgBurger").style.boxShadow="none"}}
                         onMouseOver={(e)=>{
                             document.getElementById(e.target.id).style.cursor="pointer";
-                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px red";}}
+                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px" + underLine;}}
                         onMouseLeave={(e)=>{
                             document.getElementById(e.target.id).style.cursor="none";
                             document.getElementById("imgBurger").style.boxShadow="none"}}  
                         onFocus={(e)=>{
-                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px red";}}
+                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px " + underLine;}}
                         onBlur={(e)=>{
                             document.getElementById("imgBurger").style.boxShadow="none"}}                                                 
                         style={{
@@ -306,10 +369,10 @@ function TopNavigationBar1(props) {
                             src={config.img + "burger.png"} 
                             className="burger"
                             style={{
-                                width: "100%", 
-                                borderRadius:"50%",                           
+                                width: "100%",
+                                height:"auto",                            
                             }}
-                            alt="Menu burger"/>
+                        alt="Ouverture du menu"/>
                         </button>
                     </div>
                         <ul
@@ -363,7 +426,7 @@ function TopNavigationBar1(props) {
                }}>
                    <button
                    id="imgLien"
-                   //href="#"
+                   type="button"
                    onClick={()=>setNavCheck(!navCheck)}
                    onMouseOver={(e)=>{
                        document.getElementById(e.target.id).style.cursor="pointer"}}
@@ -416,6 +479,7 @@ function TopNavigationBar1(props) {
                 {navLeftRightList()}</ul>             
            </nav>
             }
+        </div>
         </div>
     );
 }
