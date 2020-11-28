@@ -26,11 +26,11 @@ function TopNavigationBar(props) {
 
     /**
      * @var navBt.. : Variables de style de la class nav-btn * variables for nav-btn class style
-     * @var navLinks.. : Variables de style de la class nav-links * variables for nav-links class style
+     * @var navCenterLinks.. : Variables de style de la class nav-links * variables for nav-links class style
      * @var navItems.. : Variables de style de la class nav-links * variables for navItems class style
      */
     let navBtnDisplay;
-    let navLinksDisplay,navLinksPosition,navLinksWidth,navLinksTop,navLinksOverflowY,navLinksHeight;
+    let navCenterLinksDisplay,navCenterLinksPosition,navCenterLinksWidth,navCenterLinksTop,navCenterLinksOverflowY,navCenterLinksHeight;
     let navItemsDisplay,navItemsMarginLeft,navItemsMarginRight;
 
     /**
@@ -41,33 +41,33 @@ function TopNavigationBar(props) {
       });
     if(windowWidth<1300){
         navBtnDisplay="inline-block";
-        navLinksDisplay="block";
-        navLinksPosition="absolute";
-        navLinksWidth="100%";
-        navLinksTop= globalHeight + "px";
-        navLinksOverflowY="hidden";
+        navCenterLinksDisplay="block";
+        navCenterLinksPosition="absolute";
+        navCenterLinksWidth="100%";
+        navCenterLinksTop= globalHeight + "px";
+        navCenterLinksOverflowY="hidden";
         navItemsDisplay="block";
         navItemsMarginLeft="90px";
         navItemsMarginRight="0px";
     }else{
         navBtnDisplay="none";
-        navLinksDisplay="flex";
-        navLinksPosition="relative";
-        navLinksWidth="auto";
-        navLinksTop="auto";
-        navLinksOverflowY="auto";
+        navCenterLinksDisplay="flex";
+        navCenterLinksPosition="relative";
+        navCenterLinksWidth="auto";
+        navCenterLinksTop="auto";
+        navCenterLinksOverflowY="auto";
         navItemsDisplay="inline-block";
         navItemsMarginLeft="0px";
         navItemsMarginRight="20px";
     };
 
     /**
- * @navLinksHeightFunction : Animation de la barre de navigation *Navigation bar animation
+ * @navCenterLinksHeightFunction : Animation de la barre de navigation *Navigation bar animation
      */
     if (windowWidth<1300 && !navCheck){
-        navLinksHeight="0px"
+        navCenterLinksHeight="0px"
     }else{
-        navLinksHeight="auto"
+        navCenterLinksHeight="auto"
     }
       
     /**
@@ -235,12 +235,12 @@ function TopNavigationBar(props) {
                     <div
                     className="nav-links"
                     style={{
-                        display: navLinksDisplay,
-                        position:navLinksPosition,
-                        width:navLinksWidth,
-                        top:navLinksTop,
-                        overflowY:navLinksOverflowY,
-                        height:navLinksHeight,
+                        display: navCenterLinksDisplay,
+                        position:navCenterLinksPosition,
+                        width:navCenterLinksWidth,
+                        top:navCenterLinksTop,
+                        overflowY:navCenterLinksOverflowY,
+                        height:navCenterLinksHeight,
                         backgroundColor:"#4472c4",
                         float: "right",
                         fontSize: "15px",
