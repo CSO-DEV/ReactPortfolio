@@ -262,7 +262,7 @@ function TopNavigationBar1(props) {
                     justifyContent:"flex-end",
                     position:"relative",
                     padding:"0px 20px 0px 20px",
-    
+                    alignItems: "center",    
                 }}>
                     <div
                     id="burger"
@@ -277,27 +277,18 @@ function TopNavigationBar1(props) {
                         <button
                         id="imgLien"
                         type="button"
-                        //href="#"
                         onClick={()=>{
                             setNavCheck(!navCheck);
                             document.getElementById("imgBurger").style.boxShadow="none"}}
                         onMouseOver={(e)=>{
                             document.getElementById(e.target.id).style.cursor="pointer";
-                            //document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px" + underLine;
                         }}
                         onMouseLeave={(e)=>{
                             document.getElementById(e.target.id).style.cursor="none";
-                            //</div>document.getElementById("imgBurger").style.boxShadow="none"
-                        }}  
-                        onFocus={(e)=>{
-                            //document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px " + underLine;
-                        }}
-                        onBlur={(e)=>{
-                            //document.getElementById("imgBurger").style.boxShadow="none"
-                        }}                                                 
+                        }}                                               
                         style={{
                             textAlign:"center",
-                            width: "80%",
+                            width: "fit-content",
                             border:'1px solid white',
                             borderRadius:"5px",
                             backgroundColor:"transparent",
@@ -308,7 +299,7 @@ function TopNavigationBar1(props) {
                             src={config.img + "burger.png"} 
                             className="burger"
                             style={{
-                                width: "100%",
+                                width: globalHeight-30,
                                 height:"auto",                            
                             }}
                         alt="Ouverture du menu"/>
