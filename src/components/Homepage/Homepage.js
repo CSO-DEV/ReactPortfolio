@@ -2,7 +2,8 @@
  * Homepage.js : Component Homepage
  */
 import React, { useEffect } from "react";
-import TopNavigationBar from "../../assets/Navigation/TopNavigationBar1";
+import TopNavigationBar from "../../assets/Navigation/TopNavigationBar";
+import SideNavigationBar from "../../assets/Navigation/SideNavigationBar"
 import Presentation from "../../assets/Presentation/Presentation";
 import Formation from "../../assets/Formation/Formation";
 import Technologie from "../../assets/Technologie/Technologie";
@@ -27,6 +28,7 @@ function Homepage(props) {
       backgroundColor="#4472c4"
       color="#f0f8ff"
       underLine= "#cc3300"/>
+      <SideNavigationBar/>
       <Presentation/>
       <Formation/>
       <Technologie/>

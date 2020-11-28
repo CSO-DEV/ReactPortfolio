@@ -1,15 +1,21 @@
 import React,{useState} from 'react';
-//import "./style1.scss";
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
 import scrollToId from "../../lib/scrollTo"
-
-
-function TopNavigationBar(props) {
+import {GiHamburgerMenu} from "react-icons/gi"
+function TopNavigationBar1(props) {
+    
     /**
      * @param globalHeight : Hauteur de la barre de navigation
+     * @param textColor : Hauteur de la barre de navigation
+     * @param backgroundColor : Hauteur de la barre de navigation
      */
-    let globalHeight=props.size
+    let globalHeight, textColor,underLine,backgroundColor,navBarPosition;
+    props.height ? globalHeight=props.height : globalHeight=50;
+    props.color ? textColor=props.color : textColor="black";
+    props.underLine ? underLine=props.underLine : underLine="red";
+    props.backgroundColor ? backgroundColor=props.backgroundColor : backgroundColor="ivory";
+    props.navBarPosition ? navBarPosition=props.navBarPosition : navBarPosition="center";
 
     /**
      * @var shortData : Données extraites BDD * DB extracted data
@@ -22,16 +28,15 @@ function TopNavigationBar(props) {
      * @useState : contrôle du render * render control
      */
     let [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    let [navCheck, setNavCheck] = useState(false);
+    let [navCheck, setNavCheck] = useState();
 
     /**
-     * @var navBt.. : Variables de style de la class nav-btn * variables for nav-btn class style
-     * @var navCenterLinks.. : Variables de style de la class nav-links * variables for nav-links class style
-     * @var navItems.. : Variables de style de la class nav-links * variables for navItems class style
+     * @Style : Variable de style * style variable
      */
-    let navBtnDisplay;
-    let navCenterLinksDisplay,navCenterLinksPosition,navCenterLinksWidth,navCenterLinksTop,navCenterLinksOverflowY,navCenterLinksHeight;
-    let navItemsDisplay,navItemsMarginLeft,navItemsMarginRight;
+    let burgerDisplay;
+    let navCenterUlFlexDirection,navCenterUlHeight,navCenterUlPosition,navCenterUlTop,navCenterUlWidth,navCenterUlOverflow,navCenterUlBorder,navCenterUlDisplay,
+    navCenterUltransitionProperty,navCenterUltransitionDuration,navCenterUltransitionTimingFunction;
+    let navCenterLiWidth,navCenterLiPaddingLeft,navCenterLiBorderTop, navCenterLiMarginBottom;
 
     /**
      * @WindowSize : Affichage des styles suivant la largeur de la fenetre * Display styles according to the window width
@@ -39,219 +44,281 @@ function TopNavigationBar(props) {
     window.addEventListener('resize',(e)=>{
         setWindowWidth(window.innerWidth);
       });
-    if(windowWidth<1300){
-        navBtnDisplay="inline-block";
-        navCenterLinksDisplay="block";
-        navCenterLinksPosition="absolute";
-        navCenterLinksWidth="100%";
-        navCenterLinksTop= globalHeight + "px";
-        navCenterLinksOverflowY="hidden";
-        navItemsDisplay="block";
-        navItemsMarginLeft="90px";
-        navItemsMarginRight="0px";
+    let windowWidthSize=1000
+    if(windowWidth<windowWidthSize){
+        burgerDisplay="flex";
+        navCenterUlFlexDirection="column";
+        navCenterUlPosition="absolute";
+        navCenterUlTop=globalHeight;
+        navCenterUlWidth=window.innerWidth;
+        navCenterLiWidth=window.innerWidth;
+        navCenterLiPaddingLeft="50px";
+        navCenterUlHeight="0px";
+        navCenterUlOverflow="hidden";
+        navCenterLiMarginBottom="5px";
+        navCenterUlDisplay="none";
     }else{
-        navBtnDisplay="none";
-        navCenterLinksDisplay="flex";
-        navCenterLinksPosition="relative";
-        navCenterLinksWidth="auto";
-        navCenterLinksTop="auto";
-        navCenterLinksOverflowY="auto";
-        navItemsDisplay="inline-block";
-        navItemsMarginLeft="0px";
-        navItemsMarginRight="20px";
+        burgerDisplay="none";
+        navCenterUlFlexDirection="row";
+        navCenterUlPosition="relative";
+        navCenterUlWidth="auto";
+        navCenterLiMarginBottom="0px"
+        navCenterUlHeight="auto";
+        navCenterUlBorder= "none"; 
+        navCenterUlDisplay="flex" ;   
     };
 
+    if (windowWidth<windowWidthSize && !navCheck){
+        navCenterUlHeight="0px";
+        navCenterUlBorder= "none";
+        navCenterUltransitionProperty="height";
+        navCenterUltransitionDuration="0.5s";
+        navCenterUltransitionTimingFunction="ease";
+        navCenterUlDisplay="none";
+
+    }if(windowWidth<windowWidthSize && navCheck){
+        navCenterUlBorder= "1px solid rgba(0, 0, 0, 0.3)";
+        navCenterUlHeight=((Object.keys(data).length-1) * (5 + 1 +globalHeight/2));
+        navCenterUltransitionProperty="height";
+        navCenterUltransitionDuration="0.5s";
+        navCenterUltransitionTimingFunction="ease";
+        navCenterUlDisplay="flex";
+    };
+ 
     /**
- * @navCenterLinksHeightFunction : Animation de la barre de navigation *Navigation bar animation
-     */
-    if (windowWidth<1300 && !navCheck){
-        navCenterLinksHeight="0px"
-    }else{
-        navCenterLinksHeight="auto"
+    * @function navCenterList Afiche la liste des items * items list display
+    */
+    const navCenterList=()=>{
+        return sectionList.map((element,index)=>{
+            if(index<sectionList.length-1){            
+                    return(                   
+                        <li
+                        key={element + index}
+                        id={"li" + element + index}
+                        style={{
+                            height:globalHeight/1.5,
+                            lineHeight:globalHeight/25,
+                            width:navCenterLiWidth,
+                            paddingLeft:navCenterLiPaddingLeft,
+                            display:"flex",
+                            justifyContent: "flex-start",
+                            alignItems: "center",
+                            marginLeft:"10px",
+                            marginRight:"10px",
+                            marginBottom:navCenterLiMarginBottom,
+                            borderTop : navCenterLiBorderTop,
+                       
+                        }}
+                        >
+                            <div
+                            style={{
+                                display:"flex",
+                                flexDirection:"column",
+                                alignItems: "center",
+                            }}>                       
+                                <button
+                                id={"navCenterLien" + data[element].lienSection} 
+                                onClick={(e)=>{
+                                    scrollToId(e.target.id.split("navCenterLien")[1]);
+                                    setNavCheck(false)}}        
+                                onMouseOver={(e)=>{
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="90%";
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor =underLine;                                                   
+                                }}
+                                onMouseLeave={(e)=>{
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="0%";
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="transparent";  
+                                }}
+                                onFocus={(e)=>{
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="90%";
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor =underLine;
+                                }}
+                                onBlur={(e)=>{
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="0%";
+                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="transparent"; 
+                                }}
+                                style={{
+                                    height:"auto",//(globalHeight/3),
+                                    lineHeight:"normal",
+                                    color:textColor,
+                                    textTransform: "uppercase",
+                                    border:'none', 
+                                    backgroundColor:"transparent",
+                                    outline:"transparent",               
+                                }}>{data[element].nomSection}</button>
+                                <div 
+                                id={"navCenterLienUnderline" + data[element].lienSection}
+                                style={{
+                                    width:"0%",
+                                    height:"2px",
+                                    backgroundColor:"transparent",
+                                    transitionProperty:"all",
+                                    transitionDuration:"0.5s",
+                                    transitionTimingFunction:"ease",
+                                }}
+                                ></div>
+                            </div>                        
+                        </li>               
+                    )               
+            }
+            
+        })
     }
-      
+
     /**
     * @function navTitle Afiche le titre * title display
     */
-    function navTitle(){
-        return(
-            <div className="topNavigationBarTitle"
+   function navTitle(){
+    return(
+        <div className="topNavigationBarTitle"
+        style={{
+            display:"flex",
+            position:"fixed",
+            zIndex:"5"
+        }}>
+          
+        <div className="topNavigationBarImg"
+        style={{
+            margin:"5px",
+            width: globalHeight-10 + "px",
+        }}>
+            <img 
+            src={config.img + shortData.photoPropos} alt={"Photo profil " + shortData.nomPropos}
             style={{
-                display:"flex",
-            }}>
-              
-            <div className="topNavigationBarImg"
+                borderRadius:"50%",
+                width: "100%",
+            }}/>
+        </div>
+        <div className="topNavigationBarText"
+        style={{
+            margin:"5px",
+            position: "relative",
+            width: "auto",
+            display: "flex",
+            alignItems: "center",
+        }}>
+            <div className="topNavigationBarH1"
             style={{
-                margin:"5px",
-                width: globalHeight-10 + "px",
+                
             }}>
-                <img 
-                src={config.img + shortData.photoPropos} alt={"Photo profil " + shortData.nomPropos}
-                style={{
-                    borderRadius:"50%",
-                    width: "100%",
-                }}/>
-            </div>
-            <div className="topNavigationBarText"
-            style={{
-                margin:"5px",
-                position: "relative",
-                width: "400px",
-                display: "flex",
-                alignItems: "center",
-            }}>
-                <div className="topNavigationBarH1"
-                style={{
-                    
-                }}>
-                    <h1 
-                style={{
-                    margin:"0",
-                    fontSize:"17px",
-                    color:"white",
-                    }}>{shortData.nomPropos}</h1>
                 <h1 
-                style={{
-                    margin:"0",
-                    fontSize:"23px",
-                    fontWeight:"bolder",
-                    textTransform: "uppercase",
-                    color:"white",
-                    }}>{shortData.titrePropos}</h1>
-                </div>
+            style={{
+                margin:"0",
+                fontSize:"17px",
+                color:textColor,
+                }}>{shortData.nomPropos}</h1>
+            <h1 
+            style={{
+                margin:"0",
+                fontSize:"23px",
+                fontWeight:"bolder",
+                textTransform: "uppercase",
+                color:textColor,
+                }}>{shortData.titrePropos}</h1>
             </div>
-            <a  >test</a> 
-            </div>
-        )
+        </div>
+        </div>
+    )
     };
 
     /**
-    * @function navItemsList Affiche la liste des items * items list display
-    */
-    function navItemsList(){
-        return sectionList.map((element,index)=>{
-            if(index<sectionList.length-1){
-                return(
-                    <div
-                    id={"test" + data[element].lienSection}
-                    key={element + index}
-                    style={{
-                        height: "68px",                 
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        marginRight: navItemsMarginRight,
-                        marginLeft:navItemsMarginLeft,
-                    }}
-                    onMouseOver={(e)=>{
-                        console.log(e.target.id)
-                        document.getElementById(e.target.id).style.backgroundColor ="rgba(0, 0, 0, 0.3)";
-                        document.getElementById(e.target.id).style.cursor = "pointer";
-                    }}
-                    onMouseLeave={(e)=>{
-                        console.log(e.target.id)
-                        document.getElementById(e.target.id).style.backgroundColor ="transparent";
-                        document.getElementById(e.target.id).style.cursor = "none";
-                    }}>
-                        <label 
-                        className="navItems"
-                        id={"nav" + data[element].lienSection} 
-                        htmlFor="nav-check"                  
-                        onClick={(e)=>scrollToId(e.target.id.split("nav")[1])}                                        
-                        style={{
-                            display: navItemsDisplay,
-                            marginLeft:navItemsMarginLeft,
-                            color: "white",
-                            fontSize: "18px",
-                            height: "fit-content",
-                            marginRight: navItemsMarginRight,
-                        }}                  
-                        >{data[element].nomSection}
-                        </label>
-                    </div>
-                )
-            };
-            return(<div key={element + index}></div>)        
-        })
-    };      
-
-/**
- * @render Construction du DOM * DOM build
- */    
+     * @render Construction du DOM * DOM build
+    */ 
     return (
         <div>
-            <div 
-            className="topNavigationBar"
-            style={{
-                width: "100%",
-                position:"fixed",
-                zIndex: "2",
-            }}>
-                <div 
-                className="nav"
+            
+        <div
+        style={{
+            position: "fixed",
+            width: windowWidth,
+            zIndex: "2",
+        }}>
+            {navTitle()}
+            {navBarPosition==="center" ? 
+            <nav
                 style={{
-                    height: globalHeight + "px",
-                    width: "100%",
-                    backgroundColor: "#4472c4",
-                    position: "relative",
-                    display: "flex",
-                    justifyContent: "space-between",
-                }}
-                >
-                    {navTitle()}
-                    <input 
-                    type="checkbox" 
-                    id="nav-check"
-                    defaultChecked={navCheck}
-                    onClick={()=>{
-                        setNavCheck(!navCheck)
-                    }}
+                    height:globalHeight,
+                    backgroundColor:backgroundColor,
+                    fontWeight:"bolder",
+                    display:"flex",
+                    flexDirection:"row",
+                    justifyContent:"flex-end",
+                    position:"relative",
+                    padding:"0px 10px",
+                    alignItems: "center",    
+                }}>
+                    <div
+                    id="burger"
                     style={{
-                        display: "none"}}/>
-                    <div 
-                    className="nav-btn"
-                    style={{
-                        display: navBtnDisplay,
-                        position : "absolute",
-                        top: (globalHeight-40)/2 + "px",
-                        right:"5px",
-                        borderRadius :"50%",                
+                    width: globalHeight,
+                    height:globalHeight,
+                    display:burgerDisplay,
+                    justifyContent: "center",
+                    alignItems: "center", 
+                                        
                     }}>
-                        <label htmlFor="nav-check">
+                        <button
+                        id="imgLien"
+                        type="button"
+                        onClick={()=>{
+                            setNavCheck(!navCheck);
+                            document.getElementById("imgBurger").style.boxShadow="none"}}
+                        onMouseOver={(e)=>{
+                            document.getElementById(e.target.id).style.cursor="pointer";
+                        }}
+                        onMouseLeave={(e)=>{
+                            document.getElementById(e.target.id).style.cursor="none";
+                        }}                                               
+                        style={{
+                            textAlign:"center",
+                            width: "fit-content",
+                            border:'1px solid white',
+                            borderRadius:"5px",
+                            backgroundColor:"transparent",
+                            //outline:"none"  
+                        }}>
                             <img 
-                            id="burger"
+                            id="imgBurger"
                             src={config.img + "burger.png"} 
                             className="burger"
                             style={{
-                                width: "40px",
-                                height: "40px",
-                                borderRadius: "50%",
-                            }} 
-                            onMouseOver={(e)=>document.getElementById(e.target.id).style.cursor="pointer"}
-                            onMouseLeave={(e)=>document.getElementById(e.target.id).style.cursor="none"}
-                            alt="Menu"/>
-                        </label>
+                                width: globalHeight/2,
+                                height:globalHeight/2,                            
+                            }}
+                        alt="Ouverture du menu"/>
+                        </button>
                     </div>
-                    <div
-                    className="nav-links"
-                    style={{
-                        display: navCenterLinksDisplay,
-                        position:navCenterLinksPosition,
-                        width:navCenterLinksWidth,
-                        top:navCenterLinksTop,
-                        overflowY:navCenterLinksOverflowY,
-                        height:navCenterLinksHeight,
-                        backgroundColor:"#4472c4",
-                        float: "right",
-                        fontSize: "15px",
-                        alignItems: "center",                        
-                    }}>
-                    {navItemsList()}   
-                    </div>
-                </div>
-            </div>
+                        <ul
+                        id="navCenterUl"
+                        style={{
+                            flexDirection:navCenterUlFlexDirection,
+                            height:navCenterUlHeight,
+                            overflow:navCenterUlOverflow,
+                            position:navCenterUlPosition,
+                            top:navCenterUlTop,
+                            width:navCenterUlWidth,
+                            backgroundColor:backgroundColor,
+                            transitionProperty:navCenterUltransitionProperty,
+                            transitionDuration:navCenterUltransitionDuration,
+                            transitionTimingFunction:navCenterUltransitionTimingFunction,
+                            border: navCenterUlBorder,
+                            alignItems: "center",
+                            padding:"0",
+                            margin:"0",
+                            textDecoration:"none",
+                            listStyleType :"none",
+                            display:navCenterUlDisplay,
+                            left: "0px",                                 
+                        }}>
+                        {navCenterList()}
+                        </ul>              
+            </nav>
+           
+            :
+            <div></div>}
+            
+        </div>
         </div>
     );
 }
-
-export default TopNavigationBar;
+export default TopNavigationBar1;
