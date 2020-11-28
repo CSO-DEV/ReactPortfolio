@@ -244,13 +244,13 @@ function TopNavigationBar1(props) {
     */ 
     return (
         <div>
-            {navTitle()}
+            
         <div
         style={{
             position: "fixed",
             width: windowWidth,
             zIndex: "2",
-        }}>
+        }}>{navTitle()}
             {navBarPosition==="center" ? 
             <nav
                 style={{
