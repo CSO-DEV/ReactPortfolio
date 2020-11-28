@@ -278,18 +278,21 @@ function TopNavigationBar1(props) {
                     }}>
                         <button
                         id="imgLien"
-                        href="#"
-                        onClick={()=>setNavCheck(!navCheck)}
+                        type="button"
+                        //href="#"
+                        onClick={()=>{
+                            setNavCheck(!navCheck);
+                            document.getElementById("imgBurger").style.boxShadow="none"}}
                         onMouseOver={(e)=>{
                             document.getElementById(e.target.id).style.cursor="pointer";
                             document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px red";}}
                         onMouseLeave={(e)=>{
                             document.getElementById(e.target.id).style.cursor="none";
                             document.getElementById("imgBurger").style.boxShadow="none"}}  
-                            onFocus={(e)=>{
-                                document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px red";}}
-                            onBlur={(e)=>{
-                                document.getElementById("imgBurger").style.boxShadow="none"}}                                                 
+                        onFocus={(e)=>{
+                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px red";}}
+                        onBlur={(e)=>{
+                            document.getElementById("imgBurger").style.boxShadow="none"}}                                                 
                         style={{
                             textAlign:"center",
                             width: "90%",
@@ -360,7 +363,7 @@ function TopNavigationBar1(props) {
                }}>
                    <button
                    id="imgLien"
-                   href="#"
+                   //href="#"
                    onClick={()=>setNavCheck(!navCheck)}
                    onMouseOver={(e)=>{
                        document.getElementById(e.target.id).style.cursor="pointer"}}
