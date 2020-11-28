@@ -261,7 +261,7 @@ function TopNavigationBar1(props) {
                     flexDirection:"row",
                     justifyContent:"flex-end",
                     position:"relative",
-                    padding:"0px 20px 0px 20px",
+                    padding:"0px 10px",
                     alignItems: "center",    
                 }}>
                     <div
@@ -299,8 +299,8 @@ function TopNavigationBar1(props) {
                             src={config.img + "burger.png"} 
                             className="burger"
                             style={{
-                                width: globalHeight-30,
-                                height:globalHeight-30,                            
+                                width: globalHeight/2,
+                                height:globalHeight/2,                            
                             }}
                         alt="Ouverture du menu"/>
                         </button>
