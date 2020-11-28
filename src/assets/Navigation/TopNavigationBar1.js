@@ -88,7 +88,7 @@ function TopNavigationBar1(props) {
         navLeftRightLiWidth=window.innerWidth;
 
     }if(windowWidth<windowWidthSize && navCheck){
-        navCenterUlBorder= "2px solid rgba(0, 0, 0, 0.3)";
+        navCenterUlBorder= "1px solid rgba(0, 0, 0, 0.3)";
         navCenterUlHeight=((Object.keys(data).length-1) * (5 + 1 +globalHeight/2));
         navCenterUltransitionProperty="height";
         navCenterUltransitionDuration="0.5s";
@@ -300,7 +300,7 @@ function TopNavigationBar1(props) {
                             className="burger"
                             style={{
                                 width: globalHeight-30,
-                                height:"auto",                            
+                                height:globalHeight-30,                            
                             }}
                         alt="Ouverture du menu"/>
                         </button>
