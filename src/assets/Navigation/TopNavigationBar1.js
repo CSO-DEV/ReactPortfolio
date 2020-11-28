@@ -16,6 +16,7 @@ function TopNavigationBar1(props) {
     props.underLine ? underLine=props.underLine : underLine="red";
     props.backgroundColor ? backgroundColor=props.backgroundColor : backgroundColor="ivory";
     props.navBarPosition ? navBarPosition=props.navBarPosition : navBarPosition="center";
+
     /**
      * @var shortData : Données extraites BDD * DB extracted data
      * @var sectionList : Liste des clés de la BDD * DB keys list
@@ -30,9 +31,8 @@ function TopNavigationBar1(props) {
     let [navCheck, setNavCheck] = useState();
 
     /**
-     * @WindowSize : Affichage des styles suivant la largeur de la fenetre * Display styles according to the window width
+     * @Style : Variable de style * style variable
      */
-
     let burgerDisplay;
     let navCenterUlFlexDirection,navCenterUlHeight,navCenterUlPosition,navCenterUlTop,navCenterUlWidth,navCenterUlOverflow,navCenterUlBorder,navCenterUlDisplay,
     navCenterUltransitionProperty,navCenterUltransitionDuration,navCenterUltransitionTimingFunction;
@@ -41,6 +41,9 @@ function TopNavigationBar1(props) {
     navLeftRightUltransitionProperty,navLeftRightUltransitionDuration,navLeftRightUltransitionTimingFunction;
     let navLeftRightLiWidth;
 
+    /**
+     * @WindowSize : Affichage des styles suivant la largeur de la fenetre * Display styles according to the window width
+     */
     window.addEventListener('resize',(e)=>{
         setWindowWidth(window.innerWidth);
       });
@@ -99,7 +102,10 @@ function TopNavigationBar1(props) {
         navLeftRightUltransitionTimingFunction="ease";
         navLeftRightLiWidth=500;
     };
-    
+ 
+    /**
+    * @function navCenterList Afiche la liste des items * items list display
+    */
     const navCenterList=()=>{
         return sectionList.map((element,index)=>{
             if(index<sectionList.length-1){            
@@ -157,77 +163,6 @@ function TopNavigationBar1(props) {
                                     border:'none', 
                                     backgroundColor:"transparent",
                                     outline:"transparent",               
-                                }}>{data[element].nomSection}</button>
-                                <div 
-                                id={"navCenterLienUnderline" + data[element].lienSection}
-                                style={{
-                                    width:"0%",
-                                    height:"2px",
-                                    backgroundColor:"transparent",
-                                    transitionProperty:"all",
-                                    transitionDuration:"0.5s",
-                                    transitionTimingFunction:"ease",
-                                }}
-                                ></div>
-                            </div>                        
-                        </li>               
-                    )               
-            }
-            
-        })
-    }
-
-    const navLeftRightList=()=>{
-        return sectionList.map((element,index)=>{
-            if(index<sectionList.length-1){            
-                    return(                   
-                        <li
-                        key={element + index}
-                        id={"li" + element + index}
-                        style={{
-                            height:globalHeight/1.5,
-                            lineHeight:globalHeight/25,
-                            width:navLeftRightLiWidth,//"500px", //navCenterLiWidth,
-                            paddingLeft:navCenterLiPaddingLeft,
-                            display:"flex",
-                            justifyContent: "flex-start",
-                            alignItems: "center",
-                            marginLeft:"10px",
-                            marginRight:"10px",
-                            marginBottom:navCenterLiMarginBottom,
-                            borderTop : navCenterLiBorderTop,                       
-                        }}
-                        >
-                            <div
-                            style={{
-                                display:"flex",
-                                flexDirection:"column",
-                                alignItems: "center",
-                            }}>                       
-                                <button
-                                id={"navCenterLien" + data[element].lienSection} 
-                                //href="#"
-                                onClick={(e)=>{
-                                    scrollToId(e.target.id.split("navCenterLien")[1]);
-                                    setNavCheck(false)}}        
-                                onMouseOver={(e)=>{
-                                    document.getElementById(e.target.id).style.cursor = "pointer";
-                                    document.getElementById(e.target.id).style.textDecoration ="none";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="90%";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor =underLine;                                                   
-                                }}
-                                onMouseLeave={(e)=>{
-                                    document.getElementById(e.target.id).style.cursor = "none";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.width ="0%";
-                                    document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="transparent";  
-                                }}
-                                style={{
-                                    height:(globalHeight/1.5),
-                                    color:textColor,
-                                    textTransform: "uppercase",
-                                    border:'none', 
-                                    backgroundColor:"transparent",
-                                    outline:"transparent"                      
                                 }}>{data[element].nomSection}</button>
                                 <div 
                                 id={"navCenterLienUnderline" + data[element].lienSection}
@@ -348,21 +283,25 @@ function TopNavigationBar1(props) {
                             document.getElementById("imgBurger").style.boxShadow="none"}}
                         onMouseOver={(e)=>{
                             document.getElementById(e.target.id).style.cursor="pointer";
-                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px" + underLine;}}
+                            //document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px" + underLine;
+                        }}
                         onMouseLeave={(e)=>{
                             document.getElementById(e.target.id).style.cursor="none";
-                            document.getElementById("imgBurger").style.boxShadow="none"}}  
+                            //</div>document.getElementById("imgBurger").style.boxShadow="none"
+                        }}  
                         onFocus={(e)=>{
-                            document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px " + underLine;}}
+                            //document.getElementById("imgBurger").style.boxShadow="1px 1px 10px 1px " + underLine;
+                        }}
                         onBlur={(e)=>{
-                            document.getElementById("imgBurger").style.boxShadow="none"}}                                                 
+                            //document.getElementById("imgBurger").style.boxShadow="none"
+                        }}                                                 
                         style={{
                             textAlign:"center",
-                            width: "90%",
-                            borderRadius:"50%",
-                            border:'none', 
+                            width: "80%",
+                            border:'1px solid white',
+                            borderRadius:"5px",
                             backgroundColor:"transparent",
-                            outline:"none"  
+                            //outline:"none"  
                         }}>
                             <img 
                             id="imgBurger"
@@ -394,7 +333,7 @@ function TopNavigationBar1(props) {
                             margin:"0",
                             textDecoration:"none",
                             listStyleType :"none",
-                            display:navCenterUlDisplay,//"flex",
+                            display:navCenterUlDisplay,
                             left: "0px",                                 
                         }}>
                         {navCenterList()}
@@ -402,86 +341,10 @@ function TopNavigationBar1(props) {
             </nav>
            
             :
-            <nav
-            style={{
-                height:globalHeight,
-                backgroundColor:backgroundColor,
-                fontWeight:"bolder",
-                display:"flex",
-                flexDirection:"row",
-                justifyContent:"flex-end",
-                position:"relative",
-                padding:"0px 20px 0px 20px",
-
-           }}>
-               <div
-               id="burger"
-               style={{
-               width: "100%", //globalHeight,
-               height:globalHeight,
-               display:burgerDisplay,
-               justifyContent: "center",
-               alignItems: "center", 
-                                  
-               }}>
-                   <button
-                   id="imgLien"
-                   type="button"
-                   onClick={()=>setNavCheck(!navCheck)}
-                   onMouseOver={(e)=>{
-                       document.getElementById(e.target.id).style.cursor="pointer"}}
-                   onMouseLeave={(e)=>{
-                       document.getElementById(e.target.id).style.cursor="none"}}                        
-                   style={{
-                    textAlign:"center",
-                    width: "90%",
-                    borderRadius:"50%",
-                    border:'none', 
-                    backgroundColor:"transparent",
-                    outline:"none"  
-                   }}>
-                       <img 
-                       id="imgBurger"
-                       src={config.img + "burger.png"} 
-                       className="burger"
-                       style={{
-                           width: "100%", 
-                           borderRadius:"50%",                           
-                       }}
-                       alt="Menu burger"/>
-                   </button>
-               </div>
-               <ul
-                id="navLeftRightUl"
-                style={{
-
-                    flexDirection:navCenterUlFlexDirection,
-                    //height:navCenterUlHeight,
-                    overflow:navCenterUlOverflow,
-                    position:navCenterUlPosition,
-                    top:navCenterUlTop+10,
-                    width:navLeftRightUlWidth,//navCenterUlWidth,
-                    backgroundColor:backgroundColor,
-                    border: navCenterUlBorder,
-                    textDecoration:"none",
-                    listStyleType :"none",
-                    display:"flex",
-                    //left: "0px",
-                    alignItems: "flex-end",
-                    padding:"0",
-                    margin:"0",
-                    left:navLeftRightUlLeft,
-                    transitionProperty:navLeftRightUltransitionProperty,
-                    transitionDuration:navLeftRightUltransitionDuration,
-                    transitionTimingFunction:navLeftRightUltransitionTimingFunction,
-
-                }}>
-                {navLeftRightList()}</ul>             
-           </nav>
-            }
+            <div></div>}
+            
         </div>
         </div>
     );
 }
-
 export default TopNavigationBar1;
