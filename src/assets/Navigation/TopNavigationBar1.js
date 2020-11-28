@@ -354,7 +354,7 @@ function TopNavigationBar1(props) {
                <div
                id="burger"
                style={{
-               width: globalHeight,
+               width: "100%", //globalHeight,
                height:globalHeight,
                display:burgerDisplay,
                justifyContent: "center",
