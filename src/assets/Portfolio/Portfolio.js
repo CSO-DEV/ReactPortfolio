@@ -10,6 +10,11 @@ import { AiFillGithub } from "react-icons/ai";
 
 
 function Portfolio(props) {
+/**
+ * @props 
+ */
+let heightNavBar=props.height + "px";
+
   /**
    *@var shortData : Données extraites BDD * DB extracted data
    */
@@ -142,7 +147,12 @@ function Portfolio(props) {
    * @render Construction du DOM * DOM build
    */
   return (
-    <section id={shortData.lienSection} className="portfolio tousLiens chargement all">
+    <section 
+    id={shortData.lienSection} 
+    className="portfolio"// tousLiens chargement all"
+    style={{
+      paddingTop:heightNavBar,
+    }}>
       <div className="centre">
         <h4 className="titreSection">{shortData.nomSection}</h4>
         <div className="listePortfolio">{portfolioCard()}</div>       

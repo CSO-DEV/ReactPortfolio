@@ -10,6 +10,11 @@ import { FaFilePdf } from "react-icons/fa";
 
 
 function Formation(props) {
+/**
+ * @props 
+ */
+let heightNavBar=props.height + "px";
+
   /**
    * @var shortData : Données extraites BDD * DB extracted data
    */
@@ -94,7 +99,12 @@ function Formation(props) {
    * @render Construction du DOM * DOM build
    */
   return (
-    <section id={shortData.lienSection} className="formation tousLiens chargement all">
+    <section 
+    id={shortData.lienSection} 
+    className="formation"// tousLiens chargement all"
+    style={{
+      paddingTop:heightNavBar,
+    }}>
       <div className="centre">
         <h4 className="titreSection">{shortData.nomSection}</h4>
         <div className="listeFormation">{trainingCard()}</div>

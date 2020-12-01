@@ -18,6 +18,8 @@ function Homepage(props) {
     scrollTo("propos")
   })
   
+  let heightNavBar=80;
+
   /**
    * @render Construction du DOM * DOM build
    */
@@ -29,10 +31,14 @@ function Homepage(props) {
       color="#f0f8ff"
       underLine= "#cc3300"/>
       <SideNavigationBar/>
-      <Presentation/>
-      <Formation/>
-      <Technologie/>
-      <Portfolio/>
+      <Presentation
+      height={heightNavBar}/>
+      <Formation
+      height={heightNavBar+ 20}/>
+      <Technologie
+      height={heightNavBar+ 20}/>
+      <Portfolio
+      height={heightNavBar+ 20}/>
     </div>
   );
 }

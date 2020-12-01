@@ -8,6 +8,10 @@ import { Card } from "react-bootstrap";
 
 
 function Presentation(props) {
+/**
+ * @props 
+ */
+let heightNavBar=props.height + "px";
 
 /**
  * @var shortData : Données extraites BDD * DB extracted data
@@ -18,16 +22,21 @@ function Presentation(props) {
  * @render Construction du DOM * DOM build
 */
   return (
-    <section id={shortData.lienSection} className="presentation tousLiens tailleEcran all">
-      <div className="centre">
-        <Card className="textePresentation">
+    <section 
+    id={shortData.lienSection} 
+    className="presentation"// tousLiens tailleEcran all"
+    style={{
+      paddingTop:heightNavBar,
+    }}>
+      <div className="presentationContainer">
+        <Card className="presentationText1">
           <Card.Body>
             <h4>{shortData.nomSection}</h4>
             <div dangerouslySetInnerHTML={{ __html: shortData.contenuSection[0].textePropos[0]}} />
       
           </Card.Body>
         </Card>
-        <Card className="textePresentationInf">
+        <Card className="presentationText2">
           <Card.Body>
           <div dangerouslySetInnerHTML={{ __html: shortData.contenuSection[0].textePropos[1]}} />
           </Card.Body>

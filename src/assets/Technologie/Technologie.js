@@ -10,6 +10,11 @@ import { AiFillStar,AiOutlineStar } from 'react-icons/ai';
 
 function Technologie(props) {
   /**
+ * @props 
+ */
+  let heightNavBar=props.height + "px";
+
+  /**
    * @var shortData Données extraites BDD * DB extracted data
    */
   let shortData = data.techno;
@@ -114,7 +119,10 @@ function Technologie(props) {
   return (
     <section 
     id={shortData.lienSection} 
-    className="technologie tousLiens chargement tailleEcran all"
+    className="technologie"// tousLiens chargement tailleEcran all"
+    style={{
+      paddingTop:heightNavBar,
+    }}
     >
       <div 
       className="centre"

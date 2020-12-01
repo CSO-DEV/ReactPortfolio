@@ -2,7 +2,6 @@ import React,{useState} from 'react';
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
 import scrollToId from "../../lib/scrollTo"
-import {GiHamburgerMenu} from "react-icons/gi"
 function TopNavigationBar1(props) {
     
     /**

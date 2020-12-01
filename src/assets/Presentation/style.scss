@@ -1,6 +1,7 @@
 @import "../../components/App/style.scss";
-.presentation {
+/*.presentation {
   display: flex;
+  align-items: center;
   .textePresentation {
     margin-top: 60px;
     border-radius: 0 !important;
@@ -38,11 +39,57 @@
         margin-left: 100vw;
       }
       to {
-        margin-left: 10vw;
+        margin-left: 0;
       }
     }
     div {
       padding: 10px;
+    }
+  }
+}*/
+
+.presentation {
+  display: flex;
+  align-items: center;
+
+  .presentationContainer {
+    width: 90%;
+    margin: auto 0;
+    overflow: hidden;
+    position: relative;
+    .presentationText1 {
+      border-radius: 0 !important;
+      border: 0;
+      background-color: lighten($texteOrange, 10%);
+      color: $texteBlanc;
+      width: 100%;
+      margin-left: -100%;
+      animation: mouvement1 $dureeAnimationpresentation ease-in-out forwards;
+      @keyframes mouvement1 {
+        from {
+          margin-left: -100%;
+        }
+        to {
+          margin-left: 0%;
+        }
+      }
+    }
+    .presentationText2 {
+      border-radius: 0 !important;
+      border: 0;
+      background-color: lighten($texteOrange, 10%);
+      color: $texteBlanc;
+      width: 100%;
+      margin-left: 100%;
+      animation: mouvement2 $dureeAnimationpresentation ease-in-out forwards;
+      @keyframes mouvement2 {
+        from {
+          margin-left: 100%;
+        }
+        to {
+          margin-left: 0%;
+        }
+      }
     }
   }
 }
