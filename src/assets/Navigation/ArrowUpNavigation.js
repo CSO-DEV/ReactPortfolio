@@ -1,3 +1,6 @@
+/**
+ * ArrowUpNavigation.js : Component ArrowUpNavigation
+ */
 import React from 'react';
 import scrollToId from "../../lib/scrollTo"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,8 +13,6 @@ function ArrowUpNavigation(props) {
     let color=props.color;
     let size=props.width;
     let windowSize=props.windowSize;
-    let data=props.data;
-    let underLine=props.underLine
 
     window.addEventListener("scroll",(e)=>{
         if(window.scrollY>200){

@@ -315,7 +315,7 @@
   },
   "contact": {
     "lienSection": "contact",
-    "nomSection": "Contactez-moi",
+    "nomSection": "Contactez-moi !",
     "contenuSection": [
       {
         "emailContact": "ca.sotirio@gmail.com",
@@ -324,11 +324,13 @@
         "reseauContact": [
           {
             "nomReseau": "Linkedin",
-            "lienReseau": "https://www.linkedin.com/in/carole-sotirio/"
+            "lienReseau": "https://www.linkedin.com/in/carole-sotirio/",
+            "FontAwesomeIcon":"faLinkedin"
           },
           {
             "nomReseau": "Github",
-            "lienReseau": "https://github.com/CSO-DEV"
+            "lienReseau": "https://github.com/CSO-DEV",
+            "FontAwesomeIcon":"faGithub"
           }
         ]
       }

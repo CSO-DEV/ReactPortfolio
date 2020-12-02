@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React,{useEffect, useState} from 'react';
 import ArrowUpNavigation from './ArrowUpNavigation'
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
@@ -28,7 +28,7 @@ function TopNavigationBar(props) {
      * @useState : contrôle du render * render control
      */
     let [windowWidth, setWindowWidth] = useState(window.innerWidth);
-    let [navCheck, setNavCheck] = useState();
+    let [navCheck, setNavCheck] = useState(false);
 
     /**
      * @Style : Variable de style * style variable
@@ -66,30 +66,37 @@ function TopNavigationBar(props) {
         navCenterLiMarginBottom="0px"
         navCenterUlHeight="auto";
         navCenterUlBorder= "none"; 
-        navCenterUlDisplay="flex" ;   
+        navCenterUlDisplay="flex" ;  
     };
 
-    if (windowWidth<windowWidthSize && !navCheck){
-        navCenterUlHeight="0px";
-        navCenterUlBorder= "none";
-        navCenterUltransitionProperty="height";
-        navCenterUltransitionDuration="0.5s";
-        navCenterUltransitionTimingFunction="ease";
-        navCenterUlDisplay="none";
-
-    }if(windowWidth<windowWidthSize && navCheck){
-        navCenterUlBorder= "1px solid rgba(0, 0, 0, 0.3)";
-        navCenterUlHeight=((Object.keys(data).length-1) * (5 + 1 +globalHeight/2));
-        navCenterUltransitionProperty="height";
-        navCenterUltransitionDuration="0.5s";
-        navCenterUltransitionTimingFunction="ease";
-        navCenterUlDisplay="flex";
-    };
+        if (windowWidth<windowWidthSize && !navCheck){
+            navCenterUlHeight="0px";
+            navCenterUlBorder= "none";
+            //navCenterUltransitionProperty="height";
+            //navCenterUltransitionDuration="5s";
+            //navCenterUltransitionTimingFunction="ease";
+            navCenterUlDisplay="none";
+    
+        }if(windowWidth<windowWidthSize && navCheck){
+            navCenterUlBorder= "1px solid rgba(0, 0, 0, 0.3)";
+            navCenterUlHeight=((Object.keys(data).length-1) * (5 + 1 +globalHeight/2));
+            //navCenterUltransitionProperty="height";
+            //navCenterUltransitionDuration="5s";
+            //navCenterUltransitionTimingFunction="ease";
+            navCenterUlDisplay="flex";
+            document.getElementById("slideContact").style.zIndex="1";
+        };
+        useEffect(()=>{
+            if(!navCheck){document.getElementById("slideContact").style.zIndex="2"};
+        })
 
     /**
     *@WindowScroll
     */
    window.addEventListener("scroll",(e)=>{
+    document.getElementById("slideContact").style.left="-200px";
+    document.getElementById("slideContact").style.zIndex="2";
+    setNavCheck(false)
     Object.keys(data).forEach((element,index)=>{
         if(index<Object.keys(data).length-1){
             let minSection=document.getElementById(data[element].lienSection).offsetTop
@@ -338,7 +345,8 @@ function TopNavigationBar(props) {
                                 textDecoration:"none",
                                 listStyleType :"none",
                                 display:navCenterUlDisplay,
-                                left: "0px",                                 
+                                left: "0px",
+                                zIndex:"5"                                 
                             }}>
                             {navCenterList()}
                             </ul>              

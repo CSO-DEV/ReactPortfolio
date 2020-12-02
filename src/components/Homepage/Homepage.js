@@ -34,7 +34,10 @@ function Homepage(props) {
       backgroundColor={backgroundColor}
       color="#f0f8ff"
       underLine= "#cc3300"/>
-      <SideNavigationBar/>
+      <SideNavigationBar
+        height={80}
+        backgroundColor={backgroundColor}
+        color= "#cc3300"/>
       <Presentation
       height={heightNavBar}/>
       <Formation
