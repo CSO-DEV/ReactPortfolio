@@ -15,11 +15,15 @@ import "./style.scss";
 function Homepage(props) {
 
   useEffect(()=>{
-    scrollTo("propos")
+    scrollTo("propos");
+    document.getElementById('ArrowUp').style.display="none";
   })
-  
-  let heightNavBar=80;
 
+  /**
+   * @var
+   */
+  let heightNavBar=80;
+  let backgroundColor="#4472c4";
   /**
    * @render Construction du DOM * DOM build
    */
@@ -27,7 +31,7 @@ function Homepage(props) {
     <div className="homepage" id="homepage">    
       <TopNavigationBar
       height={80}
-      backgroundColor="#4472c4"
+      backgroundColor={backgroundColor}
       color="#f0f8ff"
       underLine= "#cc3300"/>
       <SideNavigationBar/>

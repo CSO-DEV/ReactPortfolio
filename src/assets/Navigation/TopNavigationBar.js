@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
+import ArrowUpNavigation from './ArrowUpNavigation'
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
 import scrollToId from "../../lib/scrollTo"
-function TopNavigationBar1(props) {
+function TopNavigationBar(props) {
     
     /**
      * @param globalHeight : Hauteur de la barre de navigation
@@ -36,14 +37,15 @@ function TopNavigationBar1(props) {
     let navCenterUlFlexDirection,navCenterUlHeight,navCenterUlPosition,navCenterUlTop,navCenterUlWidth,navCenterUlOverflow,navCenterUlBorder,navCenterUlDisplay,
     navCenterUltransitionProperty,navCenterUltransitionDuration,navCenterUltransitionTimingFunction;
     let navCenterLiWidth,navCenterLiPaddingLeft,navCenterLiBorderTop, navCenterLiMarginBottom;
-
+    
     /**
      * @WindowSize : Affichage des styles suivant la largeur de la fenetre * Display styles according to the window width
      */
     window.addEventListener('resize',(e)=>{
         setWindowWidth(window.innerWidth);
       });
-    let windowWidthSize=1000
+    let windowWidthSize=1000;
+
     if(windowWidth<windowWidthSize){
         burgerDisplay="flex";
         navCenterUlFlexDirection="column";
@@ -83,7 +85,11 @@ function TopNavigationBar1(props) {
         navCenterUltransitionTimingFunction="ease";
         navCenterUlDisplay="flex";
     };
- 
+
+    /**
+    *@WindowScroll
+    */
+
     /**
     * @function navCenterList Afiche la liste des items * items list display
     */
@@ -160,7 +166,7 @@ function TopNavigationBar1(props) {
                         </li>               
                     )               
             }
-            
+        return (<div key={element + index}></div>); 
         })
     }
 
@@ -224,100 +230,105 @@ function TopNavigationBar1(props) {
      * @render Construction du DOM * DOM build
     */ 
     return (
-        <div>
-            
-        <div
-        style={{
-            position: "fixed",
-            width: windowWidth,
-            zIndex: "2",
-        }}>
-            {navTitle()}
-            {navBarPosition==="center" ? 
-            <nav
-                style={{
-                    height:globalHeight,
-                    backgroundColor:backgroundColor,
-                    fontWeight:"bolder",
-                    display:"flex",
-                    flexDirection:"row",
-                    justifyContent:"flex-end",
-                    position:"relative",
-                    padding:"0px 10px",
-                    alignItems: "center",    
-                }}>
-                    <div
-                    id="burger"
+        <div>            
+            <div
+            style={{
+                position: "fixed",
+                width: windowWidth,
+                zIndex: "2",
+            }}>
+                {navTitle()}
+                {navBarPosition==="center" ? 
+                <nav
                     style={{
-                    width: globalHeight,
-                    height:globalHeight,
-                    display:burgerDisplay,
-                    justifyContent: "center",
-                    alignItems: "center", 
-                                        
+                        height:globalHeight,
+                        backgroundColor:backgroundColor,
+                        fontWeight:"bolder",
+                        display:"flex",
+                        flexDirection:"row",
+                        justifyContent:"flex-end",
+                        position:"relative",
+                        padding:"0px 10px",
+                        alignItems: "center",    
                     }}>
-                        <button
-                        id="imgLien"
-                        type="button"
-                        onClick={()=>{
-                            setNavCheck(!navCheck);
-                            document.getElementById("imgBurger").style.boxShadow="none"}}
-                        onMouseOver={(e)=>{
-                            document.getElementById(e.target.id).style.cursor="pointer";
-                        }}
-                        onMouseLeave={(e)=>{
-                            document.getElementById(e.target.id).style.cursor="none";
-                        }}                                               
+                        <div
+                        id="burger"
                         style={{
-                            textAlign:"center",
-                            width: "fit-content",
-                            border:'1px solid white',
-                            borderRadius:"5px",
-                            backgroundColor:"transparent",
-                            //outline:"none"  
+                        width: globalHeight,
+                        height:globalHeight,
+                        display:burgerDisplay,
+                        justifyContent: "center",
+                        alignItems: "center", 
+                                            
                         }}>
-                            <img 
-                            id="imgBurger"
-                            src={config.img + "burger.png"} 
-                            className="burger"
-                            style={{
-                                width: globalHeight/2,
-                                height:globalHeight/2,                            
+                            <button
+                            id="imgLien"
+                            type="button"
+                            onClick={()=>{
+                                setNavCheck(!navCheck);
+                                document.getElementById("imgBurger").style.boxShadow="none"}}
+                            onMouseOver={(e)=>{
+                                document.getElementById(e.target.id).style.cursor="pointer";
                             }}
-                        alt="Ouverture du menu"/>
-                        </button>
-                    </div>
-                        <ul
-                        id="navCenterUl"
-                        style={{
-                            flexDirection:navCenterUlFlexDirection,
-                            height:navCenterUlHeight,
-                            overflow:navCenterUlOverflow,
-                            position:navCenterUlPosition,
-                            top:navCenterUlTop,
-                            width:navCenterUlWidth,
-                            backgroundColor:backgroundColor,
-                            transitionProperty:navCenterUltransitionProperty,
-                            transitionDuration:navCenterUltransitionDuration,
-                            transitionTimingFunction:navCenterUltransitionTimingFunction,
-                            border: navCenterUlBorder,
-                            alignItems: "center",
-                            padding:"0",
-                            margin:"0",
-                            textDecoration:"none",
-                            listStyleType :"none",
-                            display:navCenterUlDisplay,
-                            left: "0px",                                 
-                        }}>
-                        {navCenterList()}
-                        </ul>              
-            </nav>
-           
-            :
-            <div></div>}
+                            onMouseLeave={(e)=>{
+                                document.getElementById(e.target.id).style.cursor="none";
+                            }}                                               
+                            style={{
+                                textAlign:"center",
+                                width: "fit-content",
+                                border:'1px solid white',
+                                borderRadius:"5px",
+                                backgroundColor:"transparent",
+                                //outline:"none"  
+                            }}>
+                                <img 
+                                id="imgBurger"
+                                src={config.img + "burger.png"} 
+                                className="burger"
+                                style={{
+                                    width: globalHeight/2,
+                                    height:globalHeight/2,                            
+                                }}
+                            alt="Ouverture du menu"/>
+                            </button>
+                        </div>
+                            <ul
+                            id="navCenterUl"
+                            style={{
+                                flexDirection:navCenterUlFlexDirection,
+                                height:navCenterUlHeight,
+                                overflow:navCenterUlOverflow,
+                                position:navCenterUlPosition,
+                                top:navCenterUlTop,
+                                width:navCenterUlWidth,
+                                backgroundColor:backgroundColor,
+                                transitionProperty:navCenterUltransitionProperty,
+                                transitionDuration:navCenterUltransitionDuration,
+                                transitionTimingFunction:navCenterUltransitionTimingFunction,
+                                border: navCenterUlBorder,
+                                alignItems: "center",
+                                padding:"0",
+                                margin:"0",
+                                textDecoration:"none",
+                                listStyleType :"none",
+                                display:navCenterUlDisplay,
+                                left: "0px",                                 
+                            }}>
+                            {navCenterList()}
+                            </ul>              
+                </nav>
+                :
+                <div></div>}                
+            </div>
+            <ArrowUpNavigation
+              color={backgroundColor}
+              underLine={underLine}
+              width={30}
+              windowSize={[window.innerWidth,window.innerHeight]}
+              data={data}
+              />
             
-        </div>
         </div>
     );
 }
-export default TopNavigationBar1;
+export default TopNavigationBar;
