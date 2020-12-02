@@ -89,6 +89,19 @@ function TopNavigationBar(props) {
     /**
     *@WindowScroll
     */
+   window.addEventListener("scroll",(e)=>{
+    Object.keys(data).forEach((element,index)=>{
+        if(index<Object.keys(data).length-1){
+            let minSection=document.getElementById(data[element].lienSection).offsetTop
+            let heightSection=document.getElementById(data[element].lienSection).offsetHeight
+            if(window.scrollY>=(parseInt(minSection)-globalHeight) && window.scrollY<(parseInt(minSection+heightSection)-globalHeight)){
+                document.getElementById('map').innerText=">" + data[element].nomSection
+            }
+        }
+        
+    })
+   
+  })
 
     /**
     * @function navCenterList Afiche la liste des items * items list display
@@ -238,6 +251,19 @@ function TopNavigationBar(props) {
                 zIndex: "2",
             }}>
                 {navTitle()}
+                <div
+            id="map"
+            style={{                
+                position:"fixed",
+                top:globalHeight,
+                fontSize: "small",
+                fontStyle:"italic",
+                width: "inherit",
+                zIndex: "5",
+                backgroundColor: "#4472c4",
+                color:"white",
+                
+            }}>Plan du site</div>
                 {navBarPosition==="center" ? 
                 <nav
                     style={{
@@ -320,7 +346,7 @@ function TopNavigationBar(props) {
                 :
                 <div></div>}                
             </div>
-            <ArrowUpNavigation
+             <ArrowUpNavigation
               color={backgroundColor}
               underLine={underLine}
               width={30}
