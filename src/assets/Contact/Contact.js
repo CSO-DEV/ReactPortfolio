@@ -81,6 +81,7 @@ function Contact(props) {
       color:"white",
       minHeight: "auto",
       backgroundColor: backgroundColor,
+      flexGrow: '1',
     }}>
       <h4
       style={{
