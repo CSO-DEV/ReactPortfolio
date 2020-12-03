@@ -94,8 +94,19 @@ function TopNavigationBar(props) {
     *@WindowScroll
     */
    window.addEventListener("scroll",(e)=>{
+    //Animation du slide au scroll * 
     document.getElementById("slideContact").style.left="-210px";
     document.getElementById("slideContact").style.zIndex="2";
+    //Animation de portfolio au scroll * 
+    for(let i=0;i<data.projet.contenuSection.length;i++){
+        let button=document.getElementById('button' + i)
+        let name=document.getElementById('button' + i).name
+        if (button.innerText === "Fermer") {
+            document.getElementById(name).style.height = "0px";
+            button.innerText = "En savoir plus.."; 
+          }
+    }
+    //Animation du plan du site au scroll * 
     setNavCheck(false)
     Object.keys(data).forEach((element,index)=>{
         if(index<Object.keys(data).length-1){

@@ -1,6 +1,8 @@
 @import "../../components/App/style.scss";
 .portfolio {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   .listePortfolio {
     display: flex;
     flex-direction: row;
