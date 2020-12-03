@@ -63,7 +63,7 @@ function SideNavigationBar(props) {
                         lineHeight: "0",
                         backgroundColor: "transparent",
                         border: "none",
-                        color:"white"
+                        color:"red"
                     }}>
                         <FontAwesomeIcon
                         id="Side"

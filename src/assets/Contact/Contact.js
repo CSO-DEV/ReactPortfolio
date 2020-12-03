@@ -32,6 +32,7 @@ function Contact(props) {
         display: "flex",
         padding:"0 5px",
         flexDirection:"row",
+        flexWrap:"nowrap",
         }}>
           {element.FontAwesomeIcon==="faLinkedin" ?
             <FontAwesomeIcon
