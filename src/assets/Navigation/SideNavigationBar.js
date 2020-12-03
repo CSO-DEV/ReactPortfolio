@@ -63,14 +63,14 @@ function SideNavigationBar(props) {
                         lineHeight: "0",
                         backgroundColor: "transparent",
                         border: "none",
-                        color:"red"
+                        color:"white"
                     }}>
                         <FontAwesomeIcon
                         id="Side"
                         icon={faCog}
                         style={{
                         width:"20px",
-                        height:"auto",
+                        height:"20px",
                         
                         }}/>
                     </button>             

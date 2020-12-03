@@ -39,7 +39,7 @@ function Contact(props) {
               icon={faLinkedin}
               style={{
                 width:"20px",
-                height:"auto",
+                height:"20px",
                 marginRight:"5px",
               }}/>
           :
@@ -49,7 +49,7 @@ function Contact(props) {
               icon={faGithub}
               style={{
                 width:"20px",
-                height:"auto",
+                height:"20px",
                 marginRight:"5px",
               }}/>
           :
