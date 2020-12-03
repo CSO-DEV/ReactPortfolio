@@ -33,14 +33,14 @@ function SideNavigationBar(props) {
                 zIndex:"2",
                 display: "flex",
                 transition:"left 2s ease",
-                left:open  
+                left:open,
+                width: "fit-content"
             }}>
                 <Contact
                 backgroundColor={backgroundColor}/>
                 <div
                 id="tab"
                 style={{
-                    position:"absolute",
                     backgroundColor: backgroundColor,
                     width:"30px",
                     height:"30px",
