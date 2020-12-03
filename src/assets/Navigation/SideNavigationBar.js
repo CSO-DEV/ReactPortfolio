@@ -22,10 +22,10 @@ function SideNavigationBar(props) {
     let [memMap, setMemMap] = useState();
 
     /**
-     * @useEffect : Animation du bouton
+     * @useEffect : Animation du bouton en spinner * spinner button animation
      */
     useEffect(()=>{
-        spinnerId("side",10000)
+        spinnerId("side",8000)
     });
 
     return (
@@ -43,9 +43,8 @@ function SideNavigationBar(props) {
                 display: "flex",
                 transition:"left 2s ease",
                 left:open,
+                flexDirection: "row-reverse",
             }}>
-                <Contact
-                backgroundColor={backgroundColor}/>
                 <div
                 id="tab"
                 style={{
@@ -59,6 +58,19 @@ function SideNavigationBar(props) {
                     borderRadius:"0 50% 50% 0",
                 }}>
                     <button
+                    onMouseOver={()=>{
+                        document.getElementById("side").style.color="#cc3300"
+                    }}
+                    onFocus={()=>{
+                        document.getElementById("side").style.color="#cc3300"
+
+                    }}
+                    onMouseLeave={()=>{
+                        document.getElementById("side").style.color="white"
+                    }}
+                    onBlur={()=>{
+                        document.getElementById("side").style.color="white"
+                    }}
                     onClick={()=>{
                         if (open==="-210px"){
                             setMemMap(document.getElementById('map').innerText)
@@ -85,10 +97,12 @@ function SideNavigationBar(props) {
                         icon={faSmile}
                         style={{
                         width:"20px",
-                        height:"20px",                        
+                        height:"auto",                        
                         }}/>
                     </button>             
                 </div>
+                <Contact
+                backgroundColor={backgroundColor}/>
             </div>            
         </div>
     );
