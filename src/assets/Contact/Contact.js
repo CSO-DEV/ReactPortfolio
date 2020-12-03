@@ -102,7 +102,7 @@ function Contact(props) {
         icon={faAt}
         style={{
           width:"20px",
-          height:"auto",
+          height:"20px",
           marginRight:"5px",
         }}/>
         <a 
