@@ -1,10 +1,11 @@
 /**
  * SideNavigationBar.js : Component SideNavigationBar
  */
-import React, { useState} from 'react';
-import Contact from "../Contact/Contact"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCog } from '@fortawesome/free-solid-svg-icons'
+import React, { useEffect, useState} from 'react';
+import Contact from "../Contact/Contact";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSmile } from '@fortawesome/free-solid-svg-icons';
+import spinnerId from '../../lib/spinner'
 
 function SideNavigationBar(props) {
 
@@ -19,6 +20,13 @@ function SideNavigationBar(props) {
      */
     let [open, setOpen] = useState("-210px");
     let [memMap, setMemMap] = useState();
+
+    /**
+     * @useEffect : Animation du bouton
+     */
+    useEffect(()=>{
+        spinnerId("side",10000)
+    });
 
     return (
         <div 
@@ -35,7 +43,6 @@ function SideNavigationBar(props) {
                 display: "flex",
                 transition:"left 2s ease",
                 left:open,
-                //width: "200px"
             }}>
                 <Contact
                 backgroundColor={backgroundColor}/>
@@ -49,8 +56,7 @@ function SideNavigationBar(props) {
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",   
-                    borderRadius:"0 50% 50% 0", 
-                    //flexGrow:"1",
+                    borderRadius:"0 50% 50% 0",
                 }}>
                     <button
                     onClick={()=>{
@@ -71,15 +77,15 @@ function SideNavigationBar(props) {
                         lineHeight: "0",
                         backgroundColor: "transparent",
                         border: "none",
-                        color:"white"
+                        color:"white",
+                        outline: "0",
                     }}>
                         <FontAwesomeIcon
-                        id="Side"
-                        icon={faCog}
+                        id="side"
+                        icon={faSmile}
                         style={{
                         width:"20px",
-                        height:"20px",
-                        
+                        height:"20px",                        
                         }}/>
                     </button>             
                 </div>

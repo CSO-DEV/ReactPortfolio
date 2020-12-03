@@ -144,7 +144,6 @@ const carouselAnimation=()=>{
 
   /**@method  startCarouselTimeout  Lance la tempo active et relance une nouvelle tempo*/
   function startCarouselTimeout() {
-    
     clearTimeout(carousel.interval);
       carousel.interval = setTimeout(function(){
         carouselAuto();
