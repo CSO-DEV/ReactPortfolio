@@ -18,6 +18,7 @@ function SideNavigationBar(props) {
      * @useState : contrôle du render * render control
      */
     let [open, setOpen] = useState("-210px");
+    let [memMap, setMemMap] = useState();
 
     return (
         <div 
@@ -53,8 +54,15 @@ function SideNavigationBar(props) {
                 }}>
                     <button
                     onClick={()=>{
-                        if (open==="-210px"){setOpen("0px")};
-                        if (open==="0px"){setOpen("-210px")};
+                        if (open==="-210px"){
+                            setMemMap(document.getElementById('map').innerText)
+                            setOpen("0px")
+                            document.getElementById('map').innerText=">Contact";
+                            };
+                        if (open==="0px"){
+                            document.getElementById('map').innerText= memMap;
+                            setOpen("-210px")
+                            };
                     }}
                     style={{
                         width: "20px",
