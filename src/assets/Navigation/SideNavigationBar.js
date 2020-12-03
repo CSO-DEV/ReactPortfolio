@@ -17,7 +17,7 @@ function SideNavigationBar(props) {
     /**
      * @useState : contrôle du render * render control
      */
-    let [open, setOpen] = useState("-470px");
+    let [open, setOpen] = useState("-210px");
 
     return (
         <div 
@@ -34,7 +34,7 @@ function SideNavigationBar(props) {
                 display: "flex",
                 transition:"left 2s ease",
                 left:open,
-                width: "500px"
+                //width: "200px"
             }}>
                 <Contact
                 backgroundColor={backgroundColor}/>
@@ -44,7 +44,7 @@ function SideNavigationBar(props) {
                     backgroundColor: backgroundColor,
                     width:"30px",
                     height:"30px",
-                    left:"200px",
+                    left:"210px",
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",   
@@ -53,8 +53,8 @@ function SideNavigationBar(props) {
                 }}>
                     <button
                     onClick={()=>{
-                        if (open==="-470px"){setOpen("0px")};
-                        if (open==="0px"){setOpen("-470px")};
+                        if (open==="-210px"){setOpen("0px")};
+                        if (open==="0px"){setOpen("-210px")};
                     }}
                     style={{
                         width: "20px",

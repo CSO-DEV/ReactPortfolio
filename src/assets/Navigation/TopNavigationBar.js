@@ -94,7 +94,7 @@ function TopNavigationBar(props) {
     *@WindowScroll
     */
    window.addEventListener("scroll",(e)=>{
-    document.getElementById("slideContact").style.left="-470px";
+    document.getElementById("slideContact").style.left="-210px";
     document.getElementById("slideContact").style.zIndex="2";
     setNavCheck(false)
     Object.keys(data).forEach((element,index)=>{

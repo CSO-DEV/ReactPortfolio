@@ -92,6 +92,8 @@ function Contact(props) {
       style={{
         display: "flex",
         padding:"0 5px",
+        flexDirection:"row",
+
       }}>
         <FontAwesomeIcon
         id="ArrowUp"
