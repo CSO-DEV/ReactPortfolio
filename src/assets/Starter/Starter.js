@@ -19,7 +19,8 @@ function Starter(props) {
     });
 
     return (
-        <section className="starterSection">
+        <section className="starterSection"
+        id="starterSection">
             <div className="starterContainer"
             style={{
                 height:window.innerHeight-110,
@@ -65,7 +66,24 @@ function Starter(props) {
                             fontSize:fontSize/10,
                         }}
                         onClick={()=>{
-                            console.log("alerte")
+                            document.getElementById('starterHide').style.display="block";
+                            document.getElementById('starterHide').animate([
+                                // keyframes
+                                { top: '700px' }, 
+                                { top: '0px' }
+                              ], { 
+                                // timing options
+                                duration: 1000,
+                                //iterations: Infinity
+                              fill:"forwards"
+                              });
+                              setTimeout(function(){
+                                document.getElementById("portfolio").style.display="flex";
+                                document.getElementById("starterHide").style.display="none";
+                                document.getElementById("starterSection").style.display="none";
+
+                              },999);    
+                           
                         }}>
                             <span className="text">CLIQUEZ ICI !!</span>
                             <span className="line -right"></span>
@@ -75,7 +93,21 @@ function Starter(props) {
                          </button>
                     </div>
                 </div>
-               
+
+            </div>
+            <div className="starterHide"
+            id="starterHide"
+            style={{
+                width :window.innerWidth-1,
+                height :window.innerHeight-90,
+            }}>
+                <div className="starterBand"
+                style={{
+                    width :window.innerWidth-1,
+                    height:90,
+                }}>
+
+                </div>
             </div>
         </section>
     );

@@ -32,8 +32,10 @@ function Homepage(props) {
     <div className="homepage" id="homepage">   
       <Starter/>
       <div
+      id="portfolio"
       style={{
         display:"none",
+        flexDirection:"column",
       }}>
       <TopNavigationBar
       height={heightNavBar}

@@ -1,6 +1,7 @@
 @import "../../components/App/style.scss";
 .starterSection {
   display: flex;
+  position: relative;
   .starterContainer {
     display: flex;
     flex-direction: column;
@@ -112,6 +113,16 @@
       }
     }
   }
+  .starterHide {
+    display: none;
+    position: absolute;
+    z-index: 2;
+    background-color: lighten($Bleu, 30%);
+    //animation: starterHide 1s linear;
+    .starterBand {
+      background: $Bleu;
+    }
+  }
 }
 @keyframes animImg1 {
   from {
@@ -157,7 +168,14 @@
     opacity: 0;
   }
 }
-
+@keyframes starterHide {
+  from {
+    top: -700px;
+  }
+  to {
+    top: -90px;
+  }
+}
 //source : https://codepen.io/lukemeyrick/pen/apZOWm
 $thick: 3px;
 $pad: 0.7em;
