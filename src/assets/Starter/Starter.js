@@ -66,7 +66,7 @@ function Starter(props) {
                             fontSize:fontSize/10,
                         }}
                         onClick={()=>{
-                            document.getElementById('starterHide').style.display="block";
+                            /*document.getElementById('starterHide').style.display="block";
                             document.getElementById('starterHide').animate([
                                 // keyframes
                                 { top: '700px' }, 
@@ -82,7 +82,7 @@ function Starter(props) {
                                 document.getElementById("starterHide").style.display="none";
                                 document.getElementById("starterSection").style.display="none";
 
-                              },999);    
+                              },999);    */
                            
                         }}>
                             <span className="text">CLIQUEZ ICI !!</span>
