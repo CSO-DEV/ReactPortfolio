@@ -62,8 +62,7 @@ function SideNavigationBar(props) {
                         document.getElementById("side").style.color="#cc3300"
                     }}
                     onFocus={()=>{
-                        document.getElementById("side").style.color="#cc3300"
-
+                        document.getElementById("side").style.color="#cc3300";
                     }}
                     onMouseLeave={()=>{
                         document.getElementById("side").style.color="white"

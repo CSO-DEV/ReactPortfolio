@@ -2,6 +2,7 @@
  * Homepage.js : Component Homepage
  */
 import React, { useEffect } from "react";
+import Starter from "../../assets/Starter/Starter"
 import TopNavigationBar from "../../assets/Navigation/TopNavigationBar";
 import SideNavigationBar from "../../assets/Navigation/SideNavigationBar"
 import Presentation from "../../assets/Presentation/Presentation";
@@ -28,7 +29,12 @@ function Homepage(props) {
    * @render Construction du DOM * DOM build
    */
   return (
-    <div className="homepage" id="homepage">    
+    <div className="homepage" id="homepage">   
+      <Starter/>
+      <div
+      style={{
+        display:"none",
+      }}>
       <TopNavigationBar
       height={heightNavBar}
       backgroundColor={backgroundColor}
@@ -46,6 +52,7 @@ function Homepage(props) {
       height={heightNavBar+ 20}/>
       <Portfolio
       height={heightNavBar+ 20}/>
+    </div>
     </div>
   );
 }
