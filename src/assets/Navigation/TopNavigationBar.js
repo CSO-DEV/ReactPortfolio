@@ -112,9 +112,10 @@ function TopNavigationBar(props) {
         if(index<Object.keys(data).length-1){
             let minSection=document.getElementById(data[element].lienSection).offsetTop
             let heightSection=document.getElementById(data[element].lienSection).offsetHeight
-            if(window.scrollY>=(parseInt(minSection)-globalHeight-50) && window.scrollY<(parseInt(minSection+heightSection)-globalHeight-50)){
-                document.getElementById('map').innerText=">" + data[element].nomSection
+            if(window.scrollY>=(parseInt(minSection)-globalHeight) && window.scrollY<(parseInt(minSection+heightSection)-globalHeight)){
+                document.getElementById('map').innerText=">" + data[element].nomSection;
             }
+            
         }
         
     })
