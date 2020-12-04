@@ -118,7 +118,6 @@
     position: absolute;
     z-index: 2;
     background-color: lighten($Bleu, 30%);
-    //animation: starterHide 1s linear;
     .starterBand {
       background: $Bleu;
     }
@@ -188,7 +187,7 @@ $color: #f26522;
   position: relative;
   flex-grow: 2;
   opacity: 0;
-  animation: animDivText 1s linear 8s forwards;
+  animation: animDivText 1s linear 10s forwards;
   .starterButton {
     background: transparent;
     min-width: 40%;
