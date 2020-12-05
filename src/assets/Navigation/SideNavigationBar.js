@@ -3,9 +3,8 @@
  */
 import React, { useEffect, useState} from 'react';
 import Contact from "../Contact/Contact";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSmile } from '@fortawesome/free-solid-svg-icons';
 import spinnerId from '../../lib/spinner'
+import config from "../../configData/config.json";
 
 function SideNavigationBar(props) {
 
@@ -59,16 +58,16 @@ function SideNavigationBar(props) {
                 }}>
                     <button
                     onMouseOver={()=>{
-                        document.getElementById("side").style.color="#cc3300"
+                        document.getElementById("tab").style.backgroundColor="#cc3300"
                     }}
                     onFocus={()=>{
-                        document.getElementById("side").style.color="#cc3300";
+                        document.getElementById("tab").style.backgroundColor="#cc3300";
                     }}
                     onMouseLeave={()=>{
-                        document.getElementById("side").style.color="white"
+                        document.getElementById("tab").style.backgroundColor=backgroundColor;
                     }}
                     onBlur={()=>{
-                        document.getElementById("side").style.color="white"
+                        document.getElementById("tab").style.backgroundColor=backgroundColor;
                     }}
                     onClick={()=>{
                         if (open==="-210px"){
@@ -91,13 +90,21 @@ function SideNavigationBar(props) {
                         color:"white",
                         outline: "0",
                     }}>
-                        <FontAwesomeIcon
+                        <img
+                        id="side"
+                        src={config.img + "csodev.png"}
+                        alt="csodev"
+                        style={{
+                            width:"20px",
+                            height:"auto",                        
+                            }}/>
+                        {/*<FontAwesomeIcon
                         id="side"
                         icon={faSmile}
                         style={{
                         width:"20px",
                         height:"auto",                        
-                        }}/>
+                        }}/>*/}
                     </button>             
                 </div>
                 <Contact
