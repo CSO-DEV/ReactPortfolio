@@ -17,6 +17,27 @@ function Starter(props) {
     window.addEventListener("resize",()=>{
         setFontSize(window.innerWidth*0.2) ;
     });
+useEffect(()=>{
+    setTimeout(function(){
+        document.getElementById('starterHide').style.display="block";
+        document.getElementById('starterHide').animate([
+            // keyframes
+            { top: '700px' }, 
+            { top: '0px' }
+            ], { 
+            // timing options
+            duration: 2000,
+            //iterations: Infinity
+            fill:"forwards"
+            });
+        setTimeout(function(){
+        document.getElementById("portfolio").style.display="flex";
+        document.getElementById("starterHide").style.display="none";
+        document.getElementById("starterSection").style.display="none";
+
+        },1999);  
+    },13000);
+})
 
     return (
         <section className="starterSection"
@@ -59,7 +80,7 @@ function Starter(props) {
                 </div>
                 </div>
              
-                <div className="starterButtonContainer">
+                {/*<div className="starterButtonContainer">
                     <div className="starterButton">
                         <button
                         style={{
@@ -67,26 +88,8 @@ function Starter(props) {
                         }}
                         onClick={()=>{
                             
-                            setTimeout(function(){document.getElementById('starterHide').style.display="block";
-                            document.getElementById('starterHide').animate([
-                                // keyframes
-                                { top: '700px' }, 
-                                { top: '0px' }
-                              ], { 
-                                // timing options
-                                duration: 1000,
-                                //iterations: Infinity
-                              fill:"forwards"
-                              });
-                              setTimeout(function(){
-                                document.getElementById("portfolio").style.display="flex";
-                                document.getElementById("starterHide").style.display="none";
-                                document.getElementById("starterSection").style.display="none";
-
-                              },999);  
-                              },1000);
-
-                           
+                            
+                          
                         }}>
                             <span className="text">CLIQUEZ ICI !!</span>
                             <span className="line -right"></span>
@@ -95,7 +98,7 @@ function Starter(props) {
                             <span className="line -bottom"></span>
                          </button>
                     </div>
-                </div>
+                    </div>*/}
 
             </div>
             <div className="starterHide"
