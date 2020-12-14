@@ -26,7 +26,7 @@ useEffect(()=>{
             { top: '0px' }
             ], { 
             // timing options
-            duration: 2000,
+            duration: 1000,
             //iterations: Infinity
             fill:"forwards"
             });
@@ -35,8 +35,8 @@ useEffect(()=>{
         document.getElementById("starterHide").style.display="none";
         document.getElementById("starterSection").style.display="none";
 
-        },1999);  
-    },13000);
+        },999);  
+    },12500);
 })
 
     return (
