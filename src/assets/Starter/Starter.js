@@ -18,7 +18,8 @@ function Starter(props) {
     
    window.addEventListener("resize",()=>{
     if (window.innerWidth<800){
-        setFontSize(window.innerWidth*0.4)
+        setFontSize(window.innerWidth*0.35)
+        document.getElementById('starterDivImg').style.width= "20%";
     }else{
         setFontSize(window.innerWidth*0.2) ;
     }
@@ -26,7 +27,8 @@ function Starter(props) {
 
 useEffect(()=>{
     if (window.innerWidth<800){
-        setFontSize(window.innerWidth*0.4)
+        setFontSize(window.innerWidth*0.35);
+        document.getElementById('starterDivImg').style.width= "20%";
     }else{
         setFontSize(window.innerWidth*0.2) ;
     }
@@ -64,7 +66,7 @@ useEffect(()=>{
                 style={{
                     fontSize:fontSize,
                 }}>
-                <div className="starterDivImg">
+                <div className="starterDivImg" id="starterDivImg">
                     <img className="starterImg"
                     id="starterImg"
                     src={config.img + shortData.photoPropos} 
