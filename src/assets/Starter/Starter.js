@@ -59,7 +59,7 @@ useEffect(()=>{
                     />
                     <img className="starterRotateImg"
                     id="starterRotateImg"
-                    src={config.img + "sass.png"} 
+                    src={config.img + "csodev.png"} 
                     alt={"logo"}
                     />
            
@@ -79,26 +79,6 @@ useEffect(()=>{
                     </div>
                 </div>
                 </div>
-             
-                {/*<div className="starterButtonContainer">
-                    <div className="starterButton">
-                        <button
-                        style={{
-                            fontSize:fontSize/10,
-                        }}
-                        onClick={()=>{
-                            
-                            
-                          
-                        }}>
-                            <span className="text">CLIQUEZ ICI !!</span>
-                            <span className="line -right"></span>
-                            <span className="line -top"></span>
-                            <span className="line -left"></span>
-                            <span className="line -bottom"></span>
-                         </button>
-                    </div>
-                    </div>*/}
 
             </div>
             <div className="starterHide"
