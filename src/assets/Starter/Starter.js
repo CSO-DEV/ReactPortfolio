@@ -13,11 +13,24 @@ function Starter(props) {
     const shortData = data.propos.contenuSection[0];
 
 
-    let [fontSize, setFontSize] = useState(window.innerWidth*0.2);
-    window.addEventListener("resize",()=>{
+    let [fontSize, setFontSize] = useState();
+
+    
+   window.addEventListener("resize",()=>{
+    if (window.innerWidth<800){
+        setFontSize(window.innerWidth*0.4)
+    }else{
         setFontSize(window.innerWidth*0.2) ;
+    }
     });
+
 useEffect(()=>{
+    if (window.innerWidth<800){
+        setFontSize(window.innerWidth*0.4)
+    }else{
+        setFontSize(window.innerWidth*0.2) ;
+    }
+
     setTimeout(function(){
         document.getElementById('starterHide').style.display="block";
         document.getElementById('starterHide').animate([
