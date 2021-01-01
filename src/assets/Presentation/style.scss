@@ -12,7 +12,7 @@
     .presentationText1 {
       border-radius: 30px 30px 0 0 !important;
       border: 0;
-      background-color: lighten($texteOrange, 10%);
+      background-color: rgba(252, 63, 0, 0.781);
       color: $texteBlanc;
       width: 100%;
       margin-left: -100%;
@@ -29,7 +29,7 @@
     .presentationText2 {
       border-radius: 0px 0px 30px 30px !important;
       border: 0;
-      background-color: lighten($texteOrange, 10%);
+      background-color: rgba(252, 63, 0, 0.781);
       color: $texteBlanc;
       width: 100%;
       margin-left: 100%;
