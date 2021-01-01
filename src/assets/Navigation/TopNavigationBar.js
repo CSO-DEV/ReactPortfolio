@@ -286,6 +286,7 @@ function TopNavigationBar(props) {
                 zIndex: "5",
                 backgroundColor: "#4472c4",
                 color:"white",
+                paddingLeft:"75px",
                 
             }}>Plan du site</div>
                 {navBarPosition==="center" ? 
