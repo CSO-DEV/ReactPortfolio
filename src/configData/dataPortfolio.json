@@ -180,6 +180,13 @@
         "idTechno": "supports",
         "listeTechno": [
           {
+            "nomTechno": "VS Code",
+            "idTechno": "navigationPhotoTitre",
+            "commentaireTechno": "ddddd",
+            "logoTechno": "visualStudioCode.png",
+            "niveauTechno": 70
+          },
+          {
             "nomTechno": "GIT",
             "idTechno": "navigationPhotoTitre",
             "commentaireTechno": "ddddd",
