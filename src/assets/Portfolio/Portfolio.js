@@ -130,6 +130,7 @@ let heightNavBar=props.height + "px";
           <div key={element.gitNom + index}>
             <AiFillGithub />
             <a
+              className="lienGitHub"
               href={element.gitLien}
               title={"Lien GitHub " + element.gitNom}
               target="_blank"

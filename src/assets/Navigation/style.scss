@@ -1,0 +1,151 @@
+/*
+* arrowUpNavigation
+*/
+
+.arrowUpNavigation {
+  height: auto;
+  position: fixed;
+  z-index: 5;
+  transition: display 1s ease;
+}
+
+/*
+* SideNavigationBar
+*/
+
+.sideNavigationBarContainer {
+  position: relative;
+  .sideNavigationBarContact {
+    position: fixed;
+    z-index: 2;
+    display: flex;
+    flex-direction: row-reverse;
+    transition: left 2s ease;
+  }
+  .sideNavigationBarTab {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 50% 50% 0;
+    .sideNavigationBarButton {
+      width: 20px;
+      height: 20px;
+      padding: 0;
+      line-height: 0;
+      background-color: transparent;
+      border: none;
+      color: white;
+      outline: 0;
+      .sideNavigationBarImg {
+        width: 20px;
+        height: auto;
+      }
+    }
+  }
+}
+
+/*
+* TopNavigationBar
+*/
+.topNavigationBar {
+  .topNavigationBarTitleContainer {
+    position: fixed;
+    z-index: 2;
+    .topNavigationBarTitle {
+      display: flex;
+      position: fixed;
+      z-index: 5;
+      .topNavigationBarTitleTextImgContainer {
+        margin: 5px;
+        .topNavigationBarTitleImg {
+          border-radius: 50%;
+          width: 100%;
+        }
+        .topNavigationBarTitleText {
+          margin: 5px;
+          position: relative;
+          width: auto;
+          display: flex;
+          align-items: center;
+        }
+      }
+      .topNavigationBarText1 {
+        margin: 0;
+        font-size: 17px;
+      }
+      .topNavigationBarText2 {
+        margin: 0;
+        font-size: 23px;
+        font-weight: bolder;
+        text-transform: uppercase;
+      }
+    }
+    .topNavigationBarTitleMap {
+      position: fixed;
+      font-size: small;
+      font-style: italic;
+      width: inherit;
+      z-index: 5;
+      background-color: #4472c4;
+      color: white;
+      padding-left: 75px;
+    }
+    .topNavigationBarTitleNav {
+      font-weight: bolder;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      position: relative;
+      padding: 0 10px;
+      align-items: center;
+      .topNavigationBarTitleNavBurger {
+        justify-content: center;
+        align-items: center;
+        .topNavigationBarTitleNavButton {
+          text-align: center;
+          width: fit-content;
+          border: 1px solid white;
+          border-radius: 5px;
+          background-color: transparent;
+        }
+      }
+    }
+  }
+  .topNavigationBarUrl {
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style-type: none;
+    left: 0px;
+    z-index: 5;
+    .topNavigationBarUrlList {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+    .topNavigationBarUrlNav {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .topNavigationBarUrlNavButton {
+      height: auto;
+      line-height: normal;
+      text-transform: uppercase;
+      border: none;
+      outline: none;
+      background-color: transparent;
+    }
+    .topNavigationBarUrlNavUnderline {
+      width: 0%;
+      height: 2px;
+      background-color: transparent;
+      transition: all 0.5s ease;
+    }
+  }
+}

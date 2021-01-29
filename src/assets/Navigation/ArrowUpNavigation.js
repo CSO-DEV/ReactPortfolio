@@ -2,6 +2,7 @@
  * ArrowUpNavigation.js : Component ArrowUpNavigation
  */
 import React from 'react';
+import "./style.scss";
 import scrollToId from "../../lib/scrollTo"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowAltCircleUp } from '@fortawesome/free-solid-svg-icons'
@@ -25,17 +26,14 @@ function ArrowUpNavigation(props) {
     return (
         <div>
         <FontAwesomeIcon
+        className="arrowUpNavigation"
         id="ArrowUp"
         icon={faArrowAltCircleUp} 
         style={{            
             color:color,
             width:size,
-            height:"auto",
-            position:"fixed",
             top:windowSize[1]-(5 + size),
             left:windowSize[0]-(21 + size),
-            zIndex:"5",
-            transition:"display 1s ease"
         }}
         onMouseOver={()=>{
             document.getElementById("ArrowUp").style.cursor="pointer";

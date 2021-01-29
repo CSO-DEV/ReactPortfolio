@@ -1,4 +1,5 @@
 import React,{useEffect, useState} from 'react';
+import "./style.scss";
 import ArrowUpNavigation from './ArrowUpNavigation'
 import data from "../../configData/dataPortfolio.json";
 import config from "../../configData/config.json";
@@ -135,6 +136,7 @@ function TopNavigationBar(props) {
             if(index<sectionList.length-1){            
                     return(                   
                         <li
+                        className="topNavigationBarUrlList"
                         key={element + index}
                         id={"li" + element + index}
                         style={{
@@ -142,23 +144,15 @@ function TopNavigationBar(props) {
                             lineHeight:globalHeight/25,
                             width:navCenterLiWidth,
                             paddingLeft:navCenterLiPaddingLeft,
-                            display:"flex",
-                            justifyContent: "flex-start",
-                            alignItems: "center",
-                            marginLeft:"10px",
-                            marginRight:"10px",
                             marginBottom:navCenterLiMarginBottom,
                             borderTop : navCenterLiBorderTop,
                        
                         }}
                         >
                             <div
-                            style={{
-                                display:"flex",
-                                flexDirection:"column",
-                                alignItems: "center",
-                            }}>                       
+                            className="topNavigationBarUrlNav">                       
                                 <button
+                                className="topNavigationBarUrlNavButton"
                                 id={"navCenterLien" + data[element].lienSection} 
                                 onClick={(e)=>{
                                     scrollToId(e.target.id.split("navCenterLien")[1]);
@@ -180,24 +174,11 @@ function TopNavigationBar(props) {
                                     document.getElementById("navCenterLienUnderline" + e.target.id.split("navCenterLien")[1]).style.backgroundColor ="transparent"; 
                                 }}
                                 style={{
-                                    height:"auto",//(globalHeight/3),
-                                    lineHeight:"normal",
                                     color:textColor,
-                                    textTransform: "uppercase",
-                                    border:'none', 
-                                    backgroundColor:"transparent",
-                                    outline:"transparent",               
-                                }}>{data[element].nomSection}</button>
-                                <div 
+                                    }}>{data[element].nomSection}</button>
+                                <div
+                                className="topNavigationBarUrlNavUnderline"
                                 id={"navCenterLienUnderline" + data[element].lienSection}
-                                style={{
-                                    width:"0%",
-                                    height:"2px",
-                                    backgroundColor:"transparent",
-                                    transitionProperty:"all",
-                                    transitionDuration:"0.5s",
-                                    transitionTimingFunction:"ease",
-                                }}
                                 ></div>
                             </div>                        
                         </li>               
@@ -214,49 +195,51 @@ function TopNavigationBar(props) {
     return(
         <div className="topNavigationBarTitle"
         style={{
-            display:"flex",
-            position:"fixed",
-            zIndex:"5"
+            //display:"flex",
+            //position:"fixed",
+            //zIndex:"5"
         }}>
           
-        <div className="topNavigationBarImg"
+        <div className="topNavigationBarTitleTextImgContainer"
         style={{
-            margin:"5px",
+            //margin:"5px",
             width: globalHeight-10 + "px",
         }}>
-            <img 
+            <img
+            className="topNavigationBarTitleImg"
             src={config.img + shortData.photoPropos} alt={"Photo profil " + shortData.nomPropos}
             style={{
-                borderRadius:"50%",
-                width: "100%",
+                //borderRadius:"50%",
+                //width: "100%",
             }}/>
         </div>
-        <div className="topNavigationBarText"
+        <div className="topNavigationBarTitleText"
         style={{
-            margin:"5px",
-            position: "relative",
-            width: "auto",
-            display: "flex",
-            alignItems: "center",
+            //margin:"5px",
+            //position: "relative",
+           // width: "auto",
+            //display: "flex",
+            //alignItems: "center",
         }}>
-            <div className="topNavigationBarH1"
-            style={{
-                
-            }}>
-                <h1 
-            style={{
-                margin:"0",
-                fontSize:"17px",
-                color:textColor,
-                }}>{shortData.nomPropos}</h1>
-            <h1 
-            style={{
-                margin:"0",
-                fontSize:"23px",
-                fontWeight:"bolder",
-                textTransform: "uppercase",
-                color:textColor,
-                }}>{shortData.titrePropos}</h1>
+            <div>
+                <h1 className="topNavigationBarText1" 
+                style={{
+                    //margin:"0",
+                    //fontSize:"17px",
+                    color:textColor,
+                }}>
+                    {shortData.nomPropos}
+                </h1>
+                <h1 className="topNavigationBarText2" 
+                style={{
+                    //margin:"0",
+                    //fontSize:"23px",
+                    //fontWeight:"bolder",
+                    //textTransform: "uppercase",
+                    color:textColor,
+                    }}>
+                        {shortData.titrePropos}
+                </h1>
             </div>
         </div>
         </div>
@@ -267,52 +250,36 @@ function TopNavigationBar(props) {
      * @render Construction du DOM * DOM build
     */ 
     return (
-        <div>            
+        <div className="topNavigationBar">            
             <div
+            className="topNavigationBarTitleContainer"
             style={{
-                position: "fixed",
                 width: windowWidth,
-                zIndex: "2",
             }}>
                 {navTitle()}
                 <div
+            className="topNavigationBarTitleMap"
             id="map"
             style={{                
-                position:"fixed",
-                top:globalHeight,
-                fontSize: "small",
-                fontStyle:"italic",
-                width: "inherit",
-                zIndex: "5",
-                backgroundColor: "#4472c4",
-                color:"white",
-                paddingLeft:"75px",
-                
+                top:globalHeight,                
             }}>Plan du site</div>
                 {navBarPosition==="center" ? 
                 <nav
+                className="topNavigationBarTitleNav"
                     style={{
                         height:globalHeight,
-                        backgroundColor:backgroundColor,
-                        fontWeight:"bolder",
-                        display:"flex",
-                        flexDirection:"row",
-                        justifyContent:"flex-end",
-                        position:"relative",
-                        padding:"0px 10px",
-                        alignItems: "center",    
+                        backgroundColor:backgroundColor,  
                     }}>
                         <div
                         id="burger"
+                        className="topNavigationBarTitleNavBurger"
                         style={{
                         width: globalHeight,
                         height:globalHeight,
-                        display:burgerDisplay,
-                        justifyContent: "center",
-                        alignItems: "center", 
-                                            
+                        display:burgerDisplay,                                            
                         }}>
                             <button
+                            className="topNavigationBarTitleNavButton"
                             id="imgLien"
                             type="button"
                             onClick={()=>{
@@ -324,18 +291,10 @@ function TopNavigationBar(props) {
                             onMouseLeave={(e)=>{
                                 document.getElementById(e.target.id).style.cursor="none";
                             }}                                               
-                            style={{
-                                textAlign:"center",
-                                width: "fit-content",
-                                border:'1px solid white',
-                                borderRadius:"5px",
-                                backgroundColor:"transparent",
-                                //outline:"none"  
-                            }}>
+                           >
                                 <img 
                                 id="imgBurger"
                                 src={config.img + "burger.png"} 
-                                className="burger"
                                 style={{
                                     width: globalHeight/2,
                                     height:globalHeight/2,                            
@@ -344,6 +303,7 @@ function TopNavigationBar(props) {
                             </button>
                         </div>
                             <ul
+                            className="topNavigationBarUrl"
                             id="navCenterUl"
                             style={{
                                 flexDirection:navCenterUlFlexDirection,
@@ -357,14 +317,7 @@ function TopNavigationBar(props) {
                                 transitionDuration:navCenterUltransitionDuration,
                                 transitionTimingFunction:navCenterUltransitionTimingFunction,
                                 border: navCenterUlBorder,
-                                alignItems: "center",
-                                padding:"0",
-                                margin:"0",
-                                textDecoration:"none",
-                                listStyleType :"none",
-                                display:navCenterUlDisplay,
-                                left: "0px",
-                                zIndex:"5"                                 
+                                display:navCenterUlDisplay,                                
                             }}>
                             {navCenterList()}
                             </ul>              

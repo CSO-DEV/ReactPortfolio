@@ -2,6 +2,7 @@
  * SideNavigationBar.js : Component SideNavigationBar
  */
 import React, { useEffect, useState} from 'react';
+import "./style.scss";
 import Contact from "../Contact/Contact";
 import spinnerId from '../../lib/spinner'
 import config from "../../configData/config.json";
@@ -29,34 +30,25 @@ function SideNavigationBar(props) {
 
     return (
         <div 
+        className="sideNavigationBarContainer"
         id="sideNavigationBar"
-        style={{
-            position:"relative"       
-        }}>
+        >
             <div
+            className="sideNavigationBarContact"
             id="slideContact"
             style={{
-                position:"fixed",
                 top:size + 40,
-                zIndex:"2",
-                display: "flex",
-                transition:"left 2s ease",
                 left:open,
-                flexDirection: "row-reverse",
             }}>
                 <div
+                className="sideNavigationBarTab"
                 id="tab"
                 style={{
                     backgroundColor: backgroundColor,
-                    width:"30px",
-                    height:"30px",
                     left:"210px",
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",   
-                    borderRadius:"0 50% 50% 0",
                 }}>
                     <button
+                    className="sideNavigationBarButton"
                     onMouseOver={()=>{
                         document.getElementById("tab").style.backgroundColor="#cc3300"
                     }}
@@ -79,32 +71,12 @@ function SideNavigationBar(props) {
                             document.getElementById('map').innerText= memMap;
                             setOpen("-210px")
                             };
-                    }}
-                    style={{
-                        width: "20px",
-                        height: "20px",
-                        padding: "0",
-                        lineHeight: "0",
-                        backgroundColor: "transparent",
-                        border: "none",
-                        color:"white",
-                        outline: "0",
                     }}>
                         <img
+                        className="sideNavigationBarImg"
                         id="side"
                         src={config.img + "csodev.png"}
-                        alt="csodev"
-                        style={{
-                            width:"20px",
-                            height:"auto",                        
-                            }}/>
-                        {/*<FontAwesomeIcon
-                        id="side"
-                        icon={faSmile}
-                        style={{
-                        width:"20px",
-                        height:"auto",                        
-                        }}/>*/}
+                        alt="csodev"/>
                     </button>             
                 </div>
                 <Contact

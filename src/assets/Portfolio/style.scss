@@ -37,7 +37,7 @@
             padding: 0;
             width: 150px;
             &:hover {
-              background-color: $texteOrange;
+              background-color: lighten($texteOrange, 15%);
               border-color: lighten($texteOrange, 10%);
               box-shadow: 0 0 0 0.2rem rgba($texteOrange, 0.5) !important;
             }
@@ -50,7 +50,7 @@
           overflow: hidden;
           transition: height 1s;
           position: absolute;
-          background-color: $texteOrange;
+          background-color: lighten($texteOrange, 15%);
           top: 248px;
           z-index: 1;
           left: -1px;
@@ -96,6 +96,9 @@
         }
       }
     }
+  }
+  .lienGitHub {
+    color: white;
   }
 }
 .portfolioShadow {
